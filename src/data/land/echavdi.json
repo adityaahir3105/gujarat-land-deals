@@ -1,0 +1,294 @@
+[
+ {
+  "district": "કચ્છ",
+  "taluka": "ભચાઉ",
+  "village": "ચીરઈ મોટી",
+  "months": [
+   "2026-10"
+  ],
+  "entries": [
+   {
+    "entryNo": 5485,
+    "typeGu": "હક કમી",
+    "date": "2026-10-29",
+    "surveys": [
+     {
+      "survey": "354/p1",
+      "khata": "517"
+     },
+     {
+      "survey": "431",
+      "khata": "517"
+     },
+     {
+      "survey": "876/2",
+      "khata": "517"
+     },
+     {
+      "survey": "978",
+      "khata": "517"
+     }
+    ]
+   },
+   {
+    "entryNo": 5484,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-10-28",
+    "surveys": [
+     {
+      "survey": "685",
+      "khata": "1449"
+     }
+    ]
+   },
+   {
+    "entryNo": 5483,
+    "typeGu": "વહેંચણી",
+    "date": "2026-10-27",
+    "surveys": [
+     {
+      "survey": "389/p1",
+      "khata": "415"
+     },
+     {
+      "survey": "438/1",
+      "khata": "415"
+     },
+     {
+      "survey": "713/p1",
+      "khata": "415"
+     }
+    ]
+   },
+   {
+    "entryNo": 5482,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2026-10-27",
+    "surveys": [
+     {
+      "survey": "238/1",
+      "khata": "490"
+     }
+    ]
+   },
+   {
+    "entryNo": 5481,
+    "typeGu": "હુકમથી",
+    "date": "2026-10-27",
+    "surveys": [
+     {
+      "survey": "659/p2",
+      "khata": "159"
+     }
+    ]
+   },
+   {
+    "entryNo": 5480,
+    "typeGu": "હુકમથી",
+    "date": "2026-10-27",
+    "surveys": [
+     {
+      "survey": "659/1",
+      "khata": "206"
+     }
+    ]
+   },
+   {
+    "entryNo": 5479,
+    "typeGu": "હુકમથી",
+    "date": "2026-10-27",
+    "surveys": [
+     {
+      "survey": "158",
+      "khata": "111"
+     }
+    ]
+   },
+   {
+    "entryNo": 5478,
+    "typeGu": "હક કમી",
+    "date": "2026-10-23",
+    "surveys": [
+     {
+      "survey": "411/3",
+      "khata": "246"
+     },
+     {
+      "survey": "514/1",
+      "khata": "246"
+     },
+     {
+      "survey": "515",
+      "khata": "246"
+     }
+    ]
+   },
+   {
+    "entryNo": 5477,
+    "typeGu": "હુકમથી",
+    "date": "2026-10-23",
+    "surveys": [
+     {
+      "survey": "102",
+      "khata": "176"
+     }
+    ]
+   },
+   {
+    "entryNo": 5476,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-10-23",
+    "surveys": [
+     {
+      "survey": "367",
+      "khata": "519"
+     },
+     {
+      "survey": "442/p1",
+      "khata": "519"
+     },
+     {
+      "survey": "919",
+      "khata": "519"
+     }
+    ]
+   },
+   {
+    "entryNo": 5475,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-10-17",
+    "surveys": [
+     {
+      "survey": "367",
+      "khata": "519"
+     }
+    ]
+   },
+   {
+    "entryNo": 5474,
+    "typeGu": "વેચાણ",
+    "date": "2026-10-15",
+    "surveys": [
+     {
+      "survey": "675/p1",
+      "khata": "1253"
+     }
+    ]
+   },
+   {
+    "entryNo": 5473,
+    "typeGu": "હુકમથી",
+    "date": "2026-10-13",
+    "surveys": [
+     {
+      "survey": "139",
+      "khata": "636"
+     }
+    ]
+   },
+   {
+    "entryNo": 5472,
+    "typeGu": "હુકમથી",
+    "date": "2026-10-12",
+    "surveys": [
+     {
+      "survey": "421/p2",
+      "khata": "1267"
+     }
+    ]
+   },
+   {
+    "entryNo": 5471,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2026-10-07",
+    "surveys": [
+     {
+      "survey": "675/p1",
+      "khata": "1253"
+     }
+    ]
+   },
+   {
+    "entryNo": 5470,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-10-05",
+    "surveys": [
+     {
+      "survey": "354/p1",
+      "khata": "517"
+     },
+     {
+      "survey": "431",
+      "khata": "517"
+     }
+    ]
+   },
+   {
+    "entryNo": 5469,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2026-10-01",
+    "surveys": [
+     {
+      "survey": "904",
+      "khata": "1461"
+     }
+    ]
+   },
+   {
+    "entryNo": 5468,
+    "typeGu": "વેચાણ",
+    "date": "2026-10-01",
+    "surveys": [
+     {
+      "survey": "580",
+      "khata": "1108"
+     }
+    ]
+   },
+   {
+    "entryNo": 5467,
+    "typeGu": "વેચાણ",
+    "date": "2026-10-01",
+    "surveys": [
+     {
+      "survey": "565",
+      "khata": "1108"
+     }
+    ]
+   },
+   {
+    "entryNo": 5466,
+    "typeGu": "વેચાણ",
+    "date": "2026-10-01",
+    "surveys": [
+     {
+      "survey": "576",
+      "khata": "1108"
+     }
+    ]
+   },
+   {
+    "entryNo": 5465,
+    "typeGu": "વેચાણ",
+    "date": "2026-10-01",
+    "surveys": [
+     {
+      "survey": "574/p2",
+      "khata": "1108"
+     }
+    ]
+   },
+   {
+    "entryNo": 5464,
+    "typeGu": "વેચાણ",
+    "date": "2026-10-01",
+    "surveys": [
+     {
+      "survey": "997",
+      "khata": "367"
+     }
+    ]
+   }
+  ]
+ }
+]
