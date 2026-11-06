@@ -7,6 +7,7 @@ import {
   LandDataset,
   ParsedPage,
   PinMap,
+  entryTypeGu,
   entryTypeInfo,
   findPatterns,
   mergeDatasets,
@@ -35,6 +36,7 @@ import { AlignState, ViewSheet, VillageMapSheets } from './VillageMapSheets';
 import type { WatchFeed } from '@/lib/watch';
 import { BoundaryCollection, ShapeLayer, planKmlImport, readKmlFile } from '@/lib/geo';
 import { ImportedShapes } from './ImportedShapes';
+import { useLang, useT } from '@/lib/i18n';
 import { SurveyPanel } from './SurveyPanel';
 
 interface LandDashboardProps {
@@ -84,6 +86,9 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
   const [seenBefore] = useState(() => landStorage.loadSeen(seed));
   const [backupNotice, setBackupNotice] = useState<string | null>(null);
   const [shapeLayers, setShapeLayers] = useState<ShapeLayer[]>(() => landStorage.loadShapes(seed));
+  const lang = useLang();
+  const isGu = lang === 'gu';
+  const t = useT();
 
   const data = useMemo(() => (imports ? mergeDatasets(seed, imports) : seed), [seed, imports]);
 
@@ -132,11 +137,16 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
       const mine = mySet.has(normaliseSurvey(survey));
       const h = histories.get(survey);
       const last = h?.entries[h.entries.length - 1];
-      if (!last) return { category: 'other' as const, label: 'No notices in imported months', mine };
+      if (!last) return { category: 'other' as const, label: t('No notices in imported months', 'ઉમેરેલા મહિનામાં કોઈ નોંધ નથી'), mine };
       const info = entryTypeInfo(last.typeGu);
-      return { category: info.category, label: `${info.en} · entry ${last.entryNo} · ${last.date.split('-').reverse().join('/')}`, mine };
+      const date = last.date.split('-').reverse().join('/');
+      return {
+        category: info.category,
+        label: isGu ? `${entryTypeGu(last.typeGu)} · નોંધ ${last.entryNo} · ${date}` : `${info.en} · entry ${last.entryNo} · ${date}`,
+        mine,
+      };
     },
-    [histories, mySet]
+    [histories, mySet, t, isGu]
   );
   const mapPins = useMemo(() => pinMapToList(pins, describe), [pins, describe]);
   const mapShapes = useMemo(
@@ -160,8 +170,8 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
     const f = files?.[0];
     if (!f) return;
     f.text()
-      .then(async (t) => {
-        const b = restoreBackup(seed, t);
+      .then(async (text) => {
+        const b = restoreBackup(seed, text);
         for (const o of b.overlays ?? []) {
           await overlayStore.put({
             id: o.id,
@@ -178,7 +188,7 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
         }
         window.location.reload();
       })
-      .catch((e: Error) => setBackupNotice(e.message || `${f.name} could not be read.`));
+      .catch((e: Error) => setBackupNotice(e.message || t(`${f.name} could not be read.`, `${f.name} વાંચી શકાઈ નહીં.`)));
   }
 
   // Village map sheets live in IndexedDB; load them once and give each an object URL.
@@ -192,18 +202,20 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
         made = list.map((o) => ({ ...o, url: URL.createObjectURL(o.image) }));
         setSheets(made);
       })
-      .catch(() => setSheetNotice('This browser could not open its storage for map sheets.'));
+      .catch(() => setSheetNotice(t('This browser could not open its storage for map sheets.', 'આ બ્રાઉઝર નકશાનાં પાનાં માટે સંગ્રહ ખોલી શક્યું નહીં.')));
     return () => {
       alive = false;
       made.forEach((s) => URL.revokeObjectURL(s.url));
     };
+    // Load once per village; a language switch must not reload the sheets (t only words the error).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seed]);
 
   function saveSheet(next: ViewSheet) {
     setSheets((all) => all.map((s) => (s.id === next.id ? next : s)));
     const { url: _url, ...stored } = next;
     void _url;
-    return overlayStore.put(stored).catch(() => setSheetNotice('Could not save the sheet in this browser.'));
+    return overlayStore.put(stored).catch(() => setSheetNotice(t('Could not save the sheet in this browser.', 'આ બ્રાઉઝરમાં પાનું સાચવી શકાયું નહીં.')));
   }
 
   async function uploadSheets(files: FileList) {
@@ -226,7 +238,12 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
         await overlayStore.put(sheet);
         setSheets((all) => [...all, { ...sheet, url: URL.createObjectURL(f) }]);
         if (width < 2500) {
-          setSheetNotice(`${f.name} is ${width}×${height} pixels; survey numbers may be too small to read. A full-resolution scan works better.`);
+          setSheetNotice(
+            t(
+              `${f.name} is ${width}×${height} pixels; survey numbers may be too small to read. A full-resolution scan works better.`,
+              `${f.name} ${width}×${height} પિક્સેલ છે; સર્વે નંબર કદાચ વંચાશે નહીં. પૂરા રિઝોલ્યુશનનું સ્કેન વધુ સારું.`
+            )
+          );
         }
       } catch (e) {
         setSheetNotice((e as Error).message);
@@ -258,15 +275,26 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
     const img = a.img as [XY, XY, XY];
     const geo = a.geo.map((g) => ({ x: g.lng, y: -g.lat })) as [XY, XY, XY];
     if (!solveAffine(img, geo) || !solveAffine(geo, img)) {
-      setSheetNotice('Those three points lie almost on a line, so the sheet cannot be placed. Align again with points spread out like a triangle.');
+      setSheetNotice(
+        t(
+          'Those three points lie almost on a line, so the sheet cannot be placed. Align again with points spread out like a triangle.',
+          'આ ત્રણ બિંદુ લગભગ એક લીટીમાં છે, એટલે પાનું ગોઠવી શકાતું નથી. ત્રિકોણની જેમ દૂર દૂર બિંદુ લઈને ફરી મેળવો.'
+        )
+      );
       return;
     }
     const thin = Math.min(minAngleDeg(img), minAngleDeg(geo)) < 15;
     void saveSheet({ ...sheet, points: img.map((p, i) => ({ img: p, geo: a.geo[i] })), visible: true });
     setSheetNotice(
       thin
-        ? 'Aligned, but the three points form a thin triangle, so the far corners may be off. Re-align with points spread wider if it looks wrong.'
-        : 'Aligned. Check a few roads and boundaries against the satellite view; old sheets can be off by some metres locally.'
+        ? t(
+            'Aligned, but the three points form a thin triangle, so the far corners may be off. Re-align with points spread wider if it looks wrong.',
+            'મેળવ્યું, પણ ત્રણ બિંદુનો ત્રિકોણ સાંકડો છે, એટલે દૂરના ખૂણા ખસેલા હોઈ શકે. ખોટું લાગે તો વધુ દૂર બિંદુ લઈને ફરી મેળવો.'
+          )
+        : t(
+            'Aligned. Check a few roads and boundaries against the satellite view; old sheets can be off by some metres locally.',
+            'મેળવ્યું. થોડા રસ્તા અને હદ સેટેલાઇટ નકશા સાથે સરખાવો; જૂનાં પાનાં અમુક જગ્યાએ થોડા મીટર ખસેલાં હોઈ શકે.'
+          )
     );
   }
 
@@ -308,17 +336,17 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
   function pinAtGps() {
     if (!selected) return;
     if (!('geolocation' in navigator)) {
-      setGpsError('This browser cannot share its location.');
+      setGpsError(t('This browser cannot share its location.', 'આ બ્રાઉઝર સ્થાન આપી શકતું નથી.'));
       return;
     }
     const survey = selected;
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const acc = Math.round(pos.coords.accuracy);
-        updatePins({ ...pins, [survey]: { lat: pos.coords.latitude, lng: pos.coords.longitude, note: `GPS on site (±${acc} m)` } });
+        updatePins({ ...pins, [survey]: { lat: pos.coords.latitude, lng: pos.coords.longitude, note: t(`GPS on site (±${acc} m)`, `સ્થળ પર GPS (±${acc} m)`) } });
         setGpsError(null);
       },
-      (err) => setGpsError(`Location unavailable: ${err.message}`),
+      (err) => setGpsError(t(`Location unavailable: ${err.message}`, `સ્થાન મળ્યું નહીં: ${err.message}`)),
       { enableHighAccuracy: true, timeout: 15000 }
     );
   }
@@ -330,7 +358,12 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
     setImports(next);
     const saved = landStorage.saveImports(seed, next);
     const added = next.entries.filter((e) => !before.has(e.entryNo)).length;
-    return `${added} new notices added.${saved ? '' : ' This browser blocked storage, so they will be gone after a reload; download the dataset to keep them.'}`;
+    return saved
+      ? t(`${added} new notices added.`, `${added} નવી નોંધ ઉમેરી.`)
+      : t(
+          `${added} new notices added. This browser blocked storage, so they will be gone after a reload; download the dataset to keep them.`,
+          `${added} નવી નોંધ ઉમેરી. આ બ્રાઉઝરે સંગ્રહ બંધ રાખ્યો છે, એટલે ફરી ખોલતાં જતી રહેશે; રાખવા માટે Dataset JSON ડાઉનલોડ કરો.`
+        );
   }
 
   function updateShapes(next: ShapeLayer[]) {
@@ -344,15 +377,41 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
       const pinned = Object.keys(r.newPins);
       if (pinned.length) updatePins({ ...pins, ...r.newPins });
       const saved = r.layer.shapes.length ? updateShapes([...shapeLayers, r.layer]) : true;
+      const n = r.layer.shapes.length;
       const parts = [
-        `${f.name}: ${r.layer.shapes.length} shape${r.layer.shapes.length === 1 ? '' : 's'} added`,
-        pinned.length ? `pinned survey ${pinned.join(', ')}` : 'no new survey pins',
+        t(`${f.name}: ${n} shape${n === 1 ? '' : 's'} added`, `${f.name}: ${n} આકાર ઉમેર્યા`),
+        pinned.length ? t(`pinned survey ${pinned.join(', ')}`, `સર્વે ${pinned.join(', ')} નકશા પર મૂક્યા`) : t('no new survey pins', 'કોઈ નવો સર્વે પિન નથી'),
       ];
-      if (r.kept.length) parts.push(`kept your existing pin for ${r.kept.join(', ')} (remove it first to use the file's position)`);
-      if (r.skippedKnown) parts.push(`${r.skippedKnown} village outline${r.skippedKnown === 1 ? '' : 's'} or label${r.skippedKnown === 1 ? '' : 's'} skipped, already on the map`);
-      if (r.imageOverlays) parts.push(`${r.imageOverlays} picture overlay${r.imageOverlays === 1 ? '' : 's'} skipped (Google Earth keeps the picture online; add the scan under Village map sheets)`);
-      if (r.outside.length) parts.push(`check ${r.outside.join(', ')}: outside the village outline`);
-      setMapNotice(parts.join('; ') + '.' + (saved ? '' : ' This browser blocked storage, so the shapes will be gone after a reload.'));
+      if (r.kept.length) {
+        parts.push(
+          t(
+            `kept your existing pin for ${r.kept.join(', ')} (remove it first to use the file's position)`,
+            `${r.kept.join(', ')} માટે તમારો હાલનો પિન રાખ્યો (ફાઇલનું સ્થાન જોઈએ તો પહેલાં એ પિન કાઢો)`
+          )
+        );
+      }
+      if (r.skippedKnown) {
+        parts.push(
+          t(
+            `${r.skippedKnown} village outline${r.skippedKnown === 1 ? '' : 's'} or label${r.skippedKnown === 1 ? '' : 's'} skipped, already on the map`,
+            `${r.skippedKnown} ગામની હદ કે નામ છોડ્યાં, નકશા પર પહેલેથી છે`
+          )
+        );
+      }
+      if (r.imageOverlays) {
+        parts.push(
+          t(
+            `${r.imageOverlays} picture overlay${r.imageOverlays === 1 ? '' : 's'} skipped (Google Earth keeps the picture online; add the scan under Village map sheets)`,
+            `${r.imageOverlays} ચિત્ર છોડ્યું (Google Earth ચિત્ર ઓનલાઇન રાખે છે; સ્કેન “ગામ નકશાનાં પાનાં”માં ઉમેરો)`
+          )
+        );
+      }
+      if (r.outside.length) parts.push(t(`check ${r.outside.join(', ')}: outside the village outline`, `${r.outside.join(', ')} તપાસો: ગામની હદ બહાર છે`));
+      setMapNotice(
+        parts.join('; ') +
+          '.' +
+          (saved ? '' : t(' This browser blocked storage, so the shapes will be gone after a reload.', ' આ બ્રાઉઝરે સંગ્રહ બંધ રાખ્યો છે, એટલે ફરી ખોલતાં આકાર જતા રહેશે.'))
+      );
     } catch (e) {
       setMapNotice(`${f.name}: ${(e as Error).message}`);
     }
@@ -366,12 +425,12 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
       return;
     }
     f.text()
-      .then((t) => {
-        const loaded = pinsFromGeoJson(t);
+      .then((text) => {
+        const loaded = pinsFromGeoJson(text);
         updatePins({ ...pins, ...loaded });
-        setMapNotice(`Loaded ${Object.keys(loaded).length} pins from ${f.name}.`);
+        setMapNotice(t(`Loaded ${Object.keys(loaded).length} pins from ${f.name}.`, `${f.name}માંથી ${Object.keys(loaded).length} પિન ઉમેર્યા.`));
       })
-      .catch(() => setMapNotice(`${f.name} is not a GeoJSON export of survey pins.`));
+      .catch(() => setMapNotice(t(`${f.name} is not a GeoJSON export of survey pins.`, `${f.name} સર્વે પિનની GeoJSON ફાઇલ નથી.`)));
   }
 
   const first = data.months[0];
@@ -383,14 +442,21 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
       {fresh.size > 0 && (
         <p className="flex items-center gap-2 rounded-lg border border-sky-500/30 bg-sky-500/10 px-3 py-2 text-sm text-sky-200">
           <Sparkles className="h-4 w-4 shrink-0" />
-          {fresh.size} new notice{fresh.size === 1 ? '' : 's'} since your last visit. They are marked NEW in the table below.
+          {t(
+            `${fresh.size} new notice${fresh.size === 1 ? '' : 's'} since your last visit. They are marked NEW in the table below.`,
+            `છેલ્લી મુલાકાત પછી ${fresh.size} નવી નોંધ. નીચેના કોષ્ટકમાં “નવી” લખેલું છે.`
+          )}
         </p>
       )}
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <Stat label="Notices, last 24 months" value={windowEntries.length} sub={first ? `Imported: ${monthName(first)} – ${monthName(last)}` : 'Nothing imported'} />
-        <Stat label="Sale & gift entries" value={stats.sales} />
-        <Stat label="Loan charges entered / released" value={`${stats.chargeIn} / ${stats.chargeOut}`} />
-        <Stat label="Objection window likely open" value={stats.open} sub="Entry date + 30 days" />
+        <Stat
+          label={t('Notices, last 24 months', 'નોંધ, છેલ્લા 24 મહિના')}
+          value={windowEntries.length}
+          sub={first ? `${t('Imported', 'ઉમેરેલા')}: ${monthName(first, true, lang)} – ${monthName(last, true, lang)}` : t('Nothing imported', 'કંઈ ઉમેર્યું નથી')}
+        />
+        <Stat label={t('Sale & gift entries', 'વેચાણ અને બક્ષિસ નોંધ')} value={stats.sales} />
+        <Stat label={t('Loan charges entered / released', 'બોજો દાખલ / મુક્તિ')} value={`${stats.chargeIn} / ${stats.chargeOut}`} />
+        <Stat label={t('Objection window likely open', 'વાંધા અરજીની મુદત કદાચ ચાલુ')} value={stats.open} sub={t('Entry date + 30 days', 'નોંધની તારીખ + 30 દિવસ')} />
       </div>
 
       <MyLandCard
@@ -412,14 +478,17 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
         <Card className="p-4 md:p-5">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
             <div>
-              <h3 className="text-lg font-semibold text-zinc-100">Map</h3>
+              <h3 className="text-lg font-semibold text-zinc-100">{t('Map', 'નકશો')}</h3>
               <p className="text-xs text-zinc-500">
-                {Object.keys(pins).length} survey nos. pinned · {unpinned} in the notices not pinned yet
+                {t(
+                  `${Object.keys(pins).length} survey nos. pinned · ${unpinned} in the notices not pinned yet`,
+                  `${Object.keys(pins).length} સર્વે નં. નકશા પર · નોંધોમાંના ${unpinned} હજુ નકશા પર નથી`
+                )}
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
               <button className={cn(smallBtn, placing === 'center' && 'border-accent/60 text-accent')} onClick={() => setPlacing(placing === 'center' ? null : 'center')}>
-                {placing === 'center' ? 'Click the map… (cancel)' : 'Set village centre'}
+                {placing === 'center' ? t('Click the map… (cancel)', 'નકશા પર ક્લિક કરો… (રદ)') : t('Set village centre', 'ગામનું કેન્દ્ર બદલો')}
               </button>
               <button className={smallBtn} onClick={() => downloadText(`${fileBase}-pins.kml`, pinsToKml(data, pins), 'application/vnd.google-earth.kml+xml')} disabled={!mapPins.length}>
                 <Download className="h-3.5 w-3.5" /> KML
@@ -428,7 +497,7 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
                 <Download className="h-3.5 w-3.5" /> GeoJSON
               </button>
               <label className={cn(smallBtn, 'cursor-pointer')}>
-                <Upload className="h-3.5 w-3.5" /> Import KML / pins
+                <Upload className="h-3.5 w-3.5" /> {t('Import KML / pins', 'KML / પિન ઉમેરો')}
                 <input
                   type="file"
                   accept=".kml,.kmz,.geojson,.json,application/vnd.google-earth.kml+xml,application/vnd.google-earth.kmz,application/geo+json"
@@ -443,7 +512,11 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
           </div>
           <LandMap
             center={center}
-            centerLabel={centerOverride ? 'Village centre (set by you)' : `Approximate village location: ${village.approxCenter.source}`}
+            centerLabel={
+              centerOverride
+                ? t('Village centre (set by you)', 'ગામનું કેન્દ્ર (તમે મૂકેલું)')
+                : t(`Approximate village location: ${village.approxCenter.source}`, `ગામનું અંદાજિત સ્થાન: ${village.approxCenter.source}`)
+            }
             pins={mapPins}
             selected={selected}
             myRadiusKm={myLand.length ? nearby.radiusKm : 0}
@@ -462,7 +535,9 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
             onToggle={(id) => updateShapes(shapeLayers.map((l) => (l.id === id ? { ...l, visible: !l.visible } : l)))}
             onRemove={(id) => {
               const l = shapeLayers.find((x) => x.id === id);
-              if (l && window.confirm(`Remove the shapes from ${l.name}? Pins made from it stay.`)) updateShapes(shapeLayers.filter((x) => x.id !== id));
+              if (l && window.confirm(t(`Remove the shapes from ${l.name}? Pins made from it stay.`, `${l.name}ના આકાર કાઢવા છે? તેમાંથી બનેલા પિન રહેશે.`))) {
+                updateShapes(shapeLayers.filter((x) => x.id !== id));
+              }
             }}
           />
           <VillageMapSheets
@@ -484,7 +559,7 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
             }}
             onRemove={(id) => {
               const s = sheets.find((x) => x.id === id);
-              if (!s || !window.confirm(`Remove ${s.name} from this browser?`)) return;
+              if (!s || !window.confirm(t(`Remove ${s.name} from this browser?`, `${s.name} આ બ્રાઉઝરમાંથી કાઢવું છે?`))) return;
               URL.revokeObjectURL(s.url);
               setSheets((all) => all.filter((x) => x.id !== id));
               if (align?.id === id) cancelAlign();
@@ -496,12 +571,19 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
           />
           {mapNotice && <p className="mt-2 text-xs text-zinc-300">{mapNotice}</p>}
           <p className="mt-2 text-xs text-zinc-500">
-            e-Chavdi lists survey numbers, not coordinates, and plot boundaries need the official village map. Pick a survey number from the
-            notices, check where it lies on the AnyRoR / survey office village map, then pin it here once. Pins stay in this browser; export
-            KML to open them in Google Earth.
+            {t(
+              'e-Chavdi lists survey numbers, not coordinates, and plot boundaries need the official village map. Pick a survey number from the notices, check where it lies on the AnyRoR / survey office village map, then pin it here once. Pins stay in this browser; export KML to open them in Google Earth.',
+              'ઈ-ચાવડીમાં સર્વે નંબર હોય છે, નકશાનું સ્થાન નહીં; ખેતરની હદ માટે સરકારી ગામ નકશો જોઈએ. નોંધમાંથી સર્વે નંબર પસંદ કરો, AnyRoR / જમીન દફતર કચેરીના ગામ નકશામાં તે ક્યાં છે તે જુઓ, પછી અહીં એક વાર પિન કરો. પિન આ બ્રાઉઝરમાં રહે છે; Google Earthમાં ખોલવા KML ડાઉનલોડ કરો.'
+            )}
             {boundary
-              ? ' The gold line is the village boundary and the dashed lines its neighbours, from DataMeet (Census 2001 maps): good for orientation, not a legal boundary, and off by tens of metres in places. Import a KML or KMZ from Google Earth to add your own outlines; placemarks named like "Survey No. 58" become pins.'
-              : ` The dashed ring marks the approximate village location only.${centerOverride ? '' : ` ${village.approxCenter.caveat}`}`}
+              ? t(
+                  ' The gold line is the village boundary and the dashed lines its neighbours, from DataMeet (Census 2001 maps): good for orientation, not a legal boundary, and off by tens of metres in places. Import a KML or KMZ from Google Earth to add your own outlines; placemarks named like "Survey No. 58" become pins.',
+                  ' સોનેરી રેખા ગામની હદ છે અને તૂટક રેખા પડોશી ગામોની, DataMeet (વસ્તી ગણતરી 2001ના નકશા) પરથી: દિશા સમજવા માટે સારી, કાનૂની હદ નથી, અને અમુક જગ્યાએ દસેક મીટર ખસેલી હોઈ શકે. Google Earthની KML કે KMZ ઉમેરીને તમારી પોતાની રેખાઓ મૂકો; "Survey No. 58" કે "સર્વે નં. 58" જેવા નામવાળાં નિશાન પિન બને છે.'
+                )
+              : t(
+                  ` The dashed ring marks the approximate village location only.${centerOverride ? '' : ` ${village.approxCenter.caveat}`}`,
+                  ' તૂટક વર્તુળ માત્ર ગામનું અંદાજિત સ્થાન બતાવે છે.'
+                )}
           </p>
         </Card>
 
@@ -525,33 +607,42 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
           ) : (
             <div className="space-y-3 text-sm text-zinc-400">
               <Layers className="h-5 w-5 text-accent" />
-              <p className="text-zinc-200">Select a survey number</p>
-              <p>Click a survey number in the notices below, or a pin on the map, to see its entries and place it on the map.</p>
+              <p className="text-zinc-200">{t('Select a survey number', 'સર્વે નંબર પસંદ કરો')}</p>
+              <p>
+                {t(
+                  'Click a survey number in the notices below, or a pin on the map, to see its entries and place it on the map.',
+                  'નીચેની નોંધોમાં સર્વે નંબર કે નકશા પરના પિન પર ક્લિક કરો; તેની નોંધો દેખાશે અને નકશા પર મૂકી શકાશે.'
+                )}
+              </p>
             </div>
           )}
         </Card>
       </div>
 
       <Card className="p-4 md:p-5">
-        <h3 className="text-lg font-semibold text-zinc-100">Notices per month</h3>
-        <p className="mb-4 text-xs text-zinc-500">Mutation entries published on e-Chavdi, by type, for the last 24 months.</p>
+        <h3 className="text-lg font-semibold text-zinc-100">{t('Notices per month', 'દર મહિને નોંધ')}</h3>
+        <p className="mb-4 text-xs text-zinc-500">
+          {t('Mutation entries published on e-Chavdi, by type, for the last 24 months.', 'છેલ્લા 24 મહિનામાં ઈ-ચાવડી પર પ્રસિદ્ધ ફેરફાર નોંધ, પ્રકાર પ્રમાણે.')}
+        </p>
         <ActivityChart rows={rows} />
       </Card>
 
       <Card className="p-4 md:p-5">
-        <h3 className="text-lg font-semibold text-zinc-100">Sequences worth a closer look</h3>
+        <h3 className="text-lg font-semibold text-zinc-100">{t('Sequences worth a closer look', 'ધ્યાનથી જોવા જેવી નોંધની હારમાળા')}</h3>
         <p className="mb-4 text-xs text-zinc-500">
-          Patterns in the order of public notices. They describe what the register shows, not why, and are not a judgement on any parcel or
-          person.
+          {t(
+            'Patterns in the order of public notices. They describe what the register shows, not why, and are not a judgement on any parcel or person.',
+            'જાહેર નોંધોના ક્રમમાં દેખાતી ભાત. રજિસ્ટરમાં શું છે તે બતાવે છે, કેમ થયું તે નહીં; કોઈ જમીન કે વ્યક્તિ વિશે અભિપ્રાય નથી.'
+          )}
         </p>
         {patterns.length === 0 ? (
-          <p className="text-sm text-zinc-500">None in the imported months.</p>
+          <p className="text-sm text-zinc-500">{t('None in the imported months.', 'ઉમેરેલા મહિનામાં કંઈ નથી.')}</p>
         ) : (
           <ul className="grid gap-3 md:grid-cols-2">
             {patterns.map((p) => (
               <li key={p.id} className="rounded-lg border border-zinc-800 bg-zinc-950/40 p-3">
-                <p className="text-sm font-medium text-zinc-100">{p.title}</p>
-                <p className="mt-1 text-xs leading-relaxed text-zinc-400">{p.detail}</p>
+                <p className="text-sm font-medium text-zinc-100">{t(p.title, p.titleGu)}</p>
+                <p className="mt-1 text-xs leading-relaxed text-zinc-400">{t(p.detail, p.detailGu)}</p>
                 <div className="mt-2 flex flex-wrap gap-1">
                   {p.surveys.map((s) => (
                     <button key={s} onClick={() => select(s)} className="rounded border border-zinc-700 px-1.5 py-0.5 text-xs text-zinc-300 hover:border-zinc-500">
@@ -566,17 +657,19 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
       </Card>
 
       <Card className="p-4 md:p-5">
-        <h3 className="mb-4 text-lg font-semibold text-zinc-100">Notices</h3>
+        <h3 className="mb-4 text-lg font-semibold text-zinc-100">{t('Notices', 'નોંધો')}</h3>
         <EntriesTable entries={data.entries} pins={pins} today={today} selected={selected} onSelect={select} relations={relations} fresh={fresh} />
       </Card>
 
       <Card className="p-4 md:p-5">
         <div className="mb-4 flex flex-wrap items-start justify-between gap-2">
           <div>
-            <h3 className="text-lg font-semibold text-zinc-100">Add months</h3>
+            <h3 className="text-lg font-semibold text-zinc-100">{t('Add months', 'મહિના ઉમેરો')}</h3>
             <p className="text-xs text-zinc-500">
-              Imported pages are kept in this browser and merged with the built-in data. To show them on the live site for everyone, download
-              the dataset JSON and publish it (see the README).
+              {t(
+                'Imported pages are kept in this browser and merged with the built-in data. To show them on the live site for everyone, download the dataset JSON and publish it (see the README).',
+                'ઉમેરેલાં પાનાં આ બ્રાઉઝરમાં રહે છે અને સાઇટની માહિતી સાથે જોડાય છે. બધા માટે લાઇવ સાઇટ પર બતાવવા Dataset JSON ડાઉનલોડ કરીને પ્રકાશિત કરો (README જુઓ).'
+              )}
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -594,7 +687,7 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
                   landStorage.saveImports(seed, null);
                 }}
               >
-                <Eraser className="h-3.5 w-3.5" /> Clear imported
+                <Eraser className="h-3.5 w-3.5" /> {t('Clear imported', 'ઉમેરેલું કાઢો')}
               </button>
             )}
           </div>
@@ -603,10 +696,12 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
       </Card>
 
       <Card className="p-4 md:p-5">
-        <h3 className="text-lg font-semibold text-zinc-100">Move to another device</h3>
+        <h3 className="text-lg font-semibold text-zinc-100">{t('Move to another device', 'બીજા ફોન / કમ્પ્યુટર પર લઈ જાઓ')}</h3>
         <p className="mt-1 text-sm text-zinc-400">
-          Your land, pins, map centre, nearby settings, imported shapes, village map sheets and imported months live only in this browser. Download a backup and restore it on your
-          phone or another computer. Keep the file private: it lists your survey numbers.
+          {t(
+            'Your land, pins, map centre, nearby settings, imported shapes, village map sheets and imported months live only in this browser. Download a backup and restore it on your phone or another computer. Keep the file private: it lists your survey numbers.',
+            'તમારી જમીન, પિન, નકશાનું કેન્દ્ર, નજીકના સેટિંગ, ઉમેરેલા આકાર, ગામ નકશાનાં પાનાં અને ઉમેરેલા મહિના ફક્ત આ બ્રાઉઝરમાં છે. બેકઅપ ડાઉનલોડ કરીને ફોન કે બીજા કમ્પ્યુટર પર પાછું લાવો. ફાઇલ ખાનગી રાખો: તેમાં તમારા સર્વે નંબર છે.'
+          )}
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           <button
@@ -631,10 +726,10 @@ export function LandDashboard({ village, seed, watch, boundary, boundaryAttribut
               downloadText(`${fileBase}-backup.json`, JSON.stringify(backup) + '\n', 'application/json');
             }}
           >
-            <Download className="h-3.5 w-3.5" /> Download backup
+            <Download className="h-3.5 w-3.5" /> {t('Download backup', 'બેકઅપ ડાઉનલોડ કરો')}
           </button>
           <label className={cn(smallBtn, 'cursor-pointer')}>
-            <Upload className="h-3.5 w-3.5" /> Restore backup
+            <Upload className="h-3.5 w-3.5" /> {t('Restore backup', 'બેકઅપ પાછું લાવો')}
             <input type="file" accept=".json,application/json" className="sr-only" onChange={(e) => restore(e.target.files)} />
           </label>
         </div>

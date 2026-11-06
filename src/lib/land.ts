@@ -48,13 +48,13 @@ export interface LandDataset extends VillageKey {
 
 export type EntryCategory = 'sale' | 'charge' | 'family' | 'order' | 'other';
 
-export const CATEGORY_META: Record<EntryCategory, { label: string; color: string }> = {
+export const CATEGORY_META: Record<EntryCategory, { label: string; gu: string; color: string }> = {
   // Dark-mode categorical steps, validated for adjacent CVD separation (stacked bars).
-  sale: { label: 'Sale & gift', color: '#3987e5' },
-  charge: { label: 'Loan charge', color: '#d95926' },
-  family: { label: 'Family & rights', color: '#199e70' },
-  order: { label: 'Official order', color: '#c98500' },
-  other: { label: 'Other', color: '#71717a' },
+  sale: { label: 'Sale & gift', gu: 'વેચાણ અને બક્ષિસ', color: '#3987e5' },
+  charge: { label: 'Loan charge', gu: 'બોજો (લોન)', color: '#d95926' },
+  family: { label: 'Family & rights', gu: 'વારસાઈ અને હક્ક', color: '#199e70' },
+  order: { label: 'Official order', gu: 'સરકારી હુકમ', color: '#c98500' },
+  other: { label: 'Other', gu: 'અન્ય', color: '#71717a' },
 };
 
 export const CATEGORY_ORDER: EntryCategory[] = ['sale', 'charge', 'family', 'order', 'other'];
@@ -87,6 +87,11 @@ const ENTRY_TYPES: Record<string, TypeInfo> = {
 function normaliseType(gu: string): string {
   // e-Chavdi spells હક / હક્ક both ways.
   return gu.trim().replace(/\s+/g, ' ').replace(/હક્ક/g, 'હક');
+}
+
+/** The entry type as e-Chavdi writes it, tidied, for Gujarati screens. */
+export function entryTypeGu(typeGu: string): string {
+  return typeGu.trim().replace(/\s+/g, ' ') || 'અન્ય';
 }
 
 export function entryTypeInfo(typeGu: string): TypeInfo {
@@ -295,6 +300,8 @@ export interface Pattern {
   kind: 'cluster' | 'cleared-then-transfer' | 'rights-then-sale' | 'charge-cycle' | 'busy';
   title: string;
   detail: string;
+  titleGu: string;
+  detailGu: string;
   surveys: string[];
   entryNos: number[];
 }
@@ -334,6 +341,8 @@ export function findPatterns(data: LandDataset): Pattern[] {
           kind: 'cluster',
           title: `${group.length} sale entries from khata ${khata} within a week`,
           detail: `Entries ${group.map((e) => e.entryNo).join(', ')} between ${fmt(group[0].date)} and ${fmt(group[group.length - 1].date)} cover survey nos. ${surveys.join(', ')}.`,
+          titleGu: `ખાતા ${khata}ની એક અઠવાડિયામાં ${group.length} વેચાણ નોંધ`,
+          detailGu: `${fmt(group[0].date)} થી ${fmt(group[group.length - 1].date)} વચ્ચેની નોંધ ${group.map((e) => e.entryNo).join(', ')} માં સર્વે નં. ${surveys.join(', ')} છે.`,
           surveys,
           entryNos: group.map((e) => e.entryNo),
         });
@@ -351,12 +360,15 @@ export function findPatterns(data: LandDataset): Pattern[] {
         const b = cat(es[j]);
         const gap = daysBetween(es[i].date, es[j].date);
         const tail = `Survey ${h.survey}: entry ${es[i].entryNo} (${fmt(es[i].date)}), then entry ${es[j].entryNo} (${fmt(es[j].date)}), ${gap} days apart.`;
+        const tailGu = `સર્વે ${h.survey}: નોંધ ${es[i].entryNo} (${fmt(es[i].date)}), પછી નોંધ ${es[j].entryNo} (${fmt(es[j].date)}), ${gap} દિવસના અંતરે.`;
         if (a.charge === 'out' && (b.category === 'sale' || normaliseType(es[j].typeGu) === 'હક કમી') && gap <= 90) {
           out.push({
             id: `ctt-${h.survey}-${es[j].entryNo}`,
             kind: 'cleared-then-transfer',
             title: `Charge released, then ${b.en.toLowerCase()}`,
             detail: tail,
+            titleGu: `બોજો મુક્તિ, પછી ${entryTypeGu(es[j].typeGu)}`,
+            detailGu: tailGu,
             surveys: [h.survey],
             entryNos: [es[i].entryNo, es[j].entryNo],
           });
@@ -366,6 +378,8 @@ export function findPatterns(data: LandDataset): Pattern[] {
             kind: 'rights-then-sale',
             title: 'Other rights entered, then a sale',
             detail: tail,
+            titleGu: 'બીજા હક્ક દાખલ, પછી વેચાણ',
+            detailGu: tailGu,
             surveys: [h.survey],
             entryNos: [es[i].entryNo, es[j].entryNo],
           });
@@ -375,6 +389,8 @@ export function findPatterns(data: LandDataset): Pattern[] {
             kind: 'charge-cycle',
             title: 'Charge entered and released within a month',
             detail: tail,
+            titleGu: 'એક મહિનામાં બોજો દાખલ અને મુક્તિ',
+            detailGu: tailGu,
             surveys: [h.survey],
             entryNos: [es[i].entryNo, es[j].entryNo],
           });
@@ -387,6 +403,8 @@ export function findPatterns(data: LandDataset): Pattern[] {
         kind: 'busy',
         title: `Survey ${h.survey} appears in ${es.length} entries`,
         detail: `Entries ${es.map((e) => `${e.entryNo} (${entryTypeInfo(e.typeGu).en.toLowerCase()})`).join(', ')}.`,
+        titleGu: `સર્વે ${h.survey} ${es.length} નોંધમાં છે`,
+        detailGu: `નોંધ ${es.map((e) => `${e.entryNo} (${entryTypeGu(e.typeGu)})`).join(', ')}.`,
         surveys: [h.survey],
         entryNos: es.map((e) => e.entryNo),
       });
@@ -512,11 +530,11 @@ export type RelationKind = 'mine' | 'same-survey' | 'pinned-near' | 'number-near
 
 export const RELATION_ORDER: RelationKind[] = ['mine', 'same-survey', 'pinned-near', 'number-near'];
 
-export const RELATION_META: Record<RelationKind, { label: string; short: string }> = {
-  mine: { label: 'Your land', short: 'Yours' },
-  'same-survey': { label: 'Same original survey as yours', short: 'Same survey' },
-  'pinned-near': { label: 'Near your land on the map', short: 'Near' },
-  'number-near': { label: 'Survey number close to yours (a guess)', short: 'Close no.' },
+export const RELATION_META: Record<RelationKind, { label: string; short: string; labelGu: string; shortGu: string }> = {
+  mine: { label: 'Your land', short: 'Yours', labelGu: 'તમારી જમીન', shortGu: 'તમારી' },
+  'same-survey': { label: 'Same original survey as yours', short: 'Same survey', labelGu: 'તમારા જ મૂળ સર્વે નંબરનો ભાગ', shortGu: 'એ જ સર્વે' },
+  'pinned-near': { label: 'Near your land on the map', short: 'Near', labelGu: 'નકશા પર તમારી જમીનની નજીક', shortGu: 'નજીક' },
+  'number-near': { label: 'Survey number close to yours (a guess)', short: 'Close no.', labelGu: 'તમારા સર્વે નંબરની નજીકનો નંબર (અંદાજ)', shortGu: 'નજીકનો નં.' },
 };
 
 export interface Relation {

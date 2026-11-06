@@ -7,6 +7,7 @@ import type { FeatureCollection } from 'geojson';
 import { CATEGORY_META, EntryCategory, PinMap } from '@/lib/land';
 import { ControlPoint, XY, solveAffine } from '@/lib/overlay';
 import { BoundaryCollection, MapShape, outerRings, ringCentroid } from '@/lib/geo';
+import { useT } from '@/lib/i18n';
 
 export interface MapPin {
   survey: string;
@@ -80,6 +81,9 @@ export function LandMap({
   const handlers = useRef({ onPlace, onSelect, placing });
   const alignLayer = useRef<L.LayerGroup | null>(null);
   const shapeLayer = useRef<L.LayerGroup | null>(null);
+  // Layers listed in the layer switcher; the switcher is rebuilt when the language changes.
+  const switchable = useRef<{ satellite: L.Layer; streets: L.Layer; labels: L.Layer; outlines?: L.Layer; shapes: L.Layer } | null>(null);
+  const t = useT();
   // Scan <img> elements by overlay id, and a function that re-places them for the current zoom.
   const scanEls = useRef(new Map<string, { img: HTMLImageElement; points: ControlPoint[] }>());
   const placeScans = useRef<() => void>(() => {});
@@ -107,7 +111,7 @@ export function LandMap({
     });
     satellite.addTo(m);
     labels.addTo(m);
-    const extra: Record<string, L.Layer> = { 'Place labels': labels };
+    let outlinesLayer: L.Layer | undefined;
 
     // Village outlines: gold for this village, thin dashed for the ones around it.
     if (boundary) {
@@ -129,12 +133,10 @@ export function LandMap({
         L.marker([c.lat, c.lng], { interactive: false, keyboard: false, icon: label(name, f.properties.role === 'village') }).addTo(outlines);
       }
       outlines.addTo(m);
-      extra['Village boundaries'] = outlines;
+      outlinesLayer = outlines;
     }
     shapeLayer.current = L.layerGroup().addTo(m);
-    extra['Imported shapes'] = shapeLayer.current;
-
-    L.control.layers({ Satellite: satellite, Streets: streets }, extra, { position: 'topright' }).addTo(m);
+    switchable.current = { satellite, streets, labels, outlines: outlinesLayer, shapes: shapeLayer.current };
     if (own) {
       const b = L.latLngBounds(outerRings(own).flat().map(([lng, lat]) => [lat, lng] as [number, number]));
       m.fitBounds(b, { padding: [12, 12] });
@@ -178,6 +180,22 @@ export function LandMap({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Layer switcher, in the chosen language.
+  useEffect(() => {
+    const m = map.current;
+    const l = switchable.current;
+    if (!m || !l) return;
+    const overlays: Record<string, L.Layer> = { [t('Place labels', 'સ્થળનાં નામ')]: l.labels };
+    if (l.outlines) overlays[t('Village boundaries', 'ગામની હદ')] = l.outlines;
+    overlays[t('Imported shapes', 'ઉમેરેલા આકાર')] = l.shapes;
+    const control = L.control
+      .layers({ [t('Satellite', 'સેટેલાઇટ')]: l.satellite, [t('Streets', 'રસ્તા')]: l.streets }, overlays, { position: 'topright' })
+      .addTo(m);
+    return () => {
+      control.remove();
+    };
+  }, [t]);
+
   // Approximate village centre.
   useEffect(() => {
     const layer = centerLayer.current;
@@ -206,7 +224,7 @@ export function LandMap({
     layer.clearLayers();
     for (const s of shapes) {
       const color = s.mine ? '#FFD700' : '#38bdf8';
-      const tip = `<b>${esc(s.name)}</b>${s.survey ? `<br/>Survey ${esc(s.survey)}${s.mine ? ' (your land)' : ''}` : ''}<br/><span style="opacity:.7">Imported shape</span>`;
+      const tip = `<b>${esc(s.name)}</b>${s.survey ? `<br/>${t('Survey', 'સર્વે')} ${esc(s.survey)}${s.mine ? t(' (your land)', ' (તમારી જમીન)') : ''}` : ''}<br/><span style="opacity:.7">${t('Imported shape', 'ઉમેરેલો આકાર')}</span>`;
       const layerFor =
         s.type === 'polygon'
           ? L.polygon(s.coords, { color, weight: 2, fillColor: color, fillOpacity: 0.08 })
@@ -215,7 +233,7 @@ export function LandMap({
             : L.circleMarker(s.coords[0], { radius: 5, color: '#09090b', weight: 1.5, fillColor: color, fillOpacity: 1 });
       layerFor.bindTooltip(tip, { sticky: s.type !== 'point' }).addTo(layer);
     }
-  }, [shapes]);
+  }, [shapes, t]);
 
   // Survey pins.
   useEffect(() => {
@@ -244,14 +262,14 @@ export function LandMap({
         fillColor: p.mine ? '#FFD700' : CATEGORY_META[p.category].color,
         fillOpacity: 1,
       })
-        .bindTooltip(`<b>${p.survey}</b>${p.mine ? ' (your land)' : ''}<br/>${p.label}`, { direction: 'top', offset: [0, -6] })
+        .bindTooltip(`<b>${p.survey}</b>${p.mine ? t(' (your land)', ' (તમારી જમીન)') : ''}<br/>${p.label}`, { direction: 'top', offset: [0, -6] })
         .on('click', (e) => {
           L.DomEvent.stopPropagation(e);
           handlers.current.onSelect(p.survey);
         })
         .addTo(layer);
     }
-  }, [pins, selected, myRadiusKm]);
+  }, [pins, selected, myRadiusKm, t]);
 
   // Fly to the selected pin.
   useEffect(() => {
@@ -314,7 +332,7 @@ export function LandMap({
     });
   }, [alignPoints]);
 
-  return <div ref={el} className="h-[420px] w-full overflow-hidden rounded-lg border border-zinc-800 sm:h-[520px]" role="region" aria-label="Map of the village with pinned survey numbers" />;
+  return <div ref={el} className="h-[420px] w-full overflow-hidden rounded-lg border border-zinc-800 sm:h-[520px]" role="region" aria-label={t('Map of the village with pinned survey numbers', 'પિન કરેલા સર્વે નંબર સાથે ગામનો નકશો')} />;
 }
 
 export function pinMapToList(pins: PinMap, describe: (survey: string) => { category: EntryCategory; label: string; mine?: boolean }): MapPin[] {

@@ -23,6 +23,9 @@ export interface WatchItem {
   scope: WatchScope;
   title: string;
   summary: string;
+  /** Gujarati title and summary (optional; English is shown when missing). */
+  titleGu?: string;
+  summaryGu?: string;
   /** Survey numbers a public notice names in the village, as printed. Empty if none. */
   surveys: string[];
   sources: WatchSource[];
@@ -37,19 +40,25 @@ export interface WatchFeed {
   items: WatchItem[];
 }
 
-export const WATCH_CATEGORY_META: Record<WatchCategory, { label: string; color: string }> = {
-  acquisition: { label: 'Acquisition / right of use', color: '#d95926' },
-  infrastructure: { label: 'Roads & infrastructure', color: '#3987e5' },
-  zoning: { label: 'Zoning / GIDC / SEZ', color: '#c98500' },
-  environment: { label: 'Environmental clearance', color: '#199e70' },
-  industry: { label: 'Industry & logistics', color: '#9085e9' },
-  other: { label: 'Other', color: '#71717a' },
+export const WATCH_CATEGORY_META: Record<WatchCategory, { label: string; gu: string; color: string }> = {
+  acquisition: { label: 'Acquisition / right of use', gu: 'સંપાદન / વપરાશનો હક્ક', color: '#d95926' },
+  infrastructure: { label: 'Roads & infrastructure', gu: 'રસ્તા અને માળખાકીય સુવિધા', color: '#3987e5' },
+  zoning: { label: 'Zoning / GIDC / SEZ', gu: 'ઝોનિંગ / GIDC / SEZ', color: '#c98500' },
+  environment: { label: 'Environmental clearance', gu: 'પર્યાવરણ મંજૂરી', color: '#199e70' },
+  industry: { label: 'Industry & logistics', gu: 'ઉદ્યોગ અને લોજિસ્ટિક્સ', color: '#9085e9' },
+  other: { label: 'Other', gu: 'અન્ય', color: '#71717a' },
 };
 
 export const WATCH_SCOPE_LABEL: Record<WatchScope, string> = {
   village: 'Chirai Moti',
   nearby: 'Bhachau / NH-41',
   region: 'Kachchh',
+};
+
+export const WATCH_SCOPE_GU: Record<WatchScope, string> = {
+  village: 'ચીરઈ મોટી',
+  nearby: 'ભચાઉ / NH-41',
+  region: 'કચ્છ',
 };
 
 const CATEGORIES = Object.keys(WATCH_CATEGORY_META);
@@ -76,6 +85,8 @@ export function validateWatchFeed(feed: unknown): string[] {
     if (!SCOPES.includes(it.scope as string)) errs.push(`${at}: scope must be one of ${SCOPES.join(', ')}`);
     if (typeof it.title !== 'string' || it.title.length < 10) errs.push(`${at}: title missing`);
     if (typeof it.summary !== 'string' || it.summary.length < 20) errs.push(`${at}: summary missing`);
+    if (it.titleGu !== undefined && (typeof it.titleGu !== 'string' || !it.titleGu.trim())) errs.push(`${at}: titleGu must be text when given`);
+    if (it.summaryGu !== undefined && (typeof it.summaryGu !== 'string' || !it.summaryGu.trim())) errs.push(`${at}: summaryGu must be text when given`);
     if (!Array.isArray(it.surveys) || !it.surveys.every((s) => typeof s === 'string')) errs.push(`${at}: surveys must be a list of strings`);
     if (!Array.isArray(it.sources) || it.sources.length === 0) errs.push(`${at}: needs at least one source`);
     else

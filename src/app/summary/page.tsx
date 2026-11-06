@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { defaultVillage, watchFeed } from '@/data/land';
 import { SummaryLoader } from '@/components/land/SummaryLoader';
+import { T } from '@/components/LangToggle';
 
 export const metadata: Metadata = {
   title: 'Summary | Gujarat Land Deals',
@@ -16,7 +17,10 @@ export default function SummaryPage() {
           {village.en.village} <span className="text-zinc-500">· {village.village}</span>
         </h2>
         <p className="mt-1 text-sm text-zinc-400">
-          Land deals in {village.en.taluka} taluka, {village.en.district} · જમીનના સોદા
+          <T
+            en={`Land deals in ${village.en.taluka} taluka, ${village.en.district} · જમીનના સોદા`}
+            gu={`જમીનના સોદા, તાલુકો ${village.taluka}, જિલ્લો ${village.district}`}
+          />
         </p>
       </section>
       <SummaryLoader village={village} seed={seed} watch={watchFeed} />

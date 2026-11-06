@@ -7,6 +7,8 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · Recharts · L
 
 ## What it shows
 
+English or ગુજરાતી: switch with **EN / ગુજ** in the header. The choice is remembered in the browser (Gujarati is picked automatically when the phone's language is Gujarati).
+
 - Notices over the last 24 months: sales and gifts, loan charges entered and released, family and
   rights changes, official orders. A strip shows which months have been imported, so a gap in the
   data is not mistaken for a quiet month.
