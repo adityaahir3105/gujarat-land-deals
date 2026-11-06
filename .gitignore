@@ -46,3 +46,7 @@ __pycache__/
 
 # python
 __pycache__/
+
+# firebase
+.firebase/
+firebase-debug.log

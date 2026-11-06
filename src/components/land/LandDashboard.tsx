@@ -1,7 +1,7 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
-import { Download, Eraser, Layers, Upload } from 'lucide-react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Download, Eraser, Layers, Sparkles, Upload } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import {
   LandDataset,
@@ -12,19 +12,22 @@ import {
   mergeDatasets,
   monthRange,
   monthlyActivity,
+  normaliseSurvey,
   objectionWindow,
   pinsFromGeoJson,
   pinsToGeoJson,
   pinsToKml,
+  relateAll,
   surveyHistories,
 } from '@/lib/land';
-import { downloadText, landStorage } from '@/lib/land-storage';
+import { NearbySettings, downloadText, landStorage, makeBackup, restoreBackup } from '@/lib/land-storage';
 import type { VillageConfig } from '@/data/land/villages';
 import { cn } from '@/lib/utils';
 import { ActivityChart, monthName } from './ActivityChart';
 import { EntriesTable } from './EntriesTable';
 import { ImportPanel } from './ImportPanel';
 import { LandMap, pinMapToList } from './LandMap';
+import { MyLandCard } from './MyLandCard';
 import { SurveyPanel } from './SurveyPanel';
 
 interface LandDashboardProps {
@@ -60,8 +63,30 @@ export function LandDashboard({ village, seed }: LandDashboardProps) {
   const [gpsError, setGpsError] = useState<string | null>(null);
   const [mapNotice, setMapNotice] = useState<string | null>(null);
   const [today] = useState(localToday);
+  const [myLand, setMyLand] = useState<string[]>(() => landStorage.loadMyLand(seed));
+  const [nearby, setNearby] = useState<NearbySettings>(() => landStorage.loadNearby(seed));
+  // Notices present at the end of the previous visit; null on a first visit.
+  const [seenBefore] = useState(() => landStorage.loadSeen(seed));
+  const [backupNotice, setBackupNotice] = useState<string | null>(null);
 
   const data = useMemo(() => (imports ? mergeDatasets(seed, imports) : seed), [seed, imports]);
+
+  // Remember what this visit has seen, for "new since last visit" next time.
+  useEffect(() => {
+    landStorage.saveSeen(seed, data.entries.map((e) => e.entryNo));
+  }, [seed, data]);
+
+  const fresh = useMemo(() => {
+    if (!seenBefore) return new Set<number>();
+    const seen = new Set(seenBefore);
+    return new Set(data.entries.filter((e) => !seen.has(e.entryNo)).map((e) => e.entryNo));
+  }, [data, seenBefore]);
+
+  const relations = useMemo(
+    () => relateAll(data.entries, myLand, { pins, radiusKm: nearby.radiusKm, numberWindow: nearby.numberWindow }),
+    [data, myLand, pins, nearby]
+  );
+  const mySet = useMemo(() => new Set(myLand), [myLand]);
   const histories = useMemo(() => surveyHistories(data), [data]);
   const patterns = useMemo(() => findPatterns(data), [data]);
 
@@ -88,16 +113,38 @@ export function LandDashboard({ village, seed }: LandDashboardProps) {
 
   const describe = useCallback(
     (survey: string) => {
+      const mine = mySet.has(normaliseSurvey(survey));
       const h = histories.get(survey);
       const last = h?.entries[h.entries.length - 1];
-      if (!last) return { category: 'other' as const, label: 'No notices in imported months' };
+      if (!last) return { category: 'other' as const, label: 'No notices in imported months', mine };
       const info = entryTypeInfo(last.typeGu);
-      return { category: info.category, label: `${info.en} · entry ${last.entryNo} · ${last.date.split('-').reverse().join('/')}` };
+      return { category: info.category, label: `${info.en} · entry ${last.entryNo} · ${last.date.split('-').reverse().join('/')}`, mine };
     },
-    [histories]
+    [histories, mySet]
   );
   const mapPins = useMemo(() => pinMapToList(pins, describe), [pins, describe]);
   const unpinned = useMemo(() => [...histories.keys()].filter((s) => !pins[s]).length, [histories, pins]);
+
+  function updateMyLand(next: string[]) {
+    setMyLand(next);
+    landStorage.saveMyLand(seed, next);
+  }
+
+  function updateNearby(next: NearbySettings) {
+    setNearby(next);
+    landStorage.saveNearby(seed, next);
+  }
+
+  function restore(files: FileList | null) {
+    const f = files?.[0];
+    if (!f) return;
+    f.text()
+      .then((t) => {
+        restoreBackup(seed, t);
+        window.location.reload();
+      })
+      .catch((e: Error) => setBackupNotice(e.message || `${f.name} could not be read.`));
+  }
 
   function updatePins(next: PinMap) {
     setPins(next);
@@ -171,12 +218,31 @@ export function LandDashboard({ village, seed }: LandDashboardProps) {
 
   return (
     <div className="space-y-6">
+      {fresh.size > 0 && (
+        <p className="flex items-center gap-2 rounded-lg border border-sky-500/30 bg-sky-500/10 px-3 py-2 text-sm text-sky-200">
+          <Sparkles className="h-4 w-4 shrink-0" />
+          {fresh.size} new notice{fresh.size === 1 ? '' : 's'} since your last visit. They are marked NEW in the table below.
+        </p>
+      )}
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
         <Stat label="Notices, last 24 months" value={windowEntries.length} sub={first ? `Imported: ${monthName(first)} – ${monthName(last)}` : 'Nothing imported'} />
         <Stat label="Sale & gift entries" value={stats.sales} />
         <Stat label="Loan charges entered / released" value={`${stats.chargeIn} / ${stats.chargeOut}`} />
         <Stat label="Objection window likely open" value={stats.open} sub="Entry date + 30 days" />
       </div>
+
+      <MyLandCard
+        myLand={myLand}
+        onChangeMyLand={updateMyLand}
+        entries={data.entries}
+        relations={relations}
+        nearby={nearby}
+        onChangeNearby={updateNearby}
+        pins={pins}
+        today={today}
+        monthsImported={data.months.length}
+        onSelect={select}
+      />
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
         <Card className="p-4 md:p-5">
@@ -208,6 +274,7 @@ export function LandDashboard({ village, seed }: LandDashboardProps) {
             centerLabel={centerOverride ? 'Village centre (set by you)' : `Approximate village location: ${village.approxCenter.source}`}
             pins={mapPins}
             selected={selected}
+            myRadiusKm={myLand.length ? nearby.radiusKm : 0}
             placing={placing !== null}
             onPlace={onPlace}
             onSelect={select}
@@ -283,7 +350,7 @@ export function LandDashboard({ village, seed }: LandDashboardProps) {
 
       <Card className="p-4 md:p-5">
         <h3 className="mb-4 text-lg font-semibold text-zinc-100">Notices</h3>
-        <EntriesTable entries={data.entries} pins={pins} today={today} selected={selected} onSelect={select} />
+        <EntriesTable entries={data.entries} pins={pins} today={today} selected={selected} onSelect={select} relations={relations} fresh={fresh} />
       </Card>
 
       <Card className="p-4 md:p-5">
@@ -313,6 +380,27 @@ export function LandDashboard({ village, seed }: LandDashboardProps) {
           </div>
         </div>
         <ImportPanel onImport={onImport} />
+      </Card>
+
+      <Card className="p-4 md:p-5">
+        <h3 className="text-lg font-semibold text-zinc-100">Move to another device</h3>
+        <p className="mt-1 text-sm text-zinc-400">
+          Your land, pins, map centre, nearby settings and imported months live only in this browser. Download a backup and restore it on your
+          phone or another computer. Keep the file private: it lists your survey numbers.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button
+            className={smallBtn}
+            onClick={() => downloadText(`${fileBase}-backup.json`, JSON.stringify(makeBackup(seed), null, 1) + '\n', 'application/json')}
+          >
+            <Download className="h-3.5 w-3.5" /> Download backup
+          </button>
+          <label className={cn(smallBtn, 'cursor-pointer')}>
+            <Upload className="h-3.5 w-3.5" /> Restore backup
+            <input type="file" accept=".json,application/json" className="sr-only" onChange={(e) => restore(e.target.files)} />
+          </label>
+        </div>
+        {backupNotice && <p className="mt-2 text-xs text-rose-400">{backupNotice}</p>}
       </Card>
 
     </div>

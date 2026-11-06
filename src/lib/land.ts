@@ -457,3 +457,131 @@ export function pinsFromGeoJson(text: string): PinMap {
   }
   return out;
 }
+
+// ---------------------------------------------------------------------------
+// My land and nearby notices
+// ---------------------------------------------------------------------------
+
+/** Canonical form for comparing survey numbers typed by a person with those on e-Chavdi. */
+export function normaliseSurvey(s: string): string {
+  return toAsciiDigits(s).toLowerCase().replace(/\s+/g, '').replace(/પૈકી/g, 'p');
+}
+
+/** "210/p1" -> "210": the original survey number that parts are carved out of. */
+export function baseSurvey(s: string): string {
+  return normaliseSurvey(s).split('/')[0];
+}
+
+/** "58, 118/2  260" -> ["58", "118/2", "260"]. Commas, semicolons, spaces or new lines separate. */
+export function parseSurveyInput(text: string): string[] {
+  return [...new Set(text.split(/[,;\s]+/).map(normaliseSurvey).filter(Boolean))];
+}
+
+export function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
+  const rad = Math.PI / 180;
+  const dLat = (b.lat - a.lat) * rad;
+  const dLng = (b.lng - a.lng) * rad;
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(dLng / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.sqrt(h));
+}
+
+/**
+ * How a notice relates to the land you watch, strongest first:
+ * - mine:        it lists one of your survey numbers
+ * - same-survey: it lists another part of the same original survey (e.g. 210/p3 for 210/p1),
+ *                which lies inside that survey's boundary
+ * - pinned-near: both survey numbers are pinned and lie within the chosen distance
+ * - number-near: the survey numbers are numerically close. Only a hint: numbering usually runs
+ *                across a village, but neighbours by number are not always neighbours on the ground.
+ */
+export type RelationKind = 'mine' | 'same-survey' | 'pinned-near' | 'number-near';
+
+export const RELATION_ORDER: RelationKind[] = ['mine', 'same-survey', 'pinned-near', 'number-near'];
+
+export const RELATION_META: Record<RelationKind, { label: string; short: string }> = {
+  mine: { label: 'Your land', short: 'Yours' },
+  'same-survey': { label: 'Same original survey as yours', short: 'Same survey' },
+  'pinned-near': { label: 'Near your land on the map', short: 'Near' },
+  'number-near': { label: 'Survey number close to yours (a guess)', short: 'Close no.' },
+};
+
+export interface Relation {
+  kind: RelationKind;
+  /** The notice's survey number that matched. */
+  survey: string;
+  /** Your survey number it matched against. */
+  mySurvey: string;
+  distanceKm?: number;
+  numberGap?: number;
+}
+
+export interface NearbyOptions {
+  pins: PinMap;
+  /** Distance for pinned-near; 0 turns it off. */
+  radiusKm: number;
+  /** Max difference between survey numbers for number-near; 0 turns it off. */
+  numberWindow: number;
+}
+
+/** Strongest relation between a notice and the land you watch, or null. */
+export function relateToMyLand(entry: ChavdiEntry, mine: string[], opts: NearbyOptions): Relation | null {
+  let best: Relation | null = null;
+  const better = (r: Relation) => {
+    if (!best) return true;
+    const a = RELATION_ORDER.indexOf(r.kind);
+    const b = RELATION_ORDER.indexOf(best.kind);
+    if (a !== b) return a < b;
+    if (r.distanceKm !== undefined && best.distanceKm !== undefined) return r.distanceKm < best.distanceKm;
+    if (r.numberGap !== undefined && best.numberGap !== undefined) return r.numberGap < best.numberGap;
+    return false;
+  };
+  const pinOf = (s: string) => {
+    const key = Object.keys(opts.pins).find((k) => normaliseSurvey(k) === s);
+    return key ? opts.pins[key] : undefined;
+  };
+
+  for (const ref of entry.surveys) {
+    const s = normaliseSurvey(ref.survey);
+    for (const m of mine) {
+      let r: Relation | null = null;
+      if (s === m) r = { kind: 'mine', survey: ref.survey, mySurvey: m };
+      else if (baseSurvey(s) === baseSurvey(m)) r = { kind: 'same-survey', survey: ref.survey, mySurvey: m };
+      else {
+        const ps = opts.radiusKm > 0 ? pinOf(s) : undefined;
+        const pm = ps ? pinOf(m) : undefined;
+        const d = ps && pm ? haversineKm(ps, pm) : undefined;
+        if (d !== undefined && d <= opts.radiusKm) r = { kind: 'pinned-near', survey: ref.survey, mySurvey: m, distanceKm: d };
+        else if (opts.numberWindow > 0) {
+          const a = Number(baseSurvey(s));
+          const b = Number(baseSurvey(m));
+          if (Number.isInteger(a) && Number.isInteger(b) && Math.abs(a - b) <= opts.numberWindow) {
+            r = { kind: 'number-near', survey: ref.survey, mySurvey: m, numberGap: Math.abs(a - b) };
+          }
+        }
+      }
+      if (r && better(r)) best = r;
+    }
+  }
+  return best;
+}
+
+/** Relation for every notice that has one, keyed by entry number. */
+export function relateAll(entries: ChavdiEntry[], mine: string[], opts: NearbyOptions): Map<number, Relation> {
+  const out = new Map<number, Relation>();
+  if (mine.length === 0) return out;
+  for (const e of entries) {
+    const r = relateToMyLand(e, mine, opts);
+    if (r) out.set(e.entryNo, r);
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// Coverage
+// ---------------------------------------------------------------------------
+
+/** How many of the given months have an imported page. */
+export function coverage(data: LandDataset, months: string[]): { imported: number; total: number } {
+  const have = new Set(data.months);
+  return { imported: months.filter((m) => have.has(m)).length, total: months.length };
+}

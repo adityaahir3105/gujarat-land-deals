@@ -3,9 +3,10 @@
 Next.js 16 (App Router) + React 19 + TypeScript + Tailwind 4. Charts: Recharts. Map: Leaflet (plain, no react-leaflet).
 
 ## Map
-- `src/app/page.tsx` – the dashboard page (server); `src/components/land/LandLoader.tsx` renders the rest client-only
+- `src/app/page.tsx` – dashboard; `src/app/summary/page.tsx` – summary for relatives. Both render their content client-only (`LandLoader`, `SummaryLoader`)
+- Static export (`output: 'export'` → `out/`), hosted on Firebase Hosting (Spark, free): `firebase.json`, `.github/workflows/deploy.yml`. Keep it serverless: no API routes, server actions or dynamic rendering
 - `src/lib/land.ts` – e-Chavdi parser, entry-type dictionary, analysis, pin export. No imports: `scripts/build_dataset.mjs` compiles it alone with `typescript` and loads it
-- `src/lib/land-storage.ts` – localStorage for imported pages, pins, village centre
+- `src/lib/land-storage.ts` – localStorage for imported pages, pins, village centre, my land, nearby settings, seen notices; backup/restore
 - `src/data/land/` – `villages.ts` (config) and `echavdi.json` (generated)
 - `scripts/` – `collect_echavdi.py` (saves pages while a person browses), `build_dataset.mjs`, `raw/` pages
 
@@ -17,5 +18,6 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind 4. Charts: Recharts. 
 - Never automate the AnyRoR CAPTCHA. Collection stays human-in-the-loop.
 - Copy is calm and descriptive: no buy/sell advice, valuations or claims about why an entry happened.
 - Do not store owner names from notice details.
+- "My land" is private: keep it in localStorage only. Never commit a user's survey numbers or put them in the build.
 - Every figure carries its source. Edit `echavdi.json` only by re-running the builder.
 - Lint forbids calling setState directly inside effects.

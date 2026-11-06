@@ -11,6 +11,8 @@ export interface MapPin {
   lng: number;
   category: EntryCategory;
   label: string;
+  /** One of your own survey numbers. */
+  mine?: boolean;
 }
 
 interface LandMapProps {
@@ -18,6 +20,8 @@ interface LandMapProps {
   centerLabel: string;
   pins: MapPin[];
   selected: string | null;
+  /** Draw a ring of this radius around your own pins; 0 for none. */
+  myRadiusKm?: number;
   /** When set, the next map click is reported through onPlace. */
   placing: boolean;
   onPlace: (latlng: { lat: number; lng: number }) => void;
@@ -26,7 +30,7 @@ interface LandMapProps {
 
 const ESRI_ATTR = 'Imagery &copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community';
 
-export function LandMap({ center, centerLabel, pins, selected, placing, onPlace, onSelect }: LandMapProps) {
+export function LandMap({ center, centerLabel, pins, selected, myRadiusKm = 0, placing, onPlace, onSelect }: LandMapProps) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const pinLayer = useRef<L.LayerGroup | null>(null);
@@ -95,23 +99,36 @@ export function LandMap({ center, centerLabel, pins, selected, placing, onPlace,
     const layer = pinLayer.current;
     if (!layer) return;
     layer.clearLayers();
-    for (const p of pins) {
+    for (const p of pins.filter((x) => x.mine && myRadiusKm > 0)) {
+      L.circle([p.lat, p.lng], {
+        radius: myRadiusKm * 1000,
+        color: '#FFD700',
+        weight: 1,
+        opacity: 0.6,
+        dashArray: '6 6',
+        fillColor: '#FFD700',
+        fillOpacity: 0.04,
+        interactive: false,
+      }).addTo(layer);
+    }
+    // Your pins last, so they sit on top.
+    for (const p of [...pins].sort((a, b) => Number(!!a.mine) - Number(!!b.mine))) {
       const isSel = p.survey === selected;
       L.circleMarker([p.lat, p.lng], {
-        radius: isSel ? 10 : 7,
-        color: isSel ? '#FFD700' : '#09090b',
+        radius: isSel ? 10 : p.mine ? 8 : 7,
+        color: isSel ? '#FFD700' : p.mine ? '#fafafa' : '#09090b',
         weight: 2,
-        fillColor: CATEGORY_META[p.category].color,
+        fillColor: p.mine ? '#FFD700' : CATEGORY_META[p.category].color,
         fillOpacity: 1,
       })
-        .bindTooltip(`<b>${p.survey}</b><br/>${p.label}`, { direction: 'top', offset: [0, -6] })
+        .bindTooltip(`<b>${p.survey}</b>${p.mine ? ' (your land)' : ''}<br/>${p.label}`, { direction: 'top', offset: [0, -6] })
         .on('click', (e) => {
           L.DomEvent.stopPropagation(e);
           handlers.current.onSelect(p.survey);
         })
         .addTo(layer);
     }
-  }, [pins, selected]);
+  }, [pins, selected, myRadiusKm]);
 
   // Fly to the selected pin.
   useEffect(() => {
@@ -128,7 +145,7 @@ export function LandMap({ center, centerLabel, pins, selected, placing, onPlace,
   return <div ref={el} className="h-[420px] w-full overflow-hidden rounded-lg border border-zinc-800 sm:h-[520px]" role="region" aria-label="Map of the village with pinned survey numbers" />;
 }
 
-export function pinMapToList(pins: PinMap, describe: (survey: string) => { category: EntryCategory; label: string }): MapPin[] {
+export function pinMapToList(pins: PinMap, describe: (survey: string) => { category: EntryCategory; label: string; mine?: boolean }): MapPin[] {
   return Object.entries(pins).map(([survey, p]) => ({ survey, lat: p.lat, lng: p.lng, ...describe(survey) }));
 }
 
