@@ -1,0 +1,552 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>
+	: Any RoR @ Anywhere :
+</title>
+
+    <noscript>
+        <div style="font-size: 25px; top: 0px; left: 0px; color: White; width: 950px; position: absolute; background-color: #000000; opacity: 0.7; vertical-align: middle; padding-top: 300px; text-align: center; z-index: 1005;">
+            Javascript is disabled.<br />
+            Please Enable browser javascript first and then hit F5.
+        </div>
+    </noscript>
+
+    <script src="../JSCRIPTS/Validation.js"></script>
+    <script src="../js/jquery-1.8.3.min.js"></script>
+
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="../img/slider-icon/favicon.png"><link href="../css/bootstrap.min.css" rel="stylesheet"><link href="../css/bootstrap-reset.css" rel="stylesheet"><link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet"><link href="../css/component.css" rel="stylesheet"><link href="../css/style.css" rel="stylesheet"><link href="../css/style-responsive.css" rel="stylesheet"><link href="../css/slick-theme.css" rel="stylesheet"><link href="../css/slick.css" rel="stylesheet">
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider {
+            width: 80%;
+            margin: 38px auto;
+        }
+
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+
+        .slick-slide {
+            transition: all ease-in-out .3s;
+            opacity: .2;
+        }
+
+        .slick-active {
+            opacity: 1.5;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: orange;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+            opacity: 75%;
+            text-decoration: none;
+        }
+
+            #myBtn:hover {
+                background-color: #555;
+            }
+    </style>
+    
+
+    <script lang="javascript" type="text/javascript">
+        $(document).ready(function () {
+
+        });
+
+        function ShowModel() {
+            $("#myModal2").modal();
+        };
+        $("#myModal2").modal({ backdrop: "static" });
+    </script>
+
+
+    
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</head>
+<body>
+     <a id="myBtn" onclick="topFunction()" title="Go to Top">Top</a>
+
+    <script>
+        //Get the button
+        var mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <form method="post" action="./InfoChavdiNoticeView.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="ContentPlaceHolder1_ToolkitScriptManager1_HiddenField" id="ContentPlaceHolder1_ToolkitScriptManager1_HiddenField" value="">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=gxaGOZ5bWrVOi--orXYQtpSwzgFTFtVtzehm9PShO7RuPO2YZjLrWjtstt5jvSzEcD-F3Qlnk7BDxL_ovyVMIm23ghwXhmD1_AnCs9BalEg1&amp;t=639191031332169432" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=H7TY6PkLw3kk82ZzEOHy0rga7gwaBoOwwMGbe7O1gRxQKBslcb3YkgaPmcUKH5JMV_EcMrYCip_w_EPCQ2uIB8ZnJXiIlRyAqtbUyLA9isF928V8hKXfiJcnI0w6bVGb0&amp;t=ffffffffec54f2d7" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=wvNkChAzjk2cxavqeFR4Gicg3C3XXgyxe0zeZWK8nwDRcDZ3zr3I0IEIo1DAVmdWpfGEgKD3l9ezpVGhowJ8OBhqJnWZRb2-k9icvx2Lilba29EjEGxakW6z4pUMwzhEv9P2D_-DyFNOjAYjuPukAA2&amp;t=ffffffffec54f2d7" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CBD3B18F">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="35PXaWyPmAKXLUfD83CDkY3d2wuXlMIoYhNxzOTtxjquzgQUrmYMrmuFHlAJ+Jk13qfzd9Kwms7I63IRbr7WFbir2gzR2X+cWd+dBIRRup5eI9g1qKrPuQOtlJae3t9v0Z3FtVpoKVzFgsg/xlpjVO3PCbUjpmDcaXYQcNQCzuGmUFFL2Rs9N4UyGsEi75Ib5YXQLtmSBLQjW73iDLs156NBHI6mbQqpwFVCGAMZY7OdVn9FXIGJUf0xTmBQYmt6KCZJoeeCGwIutdRCikqZOowHakI9ZALHdSuHPd/oCH08jCR8Vat7MOJOfvzB7TuYI+fx3ZCJp/rmuXa77ioVRpj2z2Eo48o473ybDjUMk5daR9UctQe/rcdrUbH2SCCg0/afBX/xclZsRXdqV0UAQsbT6Gt54yaMhdHOvkwh/gTYQ3rewch1V8cCx0yPM3aY12A6B2EnRILrhrAfXeq2YeGbSyVMxUw1ErU/0q+fpswkJpcQV/xGT/vjTvDZoRVfWgq0YffolbhFlJMlr3NUlw==">
+</div>
+
+        <div>
+            <!--header start-->
+            <header class="head-section">
+                <div class="navbar navbar-default navbar-static-top container-fluid Header-Border">
+                    <div style="box-shadow: 0px 0px 20px 0px #b3e6ff;">
+                        <div class="top-area-h">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <span id="lbl_header">&nbsp;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="navbar-header">
+                                <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div id="logo">
+                                    <img class="hidden-xs" src="../img/slider-icon/logo.png">
+                                    <img class="hidden-lg hidden-md hidden-sm" src="../img/slider-icon/logo2.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--header end-->
+
+            <!--space for top_header start-->
+            
+
+            
+
+    <!--container start-->
+    <div class="breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li>
+                        <a id="ContentPlaceHolder1_lnkHome" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$lnkHome','')">HOME</a>
+                    </li>
+                    <li><a href="../LandRecordRural.aspx">RURAL LAND RECORD</a></li>
+                    <li class="active">e-CHAVDI</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$ToolkitScriptManager1', 'form1', [], [], [], 3600, 'ctl00');
+//]]>
+</script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <i class="fa fa-files-o pr-10"></i><b>નોટિસની વિગતો</b>
+                    </div>
+                    <div class="panel-body Border-Side" style="padding: 5px;">
+                        <div class="bs-example">
+                            <div class="form-horizontal" role="form">
+                                <div class="Div-Border-Side-New imgwatermark">
+                                    <div class="form-group" style="margin: 10px 0px 0px;">
+                                        <div class="alert alert-danger" role="alert">
+                                            <strong><span>૧) અહીં દર્શાવેલ જમીનની વિગતો ફક્ત આપની જાણ માટે જ છે જેને સત્તાવાર નકલ
+                                                    તરીકે ગણવામાં આવશે નહી.</span>
+                                                <br>
+                                                <span>૨) આ વિગતો અંગે કોઈ પણ વધારાની માહિતી મેળવવી હોય તો જે તે મામલતદાર કચેરી અથવા
+                                                        કલેક્ટર કચેરીનો સંપર્ક કરવો.</span> </strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Div-Border-Side-New imgwatermark">
+                                    <div class="form-group">
+                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                            <div class="control-label text-success">
+                                                <strong>District (જીલ્લો)</strong>
+                                            </div>
+                                            <div class="control-label">
+                                                <span id="ContentPlaceHolder1_lblDistrict" class="style7" style="font-weight:bold;">કચ્છ</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                            <div class="control-label text-success">
+                                                <strong>Taluka (તાલુકો)</strong>
+                                            </div>
+                                            <div class="control-label">
+                                                <span id="ContentPlaceHolder1_lblTaluka" class="style7" style="font-weight:bold;">ભચાઉ</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                                            <div class="control-label text-success">
+                                                <strong>Village (ગામ)</strong>
+                                            </div>
+                                            <div class="control-label">
+                                                <span id="ContentPlaceHolder1_lblVillage" class="style7" style="font-weight:bold;">ચીરઈ મોટી</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="Div-Border-Side-New imgwatermark">
+                                    <div class="form-group">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="control-label">
+                                                <div class="table-responsive">
+                                                    <div>
+	<table cellspacing="0" rules="all" class="table table-bordered table-hover text-primary" border="1" id="ContentPlaceHolder1_gvResult" style="width:100%;border-collapse:collapse;">
+		<tbody><tr class="Heading_Top">
+			<th scope="col">ક્રમ</th><th align="left" scope="col">નોંધ નંબર</th><th align="left" scope="col">ફેરફાર નોંધનો પ્રકાર</th><th align="left" scope="col">નોંધની તારીખ</th><th align="left" scope="col">નોંધને લગત સરવે નંબરની વિગત</th><th scope="col">&nbsp;</th>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    1
+                                                                </td><td align="left">5122</td><td align="left">બોજો દાખલ</td><td align="left">28/02/2025</td><td align="left"> 646/૨(273), 759/૨(273)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$0')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    2
+                                                                </td><td align="left">5121</td><td align="left">બોજો દાખલ</td><td align="left">25/02/2025</td><td align="left"> 239/p૨(240), 882/૨(860)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$1')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    3
+                                                                </td><td align="left">5120</td><td align="left">બોજો દાખલ</td><td align="left">25/02/2025</td><td align="left"> 779૦૦૧(1420)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$2')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    4
+                                                                </td><td align="left">5119</td><td align="left">બોજા મુક્તિ</td><td align="left">25/02/2025</td><td align="left"> 882/૨(860)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$3')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    5
+                                                                </td><td align="left">5118</td><td align="left">હક કમી</td><td align="left">24/02/2025</td><td align="left">34(1102), 939(1102)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$4')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    6
+                                                                </td><td align="left">5117</td><td align="left">બોજા મુક્તિ</td><td align="left">19/02/2025</td><td align="left">60/p૧(516), 549/p૧(516), 864/p૨(516), 974/p૨(516)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$5')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    7
+                                                                </td><td align="left">5116</td><td align="left">વેચાણ</td><td align="left">11/02/2025</td><td align="left">,101/૧(813) 106(813) </td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$6')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    8
+                                                                </td><td align="left">5115</td><td align="left">બોજા મુક્તિ</td><td align="left">10/02/2025</td><td align="left">543(151)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$7')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    9
+                                                                </td><td align="left">5114</td><td align="left">બોજા મુક્તિ</td><td align="left">10/02/2025</td><td align="left">34(1102), 939(1102)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$8')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    10
+                                                                </td><td align="left">5113</td><td align="left">હુકમથી</td><td align="left">07/02/2025</td><td align="left"> 139(636)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$9')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    11
+                                                                </td><td align="left">5112</td><td align="left">વારસાઇ</td><td align="left">06/02/2025</td><td align="left"> 315(379), 913/૨(379)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$10')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    12
+                                                                </td><td align="left">5111</td><td align="left">વેચાણ</td><td align="left">06/02/2025</td><td align="left">,647(748) </td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$11')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    13
+                                                                </td><td align="left">5110</td><td align="left">વારસાઇ</td><td align="left">04/02/2025</td><td align="left"> 607(90)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$12')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    14
+                                                                </td><td align="left">5109</td><td align="left">વારસાઇ</td><td align="left">04/02/2025</td><td align="left"> 417(370)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$13')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    15
+                                                                </td><td align="left">5108</td><td align="left">બોજો દાખલ</td><td align="left">04/02/2025</td><td align="left"> 492/૧(680)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$14')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    16
+                                                                </td><td align="left">5107</td><td align="left">હક કમી</td><td align="left">04/02/2025</td><td align="left">1003/p૪૭(1319)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$15')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    17
+                                                                </td><td align="left">5106</td><td align="left">બોજો દાખલ</td><td align="left">04/02/2025</td><td align="left"> 959(75)</td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$16')" style="font-weight:bold;">View Notice</a></td>
+		</tr><tr>
+			<td align="left" style="width:10px;">
+                                                                    18
+                                                                </td><td align="left">5105</td><td align="left">વેચાણ</td><td align="left">03/02/2025</td><td align="left">,219(1388) </td><td align="center"><a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$gvResult','Select$17')" style="font-weight:bold;">View Notice</a></td>
+		</tr>
+	</tbody></table>
+</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Div-Border-Side-New imgwatermark">
+                                    <div class="form-group" style="margin: 10px 0px 0px;">
+                                        <div class="alert alert-danger" role="alert">
+                                            <strong><span>૧) અહીં દર્શાવેલ જમીનની વિગતો ફક્ત આપની જાણ માટે જ છે જેને સત્તાવાર નકલ
+                                                    તરીકે ગણવામાં આવશે નહી.</span>
+                                                <br>
+                                                <span>૨) આ વિગતો અંગે કોઈ પણ વધારાની માહિતી મેળવવી હોય તો જે તે મામલતદાર કચેરી અથવા
+                                                        કલેક્ટર કચેરીનો સંપર્ક કરવો.</span> </strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="myModal2" role="dialog">
+                                    <div class="modal-dialog" style="width: 75%;">
+                                        <div class="modal-content" style="height: 90%">
+                                            <div class="modal-header" style="background-color: #3372ab;">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                                
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="panel-body Border-Side" style="padding: 5px;">
+                                                    <div class="bs-example ">
+                                                        <div class="form-horizontal" role="form">
+                                                            <div class="Div-Border-Side-New imgwatermark">
+                                                                <div class="form-group">
+                                                                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 control-label text-primary">
+                                                                        <u>તારીખ :
+                                                        <span id="ContentPlaceHolder1_lblNoticeDt" style="font-weight:bold;"></span></u>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group" style="margin-bottom: 0px;">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                                        <div class="table-responsive">
+                                                                            <div>
+
+</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                                        <div class="control-label text-primary">
+                                                                            Village (ગામ) :
+                                                        <span id="ContentPlaceHolder1_lbl_village_v" style="font-weight:bold;"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                                        <div class="control-label text-primary">
+                                                                            Taluka (તાલુકો) :
+                                                        <span id="ContentPlaceHolder1_lbl_taluka_v" style="font-weight:bold;"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                                                                        <div class="control-label text-primary">
+                                                                            District (જીલ્લો) :
+                                                        <span id="ContentPlaceHolder1_lbl_district_v" style="font-weight:bold;"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 control-label text-primary">
+                                                                        ના ગામે આવેલી નીચે જણાવેલ જમીનના હક્ક અંગેની ફેરફાર નોંધ મજકુર ગામના ગા.નં. ૬ માં
+                                                    કરવામાં આવેલ છે. આ ફેરફાર બાબતમાં કોઇપણ હક્કદાર/ વ્યકિતને પોતાના હક્ક પૂરતો જ વાંધો
+                                                    અથવા તકરાર હોય તો નોટીસ મળ્યાની તારીખથી ૩૦ દિવસની મુદતમાં નીચે સહી કરનારને પુરાવા
+                                                    સાથે લેખીત રજુઆત કરવી. તેમ નહી કરવામાં આવે તો મુદત વીતે કરવામાં આવનાર ફેરફારને બહાલી
+                                                    આપવામાં આવશે. જેમાં કોઇપણ વ્યકિતની રેવન્યુ રાહે તકરાર ચાલશે નહિ જેની નોંધ લેશોજી.
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                                        <div class="control-label text-success">
+                                                                            <strong>નોંધ નંબર</strong>
+                                                                        </div>
+                                                                        <div class="control-label text-primary">
+                                                                            <span id="ContentPlaceHolder1_lblEntryNo" style="font-weight:bold;"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                                        <div class=" control-label text-success">
+                                                                            <strong>ફેરફારની વિગતો</strong>
+                                                                        </div>
+                                                                        <div class="control-label text-primary">
+                                                                            <span id="ContentPlaceHolder1_lblTrnpname" style="font-weight:bold;"></span>
+                                                                            <br>
+                                                                            <span id="ContentPlaceHolder1_lblRemarks"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                                        <div class=" control-label text-success">
+                                                                            <strong>ફેરફાર સંબંધિત સરવે નંબરો</strong>
+                                                                        </div>
+                                                                        <div class="control-label text-primary">
+                                                                            <span id="ContentPlaceHolder1_lblSNoS" style="font-weight:bold;"></span>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-primary">
+                                                                        <u><b>*-વધારાના હિત ધરાવનાર   #-નોટીસ બજાવવાની નથી</b> </u>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer" style="background-color: #3372ab;">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--container end-->
+
+
+            <!--small footer start -->
+            <footer class="footer-small">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="copyright">
+                                Content Owned by Revenue Department, Government of Gujarat
+                                        <br>
+                                © Developed by National Informatics Centre (NIC), Gujarat State Centre, Gandhinagar
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--small footer end-->
+
+            <script src="../js/slick.js"></script>
+
+            <script type="text/javascript">
+                $(document).on('ready', function () {
+
+                    $(".vertical").slick({
+                        dots: true,
+                        vertical: false,
+                        slidesToShow: 3,
+                        autoplay: true,
+                        autoplayspeed: 500,
+                        responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 3
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }
+                        ]
+                    });
+
+                });
+            </script>
+
+        </div>
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("ContentPlaceHolder1_ToolkitScriptManager1_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();//]]>
+</script>
+</form>
+
+</body></html>

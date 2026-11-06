@@ -4,6 +4,39 @@
   "taluka": "ભચાઉ",
   "village": "ચીરઈ મોટી",
   "months": [
+   "2024-01",
+   "2024-02",
+   "2024-03",
+   "2024-04",
+   "2024-05",
+   "2024-06",
+   "2024-07",
+   "2024-08",
+   "2024-09",
+   "2024-10",
+   "2024-11",
+   "2024-12",
+   "2025-01",
+   "2025-02",
+   "2025-03",
+   "2025-04",
+   "2025-05",
+   "2025-06",
+   "2025-07",
+   "2025-08",
+   "2025-09",
+   "2025-10",
+   "2025-11",
+   "2025-12",
+   "2026-01",
+   "2026-02",
+   "2026-03",
+   "2026-04",
+   "2026-05",
+   "2026-06",
+   "2026-07",
+   "2026-08",
+   "2026-09",
    "2026-10"
   ],
   "entries": [
@@ -286,6 +319,7403 @@
      {
       "survey": "997",
       "khata": "367"
+     }
+    ]
+   },
+   {
+    "entryNo": 5463,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2026-09-29",
+    "surveys": [
+     {
+      "survey": "904",
+      "khata": "1461"
+     }
+    ]
+   },
+   {
+    "entryNo": 5462,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-09-28",
+    "surveys": [
+     {
+      "survey": "389/p1",
+      "khata": "415"
+     },
+     {
+      "survey": "438/1",
+      "khata": "415"
+     },
+     {
+      "survey": "713/p1",
+      "khata": "415"
+     }
+    ]
+   },
+   {
+    "entryNo": 5461,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-09-27",
+    "surveys": [
+     {
+      "survey": "782",
+      "khata": "232"
+     }
+    ]
+   },
+   {
+    "entryNo": 5460,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2026-09-26",
+    "surveys": [
+     {
+      "survey": "952",
+      "khata": "1511"
+     }
+    ]
+   },
+   {
+    "entryNo": 5459,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-09-23",
+    "surveys": [
+     {
+      "survey": "933/p1",
+      "khata": "1035"
+     }
+    ]
+   },
+   {
+    "entryNo": 5458,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-09-23",
+    "surveys": [
+     {
+      "survey": "933/p2",
+      "khata": "980"
+     },
+     {
+      "survey": "937/2/p2",
+      "khata": "980"
+     }
+    ]
+   },
+   {
+    "entryNo": 5457,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-09-23",
+    "surveys": [
+     {
+      "survey": "516/1",
+      "khata": "1506"
+     }
+    ]
+   },
+   {
+    "entryNo": 5456,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-09-23",
+    "surveys": [
+     {
+      "survey": "469",
+      "khata": "1504"
+     }
+    ]
+   },
+   {
+    "entryNo": 5455,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-09-23",
+    "surveys": [
+     {
+      "survey": "662/p3",
+      "khata": "610"
+     }
+    ]
+   },
+   {
+    "entryNo": 5454,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-09-23",
+    "surveys": [
+     {
+      "survey": "469/p1",
+      "khata": "1505"
+     }
+    ]
+   },
+   {
+    "entryNo": 5453,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-09-22",
+    "surveys": [
+     {
+      "survey": "75/2",
+      "khata": "731"
+     }
+    ]
+   },
+   {
+    "entryNo": 5452,
+    "typeGu": "વહેંચણી",
+    "date": "2026-09-21",
+    "surveys": [
+     {
+      "survey": "202",
+      "khata": "152"
+     }
+    ]
+   },
+   {
+    "entryNo": 5451,
+    "typeGu": "વેચાણ",
+    "date": "2026-09-21",
+    "surveys": [
+     {
+      "survey": "6/p1",
+      "khata": "1308"
+     }
+    ]
+   },
+   {
+    "entryNo": 5450,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-09-19",
+    "surveys": [
+     {
+      "survey": "25",
+      "khata": "448"
+     }
+    ]
+   },
+   {
+    "entryNo": 5449,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-09-19",
+    "surveys": [
+     {
+      "survey": "694/1",
+      "khata": "1413"
+     }
+    ]
+   },
+   {
+    "entryNo": 5448,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-09-19",
+    "surveys": [
+     {
+      "survey": "643/2",
+      "khata": "1407"
+     }
+    ]
+   },
+   {
+    "entryNo": 5447,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-09-18",
+    "surveys": [
+     {
+      "survey": "606/p2/p1",
+      "khata": "158"
+     }
+    ]
+   },
+   {
+    "entryNo": 5446,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-09-16",
+    "surveys": [
+     {
+      "survey": "101/2/p2",
+      "khata": "1067"
+     },
+     {
+      "survey": "286/p2",
+      "khata": "1067"
+     }
+    ]
+   },
+   {
+    "entryNo": 5445,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-09-14",
+    "surveys": [
+     {
+      "survey": "347/3",
+      "khata": "552"
+     },
+     {
+      "survey": "733",
+      "khata": "552"
+     }
+    ]
+   },
+   {
+    "entryNo": 5444,
+    "typeGu": "વારસાઇ",
+    "date": "2026-09-14",
+    "surveys": [
+     {
+      "survey": "698/1",
+      "khata": "903"
+     },
+     {
+      "survey": "723",
+      "khata": "903"
+     }
+    ]
+   },
+   {
+    "entryNo": 5443,
+    "typeGu": "વારસાઇ",
+    "date": "2026-09-14",
+    "surveys": [
+     {
+      "survey": "698/1",
+      "khata": "903"
+     },
+     {
+      "survey": "723",
+      "khata": "903"
+     }
+    ]
+   },
+   {
+    "entryNo": 5442,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-09-10",
+    "surveys": [
+     {
+      "survey": "354/p2",
+      "khata": "518"
+     },
+     {
+      "survey": "973",
+      "khata": "518"
+     }
+    ]
+   },
+   {
+    "entryNo": 5441,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-09-10",
+    "surveys": [
+     {
+      "survey": "438/1",
+      "khata": "415"
+     },
+     {
+      "survey": "713/p1",
+      "khata": "415"
+     }
+    ]
+   },
+   {
+    "entryNo": 5440,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-08-30",
+    "surveys": [
+     {
+      "survey": "894",
+      "khata": "313"
+     }
+    ]
+   },
+   {
+    "entryNo": 5439,
+    "typeGu": "વેચાણ",
+    "date": "2026-08-24",
+    "surveys": [
+     {
+      "survey": "952",
+      "khata": "254"
+     }
+    ]
+   },
+   {
+    "entryNo": 5438,
+    "typeGu": "વારસાઇ",
+    "date": "2026-08-22",
+    "surveys": [
+     {
+      "survey": "411/2",
+      "khata": "91"
+     }
+    ]
+   },
+   {
+    "entryNo": 5437,
+    "typeGu": "હુકમથી",
+    "date": "2026-08-21",
+    "surveys": [
+     {
+      "survey": "215",
+      "khata": "20"
+     },
+     {
+      "survey": "216/1",
+      "khata": "20"
+     },
+     {
+      "survey": "255/1",
+      "khata": "20"
+     },
+     {
+      "survey": "258",
+      "khata": "20"
+     },
+     {
+      "survey": "468",
+      "khata": "20"
+     }
+    ]
+   },
+   {
+    "entryNo": 5436,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2026-08-20",
+    "surveys": [
+     {
+      "survey": "6/p1",
+      "khata": "1308"
+     }
+    ]
+   },
+   {
+    "entryNo": 5435,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-08-20",
+    "surveys": [
+     {
+      "survey": "492/1",
+      "khata": "680"
+     }
+    ]
+   },
+   {
+    "entryNo": 5434,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-08-20",
+    "surveys": [
+     {
+      "survey": "952",
+      "khata": "254"
+     }
+    ]
+   },
+   {
+    "entryNo": 5433,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-08-19",
+    "surveys": [
+     {
+      "survey": "511",
+      "khata": "392"
+     },
+     {
+      "survey": "828",
+      "khata": "392"
+     }
+    ]
+   },
+   {
+    "entryNo": 5432,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-08-17",
+    "surveys": [
+     {
+      "survey": "952",
+      "khata": "254"
+     }
+    ]
+   },
+   {
+    "entryNo": 5431,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-08-14",
+    "surveys": [
+     {
+      "survey": "584",
+      "khata": "142"
+     },
+     {
+      "survey": "716/1",
+      "khata": "142"
+     },
+     {
+      "survey": "717/1",
+      "khata": "142"
+     },
+     {
+      "survey": "1003/pp",
+      "khata": "142"
+     },
+     {
+      "survey": "1056/p1",
+      "khata": "142"
+     }
+    ]
+   },
+   {
+    "entryNo": 5430,
+    "typeGu": "હુકમથી",
+    "date": "2026-08-12",
+    "surveys": [
+     {
+      "survey": "404",
+      "khata": "1269"
+     }
+    ]
+   },
+   {
+    "entryNo": 5429,
+    "typeGu": "હુકમથી",
+    "date": "2026-08-12",
+    "surveys": [
+     {
+      "survey": "404/p1",
+      "khata": "1267"
+     }
+    ]
+   },
+   {
+    "entryNo": 5428,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-08-11",
+    "surveys": [
+     {
+      "survey": "123",
+      "khata": "508"
+     }
+    ]
+   },
+   {
+    "entryNo": 5427,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-08-11",
+    "surveys": [
+     {
+      "survey": "680/p2",
+      "khata": "612"
+     }
+    ]
+   },
+   {
+    "entryNo": 5426,
+    "typeGu": "જમીન સંપાદન એવોડ",
+    "date": "2026-08-10",
+    "surveys": [
+     {
+      "survey": "433",
+      "khata": "710"
+     },
+     {
+      "survey": "434",
+      "khata": "443"
+     },
+     {
+      "survey": "435",
+      "khata": "443"
+     }
+    ]
+   },
+   {
+    "entryNo": 5425,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-08-04",
+    "surveys": [
+     {
+      "survey": "319",
+      "khata": "704"
+     }
+    ]
+   },
+   {
+    "entryNo": 5424,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-08-04",
+    "surveys": [
+     {
+      "survey": "319",
+      "khata": "704"
+     }
+    ]
+   },
+   {
+    "entryNo": 5423,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-08-03",
+    "surveys": [
+     {
+      "survey": "775/2",
+      "khata": "807"
+     }
+    ]
+   },
+   {
+    "entryNo": 5422,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-08-03",
+    "surveys": [
+     {
+      "survey": "319",
+      "khata": "704"
+     }
+    ]
+   },
+   {
+    "entryNo": 5421,
+    "typeGu": "વારસાઇ",
+    "date": "2026-08-01",
+    "surveys": [
+     {
+      "survey": "411/3",
+      "khata": "246"
+     },
+     {
+      "survey": "514/1",
+      "khata": "246"
+     },
+     {
+      "survey": "515",
+      "khata": "246"
+     }
+    ]
+   },
+   {
+    "entryNo": 5420,
+    "typeGu": "હુકમથી",
+    "date": "2026-07-31",
+    "surveys": [
+     {
+      "survey": "140/1",
+      "khata": "1209"
+     }
+    ]
+   },
+   {
+    "entryNo": 5419,
+    "typeGu": "વારસાઇ",
+    "date": "2026-07-31",
+    "surveys": [
+     {
+      "survey": "411/3",
+      "khata": "246"
+     },
+     {
+      "survey": "514/1",
+      "khata": "246"
+     },
+     {
+      "survey": "515",
+      "khata": "246"
+     }
+    ]
+   },
+   {
+    "entryNo": 5418,
+    "typeGu": "વારસાઇ",
+    "date": "2026-07-31",
+    "surveys": [
+     {
+      "survey": "411/3",
+      "khata": "246"
+     },
+     {
+      "survey": "514/1",
+      "khata": "246"
+     },
+     {
+      "survey": "515",
+      "khata": "246"
+     }
+    ]
+   },
+   {
+    "entryNo": 5417,
+    "typeGu": "હક કમી",
+    "date": "2026-07-30",
+    "surveys": [
+     {
+      "survey": "695/p1",
+      "khata": "1214"
+     }
+    ]
+   },
+   {
+    "entryNo": 5416,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-07-29",
+    "surveys": [
+     {
+      "survey": "551/1/p2",
+      "khata": "977"
+     }
+    ]
+   },
+   {
+    "entryNo": 5415,
+    "typeGu": "હુકમથી",
+    "date": "2026-07-29",
+    "surveys": [
+     {
+      "survey": "158",
+      "khata": "111"
+     }
+    ]
+   },
+   {
+    "entryNo": 5414,
+    "typeGu": "હક કમી",
+    "date": "2026-07-28",
+    "surveys": [
+     {
+      "survey": "51",
+      "khata": "184"
+     }
+    ]
+   },
+   {
+    "entryNo": 5413,
+    "typeGu": "વેચાણ",
+    "date": "2026-07-24",
+    "surveys": [
+     {
+      "survey": "452/p1",
+      "khata": "1091"
+     }
+    ]
+   },
+   {
+    "entryNo": 5412,
+    "typeGu": "વારસાઇ",
+    "date": "2026-07-22",
+    "surveys": [
+     {
+      "survey": "523/2",
+      "khata": "121"
+     }
+    ]
+   },
+   {
+    "entryNo": 5411,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-07-18",
+    "surveys": [
+     {
+      "survey": "320/p2",
+      "khata": "1091"
+     },
+     {
+      "survey": "452/p1",
+      "khata": "1091"
+     },
+     {
+      "survey": "462/2/p1",
+      "khata": "191"
+     }
+    ]
+   },
+   {
+    "entryNo": 5410,
+    "typeGu": "હુકમથી",
+    "date": "2026-07-16",
+    "surveys": [
+     {
+      "survey": "831",
+      "khata": "377"
+     }
+    ]
+   },
+   {
+    "entryNo": 5409,
+    "typeGu": "ભેંટ",
+    "date": "2026-07-09",
+    "surveys": [
+     {
+      "survey": "24",
+      "khata": "144"
+     }
+    ]
+   },
+   {
+    "entryNo": 5408,
+    "typeGu": "ભેંટ",
+    "date": "2026-07-09",
+    "surveys": [
+     {
+      "survey": "24",
+      "khata": "144"
+     }
+    ]
+   },
+   {
+    "entryNo": 5407,
+    "typeGu": "હુકમથી",
+    "date": "2026-07-06",
+    "surveys": [
+     {
+      "survey": "114",
+      "khata": "1099"
+     }
+    ]
+   },
+   {
+    "entryNo": 5406,
+    "typeGu": "હુકમથી",
+    "date": "2026-07-06",
+    "surveys": [
+     {
+      "survey": "114/p1",
+      "khata": "1100"
+     }
+    ]
+   },
+   {
+    "entryNo": 5405,
+    "typeGu": "બીન ખેતી",
+    "date": "2026-07-06",
+    "surveys": [
+     {
+      "survey": "114/p1",
+      "khata": "1100"
+     }
+    ]
+   },
+   {
+    "entryNo": 5404,
+    "typeGu": "બીન ખેતી",
+    "date": "2026-07-06",
+    "surveys": [
+     {
+      "survey": "114",
+      "khata": "1099"
+     }
+    ]
+   },
+   {
+    "entryNo": 5403,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2026-07-04",
+    "surveys": [
+     {
+      "survey": "469",
+      "khata": "1297"
+     },
+     {
+      "survey": "516/1",
+      "khata": "1297"
+     }
+    ]
+   },
+   {
+    "entryNo": 5402,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-07-04",
+    "surveys": [
+     {
+      "survey": "105",
+      "khata": "1417"
+     }
+    ]
+   },
+   {
+    "entryNo": 5401,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-07-03",
+    "surveys": [
+     {
+      "survey": "315",
+      "khata": "1455"
+     },
+     {
+      "survey": "913/2",
+      "khata": "1455"
+     }
+    ]
+   },
+   {
+    "entryNo": 5400,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-07-03",
+    "surveys": [
+     {
+      "survey": "132/p4",
+      "khata": "684"
+     },
+     {
+      "survey": "1003/p99",
+      "khata": "684"
+     }
+    ]
+   },
+   {
+    "entryNo": 5399,
+    "typeGu": "વસિયત",
+    "date": "2026-07-02",
+    "surveys": [
+     {
+      "survey": "120",
+      "khata": "487"
+     },
+     {
+      "survey": "130",
+      "khata": "487"
+     }
+    ]
+   },
+   {
+    "entryNo": 5398,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-07-01",
+    "surveys": [
+     {
+      "survey": "132/p4",
+      "khata": "684"
+     },
+     {
+      "survey": "1003/p99",
+      "khata": "684"
+     }
+    ]
+   },
+   {
+    "entryNo": 5397,
+    "typeGu": "હુકમથી",
+    "date": "2026-07-01",
+    "surveys": [
+     {
+      "survey": "90",
+      "khata": "36"
+     },
+     {
+      "survey": "275",
+      "khata": "1381"
+     }
+    ]
+   },
+   {
+    "entryNo": 5396,
+    "typeGu": "હક કમી",
+    "date": "2026-06-30",
+    "surveys": [
+     {
+      "survey": "411/3",
+      "khata": "246"
+     },
+     {
+      "survey": "514/1",
+      "khata": "246"
+     },
+     {
+      "survey": "515",
+      "khata": "246"
+     }
+    ]
+   },
+   {
+    "entryNo": 5395,
+    "typeGu": "વેચાણ",
+    "date": "2026-06-30",
+    "surveys": [
+     {
+      "survey": "1003/p2",
+      "khata": "747"
+     }
+    ]
+   },
+   {
+    "entryNo": 5394,
+    "typeGu": "વારસાઇ",
+    "date": "2026-06-29",
+    "surveys": [
+     {
+      "survey": "470/p2",
+      "khata": "1466"
+     }
+    ]
+   },
+   {
+    "entryNo": 5393,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-06-29",
+    "surveys": [
+     {
+      "survey": "510/1",
+      "khata": "98"
+     },
+     {
+      "survey": "539",
+      "khata": "98"
+     },
+     {
+      "survey": "873",
+      "khata": "98"
+     }
+    ]
+   },
+   {
+    "entryNo": 5392,
+    "typeGu": "વારસાઇ",
+    "date": "2026-06-29",
+    "surveys": [
+     {
+      "survey": "465",
+      "khata": "1463"
+     },
+     {
+      "survey": "470",
+      "khata": "1463"
+     }
+    ]
+   },
+   {
+    "entryNo": 5391,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-06-29",
+    "surveys": [
+     {
+      "survey": "31/2/p2",
+      "khata": "1475"
+     },
+     {
+      "survey": "731",
+      "khata": "1475"
+     }
+    ]
+   },
+   {
+    "entryNo": 5390,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-06-25",
+    "surveys": [
+     {
+      "survey": "662/p3",
+      "khata": "610"
+     }
+    ]
+   },
+   {
+    "entryNo": 5389,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-06-25",
+    "surveys": [
+     {
+      "survey": "694/1",
+      "khata": "1413"
+     }
+    ]
+   },
+   {
+    "entryNo": 5388,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-06-24",
+    "surveys": [
+     {
+      "survey": "6/p1",
+      "khata": "1308"
+     }
+    ]
+   },
+   {
+    "entryNo": 5387,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-06-24",
+    "surveys": [
+     {
+      "survey": "567",
+      "khata": "1487"
+     },
+     {
+      "survey": "832",
+      "khata": "1487"
+     }
+    ]
+   },
+   {
+    "entryNo": 5386,
+    "typeGu": "વારસાઇ",
+    "date": "2026-06-23",
+    "surveys": [
+     {
+      "survey": "510/1",
+      "khata": "98"
+     },
+     {
+      "survey": "539",
+      "khata": "98"
+     },
+     {
+      "survey": "873",
+      "khata": "98"
+     }
+    ]
+   },
+   {
+    "entryNo": 5385,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-06-23",
+    "surveys": [
+     {
+      "survey": "133/p1",
+      "khata": "1174"
+     }
+    ]
+   },
+   {
+    "entryNo": 5384,
+    "typeGu": "હક કમી",
+    "date": "2026-06-22",
+    "surveys": [
+     {
+      "survey": "894",
+      "khata": "313"
+     }
+    ]
+   },
+   {
+    "entryNo": 5383,
+    "typeGu": "હક કમી",
+    "date": "2026-06-22",
+    "surveys": [
+     {
+      "survey": "202",
+      "khata": "152"
+     }
+    ]
+   },
+   {
+    "entryNo": 5382,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-06-22",
+    "surveys": [
+     {
+      "survey": "749/p1",
+      "khata": "1348"
+     }
+    ]
+   },
+   {
+    "entryNo": 5381,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-06-18",
+    "surveys": [
+     {
+      "survey": "465",
+      "khata": "1463"
+     },
+     {
+      "survey": "470",
+      "khata": "1463"
+     }
+    ]
+   },
+   {
+    "entryNo": 5380,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-06-15",
+    "surveys": [
+     {
+      "survey": "647",
+      "khata": "1447"
+     }
+    ]
+   },
+   {
+    "entryNo": 5379,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-06-15",
+    "surveys": [
+     {
+      "survey": "647",
+      "khata": "1447"
+     }
+    ]
+   },
+   {
+    "entryNo": 5378,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-06-11",
+    "surveys": [
+     {
+      "survey": "372/p2",
+      "khata": "33"
+     }
+    ]
+   },
+   {
+    "entryNo": 5377,
+    "typeGu": "હુકમથી",
+    "date": "2026-06-11",
+    "surveys": [
+     {
+      "survey": "421/1/p1",
+      "khata": "1267"
+     }
+    ]
+   },
+   {
+    "entryNo": 5376,
+    "typeGu": "વેચાણ",
+    "date": "2026-06-10",
+    "surveys": [
+     {
+      "survey": "934",
+      "khata": "980"
+     }
+    ]
+   },
+   {
+    "entryNo": 5375,
+    "typeGu": "વારસાઇ",
+    "date": "2026-06-08",
+    "surveys": [
+     {
+      "survey": "965",
+      "khata": "616"
+     }
+    ]
+   },
+   {
+    "entryNo": 5374,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-06-08",
+    "surveys": [
+     {
+      "survey": "647",
+      "khata": "1447"
+     }
+    ]
+   },
+   {
+    "entryNo": 5373,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2026-06-06",
+    "surveys": [
+     {
+      "survey": "448/p1",
+      "khata": "156"
+     },
+     {
+      "survey": "488/p1",
+      "khata": "156"
+     },
+     {
+      "survey": "696/p1",
+      "khata": "156"
+     },
+     {
+      "survey": "807/p1",
+      "khata": "156"
+     }
+    ]
+   },
+   {
+    "entryNo": 5372,
+    "typeGu": "હક કમી",
+    "date": "2026-06-06",
+    "surveys": [
+     {
+      "survey": "572",
+      "khata": "1225"
+     }
+    ]
+   },
+   {
+    "entryNo": 5371,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-06-05",
+    "surveys": [
+     {
+      "survey": "784",
+      "khata": "424"
+     }
+    ]
+   },
+   {
+    "entryNo": 5370,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2026-06-04",
+    "surveys": [
+     {
+      "survey": "222/p1",
+      "khata": "1148"
+     },
+     {
+      "survey": "222/p2",
+      "khata": "1148"
+     },
+     {
+      "survey": "223",
+      "khata": "1371"
+     }
+    ]
+   },
+   {
+    "entryNo": 5369,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2026-06-04",
+    "surveys": [
+     {
+      "survey": "897/2",
+      "khata": "569"
+     },
+     {
+      "survey": "898/1",
+      "khata": "569"
+     }
+    ]
+   },
+   {
+    "entryNo": 5368,
+    "typeGu": "હક કમી",
+    "date": "2026-06-04",
+    "surveys": [
+     {
+      "survey": "775/2",
+      "khata": "807"
+     }
+    ]
+   },
+   {
+    "entryNo": 5367,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-06-03",
+    "surveys": [
+     {
+      "survey": "311",
+      "khata": "1360"
+     },
+     {
+      "survey": "883/1",
+      "khata": "1360"
+     },
+     {
+      "survey": "972/2",
+      "khata": "1360"
+     }
+    ]
+   },
+   {
+    "entryNo": 5366,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-06-03",
+    "surveys": [
+     {
+      "survey": "311",
+      "khata": "1360"
+     },
+     {
+      "survey": "883/1",
+      "khata": "1360"
+     },
+     {
+      "survey": "972/2",
+      "khata": "1360"
+     }
+    ]
+   },
+   {
+    "entryNo": 5365,
+    "typeGu": "હુકમથી",
+    "date": "2026-05-30",
+    "surveys": [
+     {
+      "survey": "24",
+      "khata": "144"
+     },
+     {
+      "survey": "24",
+      "khata": "266"
+     }
+    ]
+   },
+   {
+    "entryNo": 5364,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-05-29",
+    "surveys": [
+     {
+      "survey": "639.",
+      "khata": "1301"
+     },
+     {
+      "survey": "640.",
+      "khata": "1301"
+     }
+    ]
+   },
+   {
+    "entryNo": 5363,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-05-25",
+    "surveys": [
+     {
+      "survey": "775/2",
+      "khata": "807"
+     }
+    ]
+   },
+   {
+    "entryNo": 5362,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-05-18",
+    "surveys": [
+     {
+      "survey": "780",
+      "khata": "1069"
+     }
+    ]
+   },
+   {
+    "entryNo": 5361,
+    "typeGu": "વેચાણ",
+    "date": "2026-05-18",
+    "surveys": [
+     {
+      "survey": "316/1",
+      "khata": "1197"
+     }
+    ]
+   },
+   {
+    "entryNo": 5360,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-05-16",
+    "surveys": [
+     {
+      "survey": "120",
+      "khata": "487"
+     },
+     {
+      "survey": "130",
+      "khata": "487"
+     }
+    ]
+   },
+   {
+    "entryNo": 5359,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-05-13",
+    "surveys": [
+     {
+      "survey": "834",
+      "khata": "216"
+     }
+    ]
+   },
+   {
+    "entryNo": 5358,
+    "typeGu": "વેચાણ",
+    "date": "2026-05-12",
+    "surveys": [
+     {
+      "survey": "575",
+      "khata": "1105"
+     }
+    ]
+   },
+   {
+    "entryNo": 5357,
+    "typeGu": "વેચાણ",
+    "date": "2026-05-11",
+    "surveys": [
+     {
+      "survey": "169(1079)170",
+      "khata": "1079"
+     }
+    ]
+   },
+   {
+    "entryNo": 5356,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-05-04",
+    "surveys": [
+     {
+      "survey": "630/p1",
+      "khata": "1331"
+     }
+    ]
+   },
+   {
+    "entryNo": 5355,
+    "typeGu": "વેચાણ",
+    "date": "2026-05-02",
+    "surveys": [
+     {
+      "survey": "729/2",
+      "khata": "113"
+     }
+    ]
+   },
+   {
+    "entryNo": 5354,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-05-01",
+    "surveys": [
+     {
+      "survey": "316/1",
+      "khata": "1197"
+     }
+    ]
+   },
+   {
+    "entryNo": 5353,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-04-29",
+    "surveys": [
+     {
+      "survey": "728/1",
+      "khata": "113"
+     },
+     {
+      "survey": "729/2",
+      "khata": "113"
+     }
+    ]
+   },
+   {
+    "entryNo": 5352,
+    "typeGu": "વારસાઇ",
+    "date": "2026-04-21",
+    "surveys": [
+     {
+      "survey": "380/1",
+      "khata": "3"
+     },
+     {
+      "survey": "798/2",
+      "khata": "3"
+     },
+     {
+      "survey": "896",
+      "khata": "3"
+     }
+    ]
+   },
+   {
+    "entryNo": 5351,
+    "typeGu": "હુકમથી",
+    "date": "2026-04-21",
+    "surveys": [
+     {
+      "survey": "996/3",
+      "khata": "751"
+     }
+    ]
+   },
+   {
+    "entryNo": 5350,
+    "typeGu": "હુકમથી",
+    "date": "2026-04-21",
+    "surveys": [
+     {
+      "survey": "996/1",
+      "khata": "751"
+     }
+    ]
+   },
+   {
+    "entryNo": 5349,
+    "typeGu": "બીન ખેતી",
+    "date": "2026-04-21",
+    "surveys": [
+     {
+      "survey": "996/3",
+      "khata": "751"
+     }
+    ]
+   },
+   {
+    "entryNo": 5348,
+    "typeGu": "બીન ખેતી",
+    "date": "2026-04-21",
+    "surveys": [
+     {
+      "survey": "996/1",
+      "khata": "751"
+     }
+    ]
+   },
+   {
+    "entryNo": 5347,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2026-04-20",
+    "surveys": [
+     {
+      "survey": "462/2/p4",
+      "khata": "511"
+     }
+    ]
+   },
+   {
+    "entryNo": 5346,
+    "typeGu": "હક કમી",
+    "date": "2026-04-20",
+    "surveys": [
+     {
+      "survey": "320/p4",
+      "khata": "1094"
+     },
+     {
+      "survey": "452/p4",
+      "khata": "1094"
+     }
+    ]
+   },
+   {
+    "entryNo": 5345,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-04-18",
+    "surveys": [
+     {
+      "survey": "54",
+      "khata": "420"
+     },
+     {
+      "survey": "79",
+      "khata": "629"
+     },
+     {
+      "survey": "88",
+      "khata": "629"
+     },
+     {
+      "survey": "89",
+      "khata": "629"
+     }
+    ]
+   },
+   {
+    "entryNo": 5344,
+    "typeGu": "વારસાઇ",
+    "date": "2026-04-18",
+    "surveys": [
+     {
+      "survey": "389/p1",
+      "khata": "415"
+     },
+     {
+      "survey": "438/1",
+      "khata": "415"
+     },
+     {
+      "survey": "713/p1",
+      "khata": "415"
+     }
+    ]
+   },
+   {
+    "entryNo": 5343,
+    "typeGu": "વારસાઇ",
+    "date": "2026-04-16",
+    "surveys": [
+     {
+      "survey": "563/2",
+      "khata": "387"
+     }
+    ]
+   },
+   {
+    "entryNo": 5342,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-04-14",
+    "surveys": [
+     {
+      "survey": "695/p1",
+      "khata": "1214"
+     }
+    ]
+   },
+   {
+    "entryNo": 5341,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-04-14",
+    "surveys": [
+     {
+      "survey": "584",
+      "khata": "142"
+     },
+     {
+      "survey": "716/1",
+      "khata": "142"
+     },
+     {
+      "survey": "717/1",
+      "khata": "142"
+     },
+     {
+      "survey": "1003/pp",
+      "khata": "142"
+     },
+     {
+      "survey": "1056/p1",
+      "khata": "142"
+     }
+    ]
+   },
+   {
+    "entryNo": 5340,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-04-13",
+    "surveys": [
+     {
+      "survey": "60/p1",
+      "khata": "516"
+     },
+     {
+      "survey": "549/p1",
+      "khata": "516"
+     },
+     {
+      "survey": "864/p2",
+      "khata": "516"
+     },
+     {
+      "survey": "974/p2",
+      "khata": "516"
+     }
+    ]
+   },
+   {
+    "entryNo": 5339,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-04-09",
+    "surveys": [
+     {
+      "survey": "820",
+      "khata": "341"
+     }
+    ]
+   },
+   {
+    "entryNo": 5338,
+    "typeGu": "વેચાણ",
+    "date": "2026-04-08",
+    "surveys": [
+     {
+      "survey": "149/p1",
+      "khata": "312"
+     }
+    ]
+   },
+   {
+    "entryNo": 5337,
+    "typeGu": "વારસાઇ",
+    "date": "2026-04-07",
+    "surveys": [
+     {
+      "survey": "564/3",
+      "khata": "200"
+     },
+     {
+      "survey": "578/1",
+      "khata": "200"
+     },
+     {
+      "survey": "578/2",
+      "khata": "200"
+     },
+     {
+      "survey": "579/2",
+      "khata": "200"
+     }
+    ]
+   },
+   {
+    "entryNo": 5336,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-04-07",
+    "surveys": [
+     {
+      "survey": "897/1",
+      "khata": "569"
+     },
+     {
+      "survey": "897/2",
+      "khata": "569"
+     },
+     {
+      "survey": "898/1",
+      "khata": "569"
+     },
+     {
+      "survey": "898/2",
+      "khata": "569"
+     }
+    ]
+   },
+   {
+    "entryNo": 5335,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-04-07",
+    "surveys": [
+     {
+      "survey": "894",
+      "khata": "313"
+     }
+    ]
+   },
+   {
+    "entryNo": 5334,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-04-06",
+    "surveys": [
+     {
+      "survey": "572",
+      "khata": "1225"
+     }
+    ]
+   },
+   {
+    "entryNo": 5333,
+    "typeGu": "વારસાઇ",
+    "date": "2026-03-31",
+    "surveys": [
+     {
+      "survey": "729/1",
+      "khata": "573"
+     }
+    ]
+   },
+   {
+    "entryNo": 5332,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-03-30",
+    "surveys": [
+     {
+      "survey": "513/p2",
+      "khata": "1021"
+     }
+    ]
+   },
+   {
+    "entryNo": 5331,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-03-30",
+    "surveys": [
+     {
+      "survey": "222/p1",
+      "khata": "1148"
+     },
+     {
+      "survey": "222/p2",
+      "khata": "1148"
+     },
+     {
+      "survey": "224",
+      "khata": "1148"
+     }
+    ]
+   },
+   {
+    "entryNo": 5330,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-03-25",
+    "surveys": [
+     {
+      "survey": "675/p1",
+      "khata": "1253"
+     }
+    ]
+   },
+   {
+    "entryNo": 5329,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-03-25",
+    "surveys": [
+     {
+      "survey": "101/1",
+      "khata": "1448"
+     },
+     {
+      "survey": "106",
+      "khata": "1448"
+     }
+    ]
+   },
+   {
+    "entryNo": 5328,
+    "typeGu": "વેચાણ",
+    "date": "2026-03-23",
+    "surveys": [
+     {
+      "survey": "456/1",
+      "khata": "147"
+     }
+    ]
+   },
+   {
+    "entryNo": 5327,
+    "typeGu": "હુકમથી",
+    "date": "2026-03-23",
+    "surveys": [
+     {
+      "survey": "421/p1",
+      "khata": "1173"
+     }
+    ]
+   },
+   {
+    "entryNo": 5326,
+    "typeGu": "વેચાણ",
+    "date": "2026-03-16",
+    "surveys": [
+     {
+      "survey": "951",
+      "khata": "213"
+     }
+    ]
+   },
+   {
+    "entryNo": 5325,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-03-16",
+    "surveys": [
+     {
+      "survey": "513/p2",
+      "khata": "1021"
+     }
+    ]
+   },
+   {
+    "entryNo": 5324,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-03-16",
+    "surveys": [
+     {
+      "survey": "513/p2",
+      "khata": "1021"
+     }
+    ]
+   },
+   {
+    "entryNo": 5323,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-03-13",
+    "surveys": [
+     {
+      "survey": "372/2",
+      "khata": "213"
+     },
+     {
+      "survey": "951",
+      "khata": "213"
+     }
+    ]
+   },
+   {
+    "entryNo": 5322,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-03-12",
+    "surveys": [
+     {
+      "survey": "513/p2",
+      "khata": "1021"
+     }
+    ]
+   },
+   {
+    "entryNo": 5321,
+    "typeGu": "વેચાણ",
+    "date": "2026-03-12",
+    "surveys": [
+     {
+      "survey": "348/2",
+      "khata": "354"
+     }
+    ]
+   },
+   {
+    "entryNo": 5320,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2026-03-11",
+    "surveys": [
+     {
+      "survey": "1003/p6/1/p1",
+      "khata": "1316"
+     },
+     {
+      "survey": "1003/p6/1/p2",
+      "khata": "1316"
+     }
+    ]
+   },
+   {
+    "entryNo": 5319,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-03-11",
+    "surveys": [
+     {
+      "survey": "325/2",
+      "khata": "147"
+     },
+     {
+      "survey": "456/1",
+      "khata": "147"
+     }
+    ]
+   },
+   {
+    "entryNo": 5318,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-03-05",
+    "surveys": [
+     {
+      "survey": "740/1",
+      "khata": "161"
+     }
+    ]
+   },
+   {
+    "entryNo": 5317,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-03-05",
+    "surveys": [
+     {
+      "survey": "976/1/p2",
+      "khata": "556"
+     }
+    ]
+   },
+   {
+    "entryNo": 5316,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-03-05",
+    "surveys": [
+     {
+      "survey": "231",
+      "khata": "160"
+     }
+    ]
+   },
+   {
+    "entryNo": 5315,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-03-02",
+    "surveys": [
+     {
+      "survey": "198/p1",
+      "khata": "1327"
+     }
+    ]
+   },
+   {
+    "entryNo": 5314,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-02-27",
+    "surveys": [
+     {
+      "survey": "88",
+      "khata": "629"
+     },
+     {
+      "survey": "89",
+      "khata": "629"
+     }
+    ]
+   },
+   {
+    "entryNo": 5313,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-02-24",
+    "surveys": [
+     {
+      "survey": "81/1",
+      "khata": "1326"
+     }
+    ]
+   },
+   {
+    "entryNo": 5312,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2026-02-24",
+    "surveys": [
+     {
+      "survey": "567",
+      "khata": "316"
+     },
+     {
+      "survey": "832",
+      "khata": "316"
+     }
+    ]
+   },
+   {
+    "entryNo": 5311,
+    "typeGu": "વેચાણ",
+    "date": "2026-02-23",
+    "surveys": [
+     {
+      "survey": "610/2",
+      "khata": "678"
+     }
+    ]
+   },
+   {
+    "entryNo": 5310,
+    "typeGu": "હુકમથી",
+    "date": "2026-02-12",
+    "surveys": [
+     {
+      "survey": "1003",
+      "khata": "266"
+     }
+    ]
+   },
+   {
+    "entryNo": 5309,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-02-11",
+    "surveys": [
+     {
+      "survey": "465/p1",
+      "khata": "1464"
+     },
+     {
+      "survey": "470/p1",
+      "khata": "1464"
+     }
+    ]
+   },
+   {
+    "entryNo": 5308,
+    "typeGu": "વેચાણ",
+    "date": "2026-02-11",
+    "surveys": [
+     {
+      "survey": "408",
+      "khata": "1318"
+     }
+    ]
+   },
+   {
+    "entryNo": 5307,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-02-07",
+    "surveys": [
+     {
+      "survey": "996/1",
+      "khata": "751"
+     },
+     {
+      "survey": "996/3",
+      "khata": "751"
+     }
+    ]
+   },
+   {
+    "entryNo": 5306,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-02-06",
+    "surveys": [
+     {
+      "survey": "758",
+      "khata": "1456"
+     }
+    ]
+   },
+   {
+    "entryNo": 5305,
+    "typeGu": "વેચાણ",
+    "date": "2026-02-02",
+    "surveys": [
+     {
+      "survey": "583",
+      "khata": "1107"
+     }
+    ]
+   },
+   {
+    "entryNo": 5304,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-01-31",
+    "surveys": [
+     {
+      "survey": "316/1",
+      "khata": "1197"
+     },
+     {
+      "survey": "629",
+      "khata": "1197"
+     }
+    ]
+   },
+   {
+    "entryNo": 5303,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-01-31",
+    "surveys": [
+     {
+      "survey": "718/1",
+      "khata": "1135"
+     }
+    ]
+   },
+   {
+    "entryNo": 5302,
+    "typeGu": "હુકમથી",
+    "date": "2026-01-31",
+    "surveys": [
+     {
+      "survey": "299",
+      "khata": "275"
+     }
+    ]
+   },
+   {
+    "entryNo": 5301,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-01-30",
+    "surveys": [
+     {
+      "survey": "567",
+      "khata": "316"
+     },
+     {
+      "survey": "832",
+      "khata": "316"
+     }
+    ]
+   },
+   {
+    "entryNo": 5300,
+    "typeGu": "વેચાણ",
+    "date": "2026-01-30",
+    "surveys": [
+     {
+      "survey": "77",
+      "khata": "975"
+     }
+    ]
+   },
+   {
+    "entryNo": 5299,
+    "typeGu": "વેચાણ",
+    "date": "2026-01-28",
+    "surveys": [
+     {
+      "survey": "471/1",
+      "khata": "1383"
+     }
+    ]
+   },
+   {
+    "entryNo": 5298,
+    "typeGu": "વેચાણ",
+    "date": "2026-01-28",
+    "surveys": [
+     {
+      "survey": "473",
+      "khata": "1382"
+     }
+    ]
+   },
+   {
+    "entryNo": 5297,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-01-23",
+    "surveys": [
+     {
+      "survey": "423",
+      "khata": "822"
+     }
+    ]
+   },
+   {
+    "entryNo": 5296,
+    "typeGu": "વેચાણ",
+    "date": "2026-01-23",
+    "surveys": [
+     {
+      "survey": "476",
+      "khata": "79"
+     }
+    ]
+   },
+   {
+    "entryNo": 5295,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2026-01-22",
+    "surveys": [
+     {
+      "survey": "635",
+      "khata": "339"
+     }
+    ]
+   },
+   {
+    "entryNo": 5294,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-01-22",
+    "surveys": [
+     {
+      "survey": "768",
+      "khata": "880"
+     }
+    ]
+   },
+   {
+    "entryNo": 5293,
+    "typeGu": "વારસાઇ",
+    "date": "2026-01-20",
+    "surveys": [
+     {
+      "survey": "552",
+      "khata": "23"
+     }
+    ]
+   },
+   {
+    "entryNo": 5292,
+    "typeGu": "વેચાણ",
+    "date": "2026-01-19",
+    "surveys": [
+     {
+      "survey": "1003/p17",
+      "khata": "1299"
+     }
+    ]
+   },
+   {
+    "entryNo": 5291,
+    "typeGu": "હુકમથી",
+    "date": "2026-01-19",
+    "surveys": [
+     {
+      "survey": "430/p3",
+      "khata": "597"
+     }
+    ]
+   },
+   {
+    "entryNo": 5290,
+    "typeGu": "બીન ખેતી",
+    "date": "2026-01-19",
+    "surveys": [
+     {
+      "survey": "430/p3",
+      "khata": "597"
+     }
+    ]
+   },
+   {
+    "entryNo": 5289,
+    "typeGu": "હુકમથી",
+    "date": "2026-01-16",
+    "surveys": [
+     {
+      "survey": "51",
+      "khata": "184"
+     }
+    ]
+   },
+   {
+    "entryNo": 5288,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-01-16",
+    "surveys": [
+     {
+      "survey": "82/p2",
+      "khata": "1474"
+     },
+     {
+      "survey": "789/p2",
+      "khata": "1474"
+     }
+    ]
+   },
+   {
+    "entryNo": 5287,
+    "typeGu": "વેચાણ",
+    "date": "2026-01-12",
+    "surveys": [
+     {
+      "survey": "409/1",
+      "khata": "1408"
+     }
+    ]
+   },
+   {
+    "entryNo": 5286,
+    "typeGu": "વેચાણ",
+    "date": "2026-01-12",
+    "surveys": [
+     {
+      "survey": "412/2",
+      "khata": "1408"
+     }
+    ]
+   },
+   {
+    "entryNo": 5285,
+    "typeGu": "વેચાણ",
+    "date": "2026-01-12",
+    "surveys": [
+     {
+      "survey": "409/2",
+      "khata": "135"
+     }
+    ]
+   },
+   {
+    "entryNo": 5284,
+    "typeGu": "હુકમથી",
+    "date": "2026-01-07",
+    "surveys": [
+     {
+      "survey": "1003/p1",
+      "khata": "897"
+     }
+    ]
+   },
+   {
+    "entryNo": 5283,
+    "typeGu": "હુકમથી",
+    "date": "2026-01-07",
+    "surveys": [
+     {
+      "survey": "1003/21",
+      "khata": "55"
+     }
+    ]
+   },
+   {
+    "entryNo": 5282,
+    "typeGu": "બોજો દાખલ",
+    "date": "2026-01-07",
+    "surveys": [
+     {
+      "survey": "861",
+      "khata": "1220"
+     }
+    ]
+   },
+   {
+    "entryNo": 5281,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2026-01-03",
+    "surveys": [
+     {
+      "survey": "671/p1/p1",
+      "khata": "1302"
+     },
+     {
+      "survey": "671/p2",
+      "khata": "1302"
+     }
+    ]
+   },
+   {
+    "entryNo": 5280,
+    "typeGu": "વારસાઇ",
+    "date": "2026-01-02",
+    "surveys": [
+     {
+      "survey": "894",
+      "khata": "313"
+     }
+    ]
+   },
+   {
+    "entryNo": 5279,
+    "typeGu": "વારસાઇ",
+    "date": "2026-01-02",
+    "surveys": [
+     {
+      "survey": "572",
+      "khata": "1225"
+     }
+    ]
+   },
+   {
+    "entryNo": 5278,
+    "typeGu": "વારસાઇ",
+    "date": "2026-01-02",
+    "surveys": [
+     {
+      "survey": "202",
+      "khata": "152"
+     }
+    ]
+   },
+   {
+    "entryNo": 5277,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2026-01-02",
+    "surveys": [
+     {
+      "survey": "775/2",
+      "khata": "807"
+     }
+    ]
+   },
+   {
+    "entryNo": 5276,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2025-12-31",
+    "surveys": [
+     {
+      "survey": "897/1",
+      "khata": "569"
+     },
+     {
+      "survey": "897/2",
+      "khata": "569"
+     },
+     {
+      "survey": "898/1",
+      "khata": "569"
+     },
+     {
+      "survey": "898/2",
+      "khata": "569"
+     }
+    ]
+   },
+   {
+    "entryNo": 5275,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-12-26",
+    "surveys": [
+     {
+      "survey": "625",
+      "khata": "579"
+     }
+    ]
+   },
+   {
+    "entryNo": 5274,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-12-24",
+    "surveys": [
+     {
+      "survey": "758/p1",
+      "khata": "1457"
+     }
+    ]
+   },
+   {
+    "entryNo": 5273,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2025-12-23",
+    "surveys": [
+     {
+      "survey": "824",
+      "khata": "937"
+     }
+    ]
+   },
+   {
+    "entryNo": 5272,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2025-12-23",
+    "surveys": [
+     {
+      "survey": "824",
+      "khata": "937"
+     }
+    ]
+   },
+   {
+    "entryNo": 5271,
+    "typeGu": "હુકમથી",
+    "date": "2025-12-22",
+    "surveys": [
+     {
+      "survey": "1003/p17",
+      "khata": "1299"
+     }
+    ]
+   },
+   {
+    "entryNo": 5270,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2025-12-22",
+    "surveys": [
+     {
+      "survey": "890/1",
+      "khata": "663"
+     }
+    ]
+   },
+   {
+    "entryNo": 5269,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2025-12-20",
+    "surveys": [
+     {
+      "survey": "1",
+      "khata": "64"
+     },
+     {
+      "survey": "433",
+      "khata": "710"
+     },
+     {
+      "survey": "434",
+      "khata": "443"
+     },
+     {
+      "survey": "435",
+      "khata": "443"
+     }
+    ]
+   },
+   {
+    "entryNo": 5268,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2025-12-20",
+    "surveys": [
+     {
+      "survey": "231",
+      "khata": "160"
+     },
+     {
+      "survey": "1003/p11",
+      "khata": "720"
+     }
+    ]
+   },
+   {
+    "entryNo": 5267,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2025-12-19",
+    "surveys": [
+     {
+      "survey": "270",
+      "khata": "1263"
+     }
+    ]
+   },
+   {
+    "entryNo": 5266,
+    "typeGu": "હક કમી",
+    "date": "2025-12-17",
+    "surveys": [
+     {
+      "survey": "816",
+      "khata": "565"
+     }
+    ]
+   },
+   {
+    "entryNo": 5265,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-12-09",
+    "surveys": [
+     {
+      "survey": "465",
+      "khata": "1463"
+     },
+     {
+      "survey": "470",
+      "khata": "1463"
+     }
+    ]
+   },
+   {
+    "entryNo": 5264,
+    "typeGu": "હુકમથી",
+    "date": "2025-12-08",
+    "surveys": [
+     {
+      "survey": "126/p2",
+      "khata": "906"
+     }
+    ]
+   },
+   {
+    "entryNo": 5263,
+    "typeGu": "વેચાણ",
+    "date": "2025-12-05",
+    "surveys": [
+     {
+      "survey": "299",
+      "khata": "275"
+     }
+    ]
+   },
+   {
+    "entryNo": 5262,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2025-12-05",
+    "surveys": [
+     {
+      "survey": "477/2",
+      "khata": "759"
+     }
+    ]
+   },
+   {
+    "entryNo": 5261,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-11-29",
+    "surveys": [
+     {
+      "survey": "244",
+      "khata": "22"
+     }
+    ]
+   },
+   {
+    "entryNo": 5260,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-11-28",
+    "surveys": [
+     {
+      "survey": "43/2",
+      "khata": "583"
+     },
+     {
+      "survey": "46",
+      "khata": "583"
+     },
+     {
+      "survey": "94/1",
+      "khata": "1312"
+     },
+     {
+      "survey": "923/2",
+      "khata": "1312"
+     },
+     {
+      "survey": "984/p1",
+      "khata": "584"
+     },
+     {
+      "survey": "992",
+      "khata": "584"
+     }
+    ]
+   },
+   {
+    "entryNo": 5259,
+    "typeGu": "હુકમથી",
+    "date": "2025-11-27",
+    "surveys": [
+     {
+      "survey": "421/1",
+      "khata": "1173"
+     }
+    ]
+   },
+   {
+    "entryNo": 5258,
+    "typeGu": "હુકમથી",
+    "date": "2025-11-20",
+    "surveys": [
+     {
+      "survey": "904",
+      "khata": "1461"
+     }
+    ]
+   },
+   {
+    "entryNo": 5257,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-11-17",
+    "surveys": [
+     {
+      "survey": "409/2",
+      "khata": "135"
+     }
+    ]
+   },
+   {
+    "entryNo": 5256,
+    "typeGu": "હક કમી",
+    "date": "2025-11-06",
+    "surveys": [
+     {
+      "survey": "51",
+      "khata": "184"
+     }
+    ]
+   },
+   {
+    "entryNo": 5255,
+    "typeGu": "હક કમી",
+    "date": "2025-11-06",
+    "surveys": [
+     {
+      "survey": "51",
+      "khata": "184"
+     }
+    ]
+   },
+   {
+    "entryNo": 5254,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-10-17",
+    "surveys": [
+     {
+      "survey": "826/1",
+      "khata": "1358"
+     }
+    ]
+   },
+   {
+    "entryNo": 5253,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-10-17",
+    "surveys": [
+     {
+      "survey": "826/1",
+      "khata": "1358"
+     }
+    ]
+   },
+   {
+    "entryNo": 5252,
+    "typeGu": "હુકમથી",
+    "date": "2025-10-17",
+    "surveys": [
+     {
+      "survey": "299",
+      "khata": "275"
+     }
+    ]
+   },
+   {
+    "entryNo": 5251,
+    "typeGu": "હુકમથી",
+    "date": "2025-10-17",
+    "surveys": [
+     {
+      "survey": "430/p3",
+      "khata": "597"
+     }
+    ]
+   },
+   {
+    "entryNo": 5250,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-10-15",
+    "surveys": [
+     {
+      "survey": "996/2",
+      "khata": "77"
+     }
+    ]
+   },
+   {
+    "entryNo": 5249,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-10-15",
+    "surveys": [
+     {
+      "survey": "294/p1",
+      "khata": "77"
+     }
+    ]
+   },
+   {
+    "entryNo": 5248,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-10-15",
+    "surveys": [
+     {
+      "survey": "31/2/p2",
+      "khata": "560"
+     },
+     {
+      "survey": "82/p2",
+      "khata": "560"
+     },
+     {
+      "survey": "731",
+      "khata": "560"
+     },
+     {
+      "survey": "789/p2",
+      "khata": "560"
+     }
+    ]
+   },
+   {
+    "entryNo": 5247,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-10-15",
+    "surveys": [
+     {
+      "survey": "367",
+      "khata": "519"
+     },
+     {
+      "survey": "442/p1",
+      "khata": "519"
+     },
+     {
+      "survey": "919",
+      "khata": "519"
+     }
+    ]
+   },
+   {
+    "entryNo": 5246,
+    "typeGu": "હક કમી",
+    "date": "2025-10-09",
+    "surveys": [
+     {
+      "survey": "67",
+      "khata": "1468"
+     },
+     {
+      "survey": "245/1",
+      "khata": "1468"
+     },
+     {
+      "survey": "298/p1",
+      "khata": "1468"
+     }
+    ]
+   },
+   {
+    "entryNo": 5245,
+    "typeGu": "વેચાણ",
+    "date": "2025-10-07",
+    "surveys": [
+     {
+      "survey": "360",
+      "khata": "423"
+     }
+    ]
+   },
+   {
+    "entryNo": 5244,
+    "typeGu": "વેચાણ",
+    "date": "2025-09-23",
+    "surveys": [
+     {
+      "survey": "533",
+      "khata": "407"
+     }
+    ]
+   },
+   {
+    "entryNo": 5243,
+    "typeGu": "વેચાણ",
+    "date": "2025-09-23",
+    "surveys": [
+     {
+      "survey": "533",
+      "khata": "407"
+     }
+    ]
+   },
+   {
+    "entryNo": 5242,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-09-22",
+    "surveys": [
+     {
+      "survey": "480/1",
+      "khata": "553"
+     },
+     {
+      "survey": "621",
+      "khata": "553"
+     }
+    ]
+   },
+   {
+    "entryNo": 5241,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-09-22",
+    "surveys": [
+     {
+      "survey": "203/p1",
+      "khata": "1393"
+     },
+     {
+      "survey": "503/2",
+      "khata": "1393"
+     },
+     {
+      "survey": "776/1/p1",
+      "khata": "1393"
+     },
+     {
+      "survey": "935/p1",
+      "khata": "1393"
+     }
+    ]
+   },
+   {
+    "entryNo": 5240,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-09-22",
+    "surveys": [
+     {
+      "survey": "717/2/p1",
+      "khata": "1219"
+     }
+    ]
+   },
+   {
+    "entryNo": 5239,
+    "typeGu": "વારસાઇ",
+    "date": "2025-09-18",
+    "surveys": [
+     {
+      "survey": "77",
+      "khata": "975"
+     }
+    ]
+   },
+   {
+    "entryNo": 5238,
+    "typeGu": "હુકમથી",
+    "date": "2025-09-16",
+    "surveys": [
+     {
+      "survey": "139",
+      "khata": "636"
+     }
+    ]
+   },
+   {
+    "entryNo": 5237,
+    "typeGu": "હુકમથી",
+    "date": "2025-09-13",
+    "surveys": [
+     {
+      "survey": "1007/8",
+      "khata": "1123"
+     }
+    ]
+   },
+   {
+    "entryNo": 5236,
+    "typeGu": "બીન ખેતી",
+    "date": "2025-09-13",
+    "surveys": [
+     {
+      "survey": "1007/8",
+      "khata": "1123"
+     }
+    ]
+   },
+   {
+    "entryNo": 5235,
+    "typeGu": "હક કમી",
+    "date": "2025-09-11",
+    "surveys": [
+     {
+      "survey": "282",
+      "khata": "824"
+     },
+     {
+      "survey": "283",
+      "khata": "824"
+     },
+     {
+      "survey": "285",
+      "khata": "824"
+     },
+     {
+      "survey": "287/2",
+      "khata": "824"
+     },
+     {
+      "survey": "305",
+      "khata": "824"
+     }
+    ]
+   },
+   {
+    "entryNo": 5234,
+    "typeGu": "વેચાણ",
+    "date": "2025-09-06",
+    "surveys": [
+     {
+      "survey": "361/p1(974)361/p2",
+      "khata": "974"
+     }
+    ]
+   },
+   {
+    "entryNo": 5233,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-08-30",
+    "surveys": [
+     {
+      "survey": "368",
+      "khata": "405"
+     },
+     {
+      "survey": "398",
+      "khata": "405"
+     },
+     {
+      "survey": "503/1/p1",
+      "khata": "405"
+     },
+     {
+      "survey": "711/2",
+      "khata": "405"
+     }
+    ]
+   },
+   {
+    "entryNo": 5232,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-08-28",
+    "surveys": [
+     {
+      "survey": "504/2",
+      "khata": "422"
+     }
+    ]
+   },
+   {
+    "entryNo": 5231,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-08-28",
+    "surveys": [
+     {
+      "survey": "549/p2/p1",
+      "khata": "1452"
+     }
+    ]
+   },
+   {
+    "entryNo": 5230,
+    "typeGu": "હુકમથી",
+    "date": "2025-08-18",
+    "surveys": [
+     {
+      "survey": "480/1",
+      "khata": "553"
+     },
+     {
+      "survey": "621",
+      "khata": "553"
+     }
+    ]
+   },
+   {
+    "entryNo": 5229,
+    "typeGu": "વેચાણ",
+    "date": "2025-08-05",
+    "surveys": [
+     {
+      "survey": "634",
+      "khata": "999"
+     }
+    ]
+   },
+   {
+    "entryNo": 5228,
+    "typeGu": "વેચાણ",
+    "date": "2025-08-04",
+    "surveys": [
+     {
+      "survey": "477/2",
+      "khata": "71"
+     }
+    ]
+   },
+   {
+    "entryNo": 5227,
+    "typeGu": "હુકમથી",
+    "date": "2025-08-04",
+    "surveys": [
+     {
+      "survey": "459/1",
+      "khata": "141"
+     }
+    ]
+   },
+   {
+    "entryNo": 5226,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-07-30",
+    "surveys": [
+     {
+      "survey": "67",
+      "khata": "178"
+     },
+     {
+      "survey": "245/1",
+      "khata": "178"
+     },
+     {
+      "survey": "294/p2",
+      "khata": "178"
+     },
+     {
+      "survey": "298/p1",
+      "khata": "178"
+     }
+    ]
+   },
+   {
+    "entryNo": 5225,
+    "typeGu": "વારસાઇ",
+    "date": "2025-07-30",
+    "surveys": [
+     {
+      "survey": "294/p1",
+      "khata": "77"
+     },
+     {
+      "survey": "996/2",
+      "khata": "77"
+     }
+    ]
+   },
+   {
+    "entryNo": 5224,
+    "typeGu": "હક કમી",
+    "date": "2025-07-29",
+    "surveys": [
+     {
+      "survey": "31/2/p2",
+      "khata": "560"
+     },
+     {
+      "survey": "82/p2",
+      "khata": "560"
+     },
+     {
+      "survey": "731",
+      "khata": "560"
+     },
+     {
+      "survey": "789/p2",
+      "khata": "560"
+     }
+    ]
+   },
+   {
+    "entryNo": 5223,
+    "typeGu": "હુકમથી",
+    "date": "2025-07-25",
+    "surveys": [
+     {
+      "survey": "451/1",
+      "khata": "899"
+     }
+    ]
+   },
+   {
+    "entryNo": 5222,
+    "typeGu": "બીન ખેતી",
+    "date": "2025-07-25",
+    "surveys": [
+     {
+      "survey": "451/1",
+      "khata": "899"
+     }
+    ]
+   },
+   {
+    "entryNo": 5221,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-07-22",
+    "surveys": [
+     {
+      "survey": "613/1",
+      "khata": "1412"
+     },
+     {
+      "survey": "636/3",
+      "khata": "235"
+     }
+    ]
+   },
+   {
+    "entryNo": 5220,
+    "typeGu": "હક કમી",
+    "date": "2025-07-19",
+    "surveys": [
+     {
+      "survey": "677",
+      "khata": "505"
+     }
+    ]
+   },
+   {
+    "entryNo": 5219,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-07-19",
+    "surveys": [
+     {
+      "survey": "460",
+      "khata": "71"
+     },
+     {
+      "survey": "477/2",
+      "khata": "71"
+     }
+    ]
+   },
+   {
+    "entryNo": 5218,
+    "typeGu": "હુકમથી",
+    "date": "2025-07-18",
+    "surveys": [
+     {
+      "survey": "440",
+      "khata": "1428"
+     }
+    ]
+   },
+   {
+    "entryNo": 5217,
+    "typeGu": "હુકમથી",
+    "date": "2025-07-18",
+    "surveys": [
+     {
+      "survey": "439",
+      "khata": "56"
+     }
+    ]
+   },
+   {
+    "entryNo": 5216,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-07-18",
+    "surveys": [
+     {
+      "survey": "647",
+      "khata": "1447"
+     }
+    ]
+   },
+   {
+    "entryNo": 5215,
+    "typeGu": "હુકમથી",
+    "date": "2025-07-17",
+    "surveys": [
+     {
+      "survey": "1007/7",
+      "khata": "1123"
+     }
+    ]
+   },
+   {
+    "entryNo": 5214,
+    "typeGu": "બીન ખેતી",
+    "date": "2025-07-17",
+    "surveys": [
+     {
+      "survey": "1007/7",
+      "khata": "1123"
+     }
+    ]
+   },
+   {
+    "entryNo": 5213,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-07-14",
+    "surveys": [
+     {
+      "survey": "634",
+      "khata": "999"
+     }
+    ]
+   },
+   {
+    "entryNo": 5212,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2025-07-07",
+    "surveys": [
+     {
+      "survey": "703/1/p1",
+      "khata": "1216"
+     }
+    ]
+   },
+   {
+    "entryNo": 5211,
+    "typeGu": "હુકમથી",
+    "date": "2025-07-05",
+    "surveys": [
+     {
+      "survey": "360",
+      "khata": "423"
+     }
+    ]
+   },
+   {
+    "entryNo": 5210,
+    "typeGu": "હુકમથી",
+    "date": "2025-07-05",
+    "surveys": [
+     {
+      "survey": "376",
+      "khata": "1145"
+     }
+    ]
+   },
+   {
+    "entryNo": 5209,
+    "typeGu": "હુકમથી",
+    "date": "2025-07-05",
+    "surveys": [
+     {
+      "survey": "933/p1/p1",
+      "khata": "1387"
+     }
+    ]
+   },
+   {
+    "entryNo": 5208,
+    "typeGu": "વેચાણ",
+    "date": "2025-07-03",
+    "surveys": [
+     {
+      "survey": "551/1/p4",
+      "khata": "1147"
+     }
+    ]
+   },
+   {
+    "entryNo": 5207,
+    "typeGu": "હક કમી",
+    "date": "2025-07-03",
+    "surveys": [
+     {
+      "survey": "367",
+      "khata": "519"
+     },
+     {
+      "survey": "442/p1",
+      "khata": "519"
+     },
+     {
+      "survey": "919",
+      "khata": "519"
+     }
+    ]
+   },
+   {
+    "entryNo": 5206,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-07-02",
+    "surveys": [
+     {
+      "survey": "779/002",
+      "khata": "1421"
+     }
+    ]
+   },
+   {
+    "entryNo": 5205,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-07-02",
+    "surveys": [
+     {
+      "survey": "993/2",
+      "khata": "550"
+     }
+    ]
+   },
+   {
+    "entryNo": 5204,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-27",
+    "surveys": [
+     {
+      "survey": "531/1",
+      "khata": "402"
+     }
+    ]
+   },
+   {
+    "entryNo": 5203,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-27",
+    "surveys": [
+     {
+      "survey": "458/p1",
+      "khata": "1044"
+     },
+     {
+      "survey": "520/1",
+      "khata": "1044"
+     }
+    ]
+   },
+   {
+    "entryNo": 5202,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-27",
+    "surveys": [
+     {
+      "survey": "662/p2/p2",
+      "khata": "956"
+     }
+    ]
+   },
+   {
+    "entryNo": 5201,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-27",
+    "surveys": [
+     {
+      "survey": "225",
+      "khata": "433"
+     }
+    ]
+   },
+   {
+    "entryNo": 5200,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-26",
+    "surveys": [
+     {
+      "survey": "944/2",
+      "khata": "470"
+     }
+    ]
+   },
+   {
+    "entryNo": 5199,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-26",
+    "surveys": [
+     {
+      "survey": "834",
+      "khata": "216"
+     }
+    ]
+   },
+   {
+    "entryNo": 5198,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-26",
+    "surveys": [
+     {
+      "survey": "22",
+      "khata": "1418"
+     }
+    ]
+   },
+   {
+    "entryNo": 5197,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-06-26",
+    "surveys": [
+     {
+      "survey": "367",
+      "khata": "519"
+     },
+     {
+      "survey": "919",
+      "khata": "519"
+     }
+    ]
+   },
+   {
+    "entryNo": 5196,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-26",
+    "surveys": [
+     {
+      "survey": "550",
+      "khata": "600"
+     }
+    ]
+   },
+   {
+    "entryNo": 5195,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-26",
+    "surveys": [
+     {
+      "survey": "47",
+      "khata": "1222"
+     }
+    ]
+   },
+   {
+    "entryNo": 5194,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-26",
+    "surveys": [
+     {
+      "survey": "980/1",
+      "khata": "502"
+     },
+     {
+      "survey": "981/2",
+      "khata": "502"
+     }
+    ]
+   },
+   {
+    "entryNo": 5193,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-26",
+    "surveys": [
+     {
+      "survey": "34",
+      "khata": "1102"
+     }
+    ]
+   },
+   {
+    "entryNo": 5192,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-25",
+    "surveys": [
+     {
+      "survey": "27/1",
+      "khata": "1419"
+     },
+     {
+      "survey": "874/2",
+      "khata": "1419"
+     }
+    ]
+   },
+   {
+    "entryNo": 5191,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-25",
+    "surveys": [
+     {
+      "survey": "689/1",
+      "khata": "909"
+     }
+    ]
+   },
+   {
+    "entryNo": 5190,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-25",
+    "surveys": [
+     {
+      "survey": "662/p3/p1",
+      "khata": "1410"
+     }
+    ]
+   },
+   {
+    "entryNo": 5189,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-25",
+    "surveys": [
+     {
+      "survey": "675/p1",
+      "khata": "1253"
+     }
+    ]
+   },
+   {
+    "entryNo": 5188,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-25",
+    "surveys": [
+     {
+      "survey": "90",
+      "khata": "36"
+     }
+    ]
+   },
+   {
+    "entryNo": 5187,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-21",
+    "surveys": [
+     {
+      "survey": "293",
+      "khata": "238"
+     }
+    ]
+   },
+   {
+    "entryNo": 5186,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-06-21",
+    "surveys": [
+     {
+      "survey": "465",
+      "khata": "1040"
+     },
+     {
+      "survey": "470",
+      "khata": "1040"
+     }
+    ]
+   },
+   {
+    "entryNo": 5185,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-16",
+    "surveys": [
+     {
+      "survey": "545",
+      "khata": "679"
+     },
+     {
+      "survey": "730",
+      "khata": "679"
+     }
+    ]
+   },
+   {
+    "entryNo": 5184,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-06-13",
+    "surveys": [
+     {
+      "survey": "31/2/p2",
+      "khata": "560"
+     },
+     {
+      "survey": "82/p2",
+      "khata": "560"
+     },
+     {
+      "survey": "731",
+      "khata": "560"
+     },
+     {
+      "survey": "789/p2",
+      "khata": "560"
+     }
+    ]
+   },
+   {
+    "entryNo": 5183,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-06-13",
+    "surveys": [
+     {
+      "survey": "92",
+      "khata": "1080"
+     },
+     {
+      "survey": "331/1",
+      "khata": "1262"
+     },
+     {
+      "survey": "884/p1",
+      "khata": "1081"
+     },
+     {
+      "survey": "884/p2",
+      "khata": "1082"
+     }
+    ]
+   },
+   {
+    "entryNo": 5182,
+    "typeGu": "હુકમથી",
+    "date": "2025-06-13",
+    "surveys": [
+     {
+      "survey": "430/p2",
+      "khata": "1181"
+     }
+    ]
+   },
+   {
+    "entryNo": 5181,
+    "typeGu": "હુકમથી",
+    "date": "2025-06-13",
+    "surveys": [
+     {
+      "survey": "430/p1",
+      "khata": "53"
+     }
+    ]
+   },
+   {
+    "entryNo": 5180,
+    "typeGu": "હુકમથી",
+    "date": "2025-06-13",
+    "surveys": [
+     {
+      "survey": "430/p4",
+      "khata": "404"
+     }
+    ]
+   },
+   {
+    "entryNo": 5179,
+    "typeGu": "બીન ખેતી",
+    "date": "2025-06-13",
+    "surveys": [
+     {
+      "survey": "430/p2",
+      "khata": "1181"
+     }
+    ]
+   },
+   {
+    "entryNo": 5178,
+    "typeGu": "બીન ખેતી",
+    "date": "2025-06-13",
+    "surveys": [
+     {
+      "survey": "430/p4",
+      "khata": "404"
+     }
+    ]
+   },
+   {
+    "entryNo": 5177,
+    "typeGu": "બીન ખેતી",
+    "date": "2025-06-13",
+    "surveys": [
+     {
+      "survey": "430/p1",
+      "khata": "53"
+     }
+    ]
+   },
+   {
+    "entryNo": 5176,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-12",
+    "surveys": [
+     {
+      "survey": "355/p1",
+      "khata": "1064"
+     }
+    ]
+   },
+   {
+    "entryNo": 5175,
+    "typeGu": "હુકમથી",
+    "date": "2025-06-12",
+    "surveys": [
+     {
+      "survey": "1003/p48",
+      "khata": "304"
+     }
+    ]
+   },
+   {
+    "entryNo": 5174,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-06-11",
+    "surveys": [
+     {
+      "survey": "306",
+      "khata": "1025"
+     },
+     {
+      "survey": "307",
+      "khata": "129"
+     },
+     {
+      "survey": "735",
+      "khata": "129"
+     },
+     {
+      "survey": "808/p1",
+      "khata": "129"
+     }
+    ]
+   },
+   {
+    "entryNo": 5173,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-06-09",
+    "surveys": [
+     {
+      "survey": "428",
+      "khata": "252"
+     }
+    ]
+   },
+   {
+    "entryNo": 5172,
+    "typeGu": "હુકમથી",
+    "date": "2025-06-05",
+    "surveys": [
+     {
+      "survey": "1003/p36",
+      "khata": "102"
+     }
+    ]
+   },
+   {
+    "entryNo": 5171,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-06-05",
+    "surveys": [
+     {
+      "survey": "281",
+      "khata": "1353"
+     }
+    ]
+   },
+   {
+    "entryNo": 5170,
+    "typeGu": "હુકમથી",
+    "date": "2025-06-03",
+    "surveys": [
+     {
+      "survey": "933/p1/p1",
+      "khata": "1387"
+     }
+    ]
+   },
+   {
+    "entryNo": 5169,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-05-31",
+    "surveys": [
+     {
+      "survey": "239/p3",
+      "khata": "643"
+     }
+    ]
+   },
+   {
+    "entryNo": 5168,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-05-30",
+    "surveys": [
+     {
+      "survey": "379",
+      "khata": "479"
+     }
+    ]
+   },
+   {
+    "entryNo": 5167,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-05-29",
+    "surveys": [
+     {
+      "survey": "961/2",
+      "khata": "484"
+     }
+    ]
+   },
+   {
+    "entryNo": 5166,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-05-29",
+    "surveys": [
+     {
+      "survey": "647",
+      "khata": "1447"
+     }
+    ]
+   },
+   {
+    "entryNo": 5165,
+    "typeGu": "વારસાઇ",
+    "date": "2025-05-28",
+    "surveys": [
+     {
+      "survey": "987/1",
+      "khata": "338"
+     },
+     {
+      "survey": "987/2",
+      "khata": "338"
+     }
+    ]
+   },
+   {
+    "entryNo": 5164,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-05-27",
+    "surveys": [
+     {
+      "survey": "62",
+      "khata": "249"
+     },
+     {
+      "survey": "334/1",
+      "khata": "249"
+     },
+     {
+      "survey": "334/2",
+      "khata": "249"
+     },
+     {
+      "survey": "886/1",
+      "khata": "1201"
+     },
+     {
+      "survey": "904",
+      "khata": "249"
+     }
+    ]
+   },
+   {
+    "entryNo": 5163,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-05-27",
+    "surveys": [
+     {
+      "survey": "355/p1",
+      "khata": "1064"
+     }
+    ]
+   },
+   {
+    "entryNo": 5162,
+    "typeGu": "વેચાણ",
+    "date": "2025-05-26",
+    "surveys": [
+     {
+      "survey": "566",
+      "khata": "142"
+     }
+    ]
+   },
+   {
+    "entryNo": 5161,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-05-21",
+    "surveys": [
+     {
+      "survey": "386",
+      "khata": "1212"
+     },
+     {
+      "survey": "393/1",
+      "khata": "1212"
+     },
+     {
+      "survey": "525/2",
+      "khata": "1060"
+     }
+    ]
+   },
+   {
+    "entryNo": 5160,
+    "typeGu": "વેચાણ",
+    "date": "2025-05-19",
+    "surveys": [
+     {
+      "survey": "209/p1",
+      "khata": "1165"
+     }
+    ]
+   },
+   {
+    "entryNo": 5159,
+    "typeGu": "વારસાઇ",
+    "date": "2025-05-16",
+    "surveys": [
+     {
+      "survey": "606/p2/p1",
+      "khata": "158"
+     }
+    ]
+   },
+   {
+    "entryNo": 5158,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-05-15",
+    "surveys": [
+     {
+      "survey": "225",
+      "khata": "433"
+     }
+    ]
+   },
+   {
+    "entryNo": 5157,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-05-15",
+    "surveys": [
+     {
+      "survey": "780/p1",
+      "khata": "1273"
+     }
+    ]
+   },
+   {
+    "entryNo": 5156,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-05-12",
+    "surveys": [
+     {
+      "survey": "780/p1",
+      "khata": "1273"
+     }
+    ]
+   },
+   {
+    "entryNo": 5155,
+    "typeGu": "હુકમથી",
+    "date": "2025-05-12",
+    "surveys": [
+     {
+      "survey": "430/p3",
+      "khata": "597"
+     }
+    ]
+   },
+   {
+    "entryNo": 5154,
+    "typeGu": "હક કમી",
+    "date": "2025-05-06",
+    "surveys": [
+     {
+      "survey": "575",
+      "khata": "1105"
+     }
+    ]
+   },
+   {
+    "entryNo": 5153,
+    "typeGu": "હુકમથી",
+    "date": "2025-05-06",
+    "surveys": [
+     {
+      "survey": "428",
+      "khata": "252"
+     }
+    ]
+   },
+   {
+    "entryNo": 5152,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-05-03",
+    "surveys": [
+     {
+      "survey": "205",
+      "khata": "483"
+     }
+    ]
+   },
+   {
+    "entryNo": 5151,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-05-02",
+    "surveys": [
+     {
+      "survey": "894",
+      "khata": "313"
+     }
+    ]
+   },
+   {
+    "entryNo": 5150,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-04-28",
+    "surveys": [
+     {
+      "survey": "968",
+      "khata": "93"
+     }
+    ]
+   },
+   {
+    "entryNo": 5149,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-04-25",
+    "surveys": [
+     {
+      "survey": "15",
+      "khata": "502"
+     },
+     {
+      "survey": "968",
+      "khata": "93"
+     }
+    ]
+   },
+   {
+    "entryNo": 5148,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-04-23",
+    "surveys": [
+     {
+      "survey": "758",
+      "khata": "1068"
+     }
+    ]
+   },
+   {
+    "entryNo": 5147,
+    "typeGu": "વેચાણ",
+    "date": "2025-04-21",
+    "surveys": [
+     {
+      "survey": "315(379)913/2",
+      "khata": "379"
+     }
+    ]
+   },
+   {
+    "entryNo": 5146,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-04-17",
+    "surveys": [
+     {
+      "survey": "15",
+      "khata": "502"
+     },
+     {
+      "survey": "980/1",
+      "khata": "502"
+     },
+     {
+      "survey": "981/2",
+      "khata": "502"
+     }
+    ]
+   },
+   {
+    "entryNo": 5145,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-04-09",
+    "surveys": [
+     {
+      "survey": "311",
+      "khata": "1360"
+     },
+     {
+      "survey": "883/1",
+      "khata": "1360"
+     },
+     {
+      "survey": "972/2",
+      "khata": "1360"
+     }
+    ]
+   },
+   {
+    "entryNo": 5144,
+    "typeGu": "વેચાણ",
+    "date": "2025-04-08",
+    "surveys": [
+     {
+      "survey": "744",
+      "khata": "666"
+     }
+    ]
+   },
+   {
+    "entryNo": 5143,
+    "typeGu": "હક કમી",
+    "date": "2025-04-07",
+    "surveys": [
+     {
+      "survey": "293",
+      "khata": "238"
+     }
+    ]
+   },
+   {
+    "entryNo": 5142,
+    "typeGu": "હુકમથી",
+    "date": "2025-04-05",
+    "surveys": [
+     {
+      "survey": "139",
+      "khata": "636"
+     }
+    ]
+   },
+   {
+    "entryNo": 5141,
+    "typeGu": "વેચાણ",
+    "date": "2025-04-02",
+    "surveys": [
+     {
+      "survey": "270",
+      "khata": "738"
+     }
+    ]
+   },
+   {
+    "entryNo": 5140,
+    "typeGu": "વેચાણ",
+    "date": "2025-03-29",
+    "surveys": [
+     {
+      "survey": "210",
+      "khata": "802"
+     }
+    ]
+   },
+   {
+    "entryNo": 5139,
+    "typeGu": "વેચાણ",
+    "date": "2025-03-29",
+    "surveys": [
+     {
+      "survey": "685",
+      "khata": "653"
+     }
+    ]
+   },
+   {
+    "entryNo": 5138,
+    "typeGu": "ગીરો મુક્તિ",
+    "date": "2025-03-29",
+    "surveys": [
+     {
+      "survey": "685",
+      "khata": "653"
+     }
+    ]
+   },
+   {
+    "entryNo": 5137,
+    "typeGu": "હુકમથી",
+    "date": "2025-03-28",
+    "surveys": [
+     {
+      "survey": "801",
+      "khata": "480"
+     },
+     {
+      "survey": "1003/p103",
+      "khata": "480"
+     }
+    ]
+   },
+   {
+    "entryNo": 5136,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-03-28",
+    "surveys": [
+     {
+      "survey": "38",
+      "khata": "515"
+     },
+     {
+      "survey": "60/p2",
+      "khata": "515"
+     },
+     {
+      "survey": "549/p2",
+      "khata": "515"
+     },
+     {
+      "survey": "864/p1",
+      "khata": "515"
+     },
+     {
+      "survey": "974/p1",
+      "khata": "515"
+     }
+    ]
+   },
+   {
+    "entryNo": 5135,
+    "typeGu": "વેચાણ",
+    "date": "2025-03-27",
+    "surveys": [
+     {
+      "survey": "582",
+      "khata": "203"
+     }
+    ]
+   },
+   {
+    "entryNo": 5134,
+    "typeGu": "વારસાઇ",
+    "date": "2025-03-24",
+    "surveys": [
+     {
+      "survey": "340/2",
+      "khata": "47"
+     },
+     {
+      "survey": "880",
+      "khata": "47"
+     },
+     {
+      "survey": "880/1",
+      "khata": "47"
+     }
+    ]
+   },
+   {
+    "entryNo": 5133,
+    "typeGu": "વારસાઇ",
+    "date": "2025-03-24",
+    "surveys": [
+     {
+      "survey": "1003/p7/p3",
+      "khata": "990"
+     }
+    ]
+   },
+   {
+    "entryNo": 5132,
+    "typeGu": "હુકમથી",
+    "date": "2025-03-21",
+    "surveys": [
+     {
+      "survey": "933/p1/p1",
+      "khata": "1387"
+     }
+    ]
+   },
+   {
+    "entryNo": 5131,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-03-20",
+    "surveys": [
+     {
+      "survey": "389",
+      "khata": "61"
+     },
+     {
+      "survey": "438/2",
+      "khata": "61"
+     },
+     {
+      "survey": "505/1",
+      "khata": "61"
+     },
+     {
+      "survey": "509/p1",
+      "khata": "61"
+     },
+     {
+      "survey": "654",
+      "khata": "61"
+     },
+     {
+      "survey": "662/pપ",
+      "khata": "61"
+     },
+     {
+      "survey": "694/2",
+      "khata": "61"
+     }
+    ]
+   },
+   {
+    "entryNo": 5130,
+    "typeGu": "હુકમથી",
+    "date": "2025-03-18",
+    "surveys": [
+     {
+      "survey": "779001",
+      "khata": "1420"
+     },
+     {
+      "survey": "779002",
+      "khata": "1421"
+     }
+    ]
+   },
+   {
+    "entryNo": 5129,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-03-12",
+    "surveys": [
+     {
+      "survey": "666",
+      "khata": "484"
+     },
+     {
+      "survey": "961/2",
+      "khata": "484"
+     }
+    ]
+   },
+   {
+    "entryNo": 5128,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-03-05",
+    "surveys": [
+     {
+      "survey": "779002",
+      "khata": "1421"
+     }
+    ]
+   },
+   {
+    "entryNo": 5127,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-03-05",
+    "surveys": [
+     {
+      "survey": "284",
+      "khata": "644"
+     },
+     {
+      "survey": "736",
+      "khata": "668"
+     },
+     {
+      "survey": "947",
+      "khata": "644"
+     }
+    ]
+   },
+   {
+    "entryNo": 5126,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-03-04",
+    "surveys": [
+     {
+      "survey": "239/p2",
+      "khata": "240"
+     }
+    ]
+   },
+   {
+    "entryNo": 5125,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-03-03",
+    "surveys": [
+     {
+      "survey": "284",
+      "khata": "644"
+     },
+     {
+      "survey": "947",
+      "khata": "644"
+     }
+    ]
+   },
+   {
+    "entryNo": 5124,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-03-03",
+    "surveys": [
+     {
+      "survey": "736",
+      "khata": "668"
+     }
+    ]
+   },
+   {
+    "entryNo": 5123,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-03-03",
+    "surveys": [
+     {
+      "survey": "631/1",
+      "khata": "1434"
+     }
+    ]
+   },
+   {
+    "entryNo": 5122,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-02-28",
+    "surveys": [
+     {
+      "survey": "646/2",
+      "khata": "273"
+     },
+     {
+      "survey": "759/2",
+      "khata": "273"
+     }
+    ]
+   },
+   {
+    "entryNo": 5121,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-02-25",
+    "surveys": [
+     {
+      "survey": "239/p2",
+      "khata": "240"
+     },
+     {
+      "survey": "882/2",
+      "khata": "860"
+     }
+    ]
+   },
+   {
+    "entryNo": 5120,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-02-25",
+    "surveys": [
+     {
+      "survey": "779001",
+      "khata": "1420"
+     }
+    ]
+   },
+   {
+    "entryNo": 5119,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-02-25",
+    "surveys": [
+     {
+      "survey": "882/2",
+      "khata": "860"
+     }
+    ]
+   },
+   {
+    "entryNo": 5118,
+    "typeGu": "હક કમી",
+    "date": "2025-02-24",
+    "surveys": [
+     {
+      "survey": "34",
+      "khata": "1102"
+     },
+     {
+      "survey": "939",
+      "khata": "1102"
+     }
+    ]
+   },
+   {
+    "entryNo": 5117,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-02-19",
+    "surveys": [
+     {
+      "survey": "60/p1",
+      "khata": "516"
+     },
+     {
+      "survey": "549/p1",
+      "khata": "516"
+     },
+     {
+      "survey": "864/p2",
+      "khata": "516"
+     },
+     {
+      "survey": "974/p2",
+      "khata": "516"
+     }
+    ]
+   },
+   {
+    "entryNo": 5116,
+    "typeGu": "વેચાણ",
+    "date": "2025-02-11",
+    "surveys": [
+     {
+      "survey": "101/1(813)106",
+      "khata": "813"
+     }
+    ]
+   },
+   {
+    "entryNo": 5115,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-02-10",
+    "surveys": [
+     {
+      "survey": "543",
+      "khata": "151"
+     }
+    ]
+   },
+   {
+    "entryNo": 5114,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2025-02-10",
+    "surveys": [
+     {
+      "survey": "34",
+      "khata": "1102"
+     },
+     {
+      "survey": "939",
+      "khata": "1102"
+     }
+    ]
+   },
+   {
+    "entryNo": 5113,
+    "typeGu": "હુકમથી",
+    "date": "2025-02-07",
+    "surveys": [
+     {
+      "survey": "139",
+      "khata": "636"
+     }
+    ]
+   },
+   {
+    "entryNo": 5112,
+    "typeGu": "વારસાઇ",
+    "date": "2025-02-06",
+    "surveys": [
+     {
+      "survey": "315",
+      "khata": "379"
+     },
+     {
+      "survey": "913/2",
+      "khata": "379"
+     }
+    ]
+   },
+   {
+    "entryNo": 5111,
+    "typeGu": "વેચાણ",
+    "date": "2025-02-06",
+    "surveys": [
+     {
+      "survey": "647",
+      "khata": "748"
+     }
+    ]
+   },
+   {
+    "entryNo": 5110,
+    "typeGu": "વારસાઇ",
+    "date": "2025-02-04",
+    "surveys": [
+     {
+      "survey": "607",
+      "khata": "90"
+     }
+    ]
+   },
+   {
+    "entryNo": 5109,
+    "typeGu": "વારસાઇ",
+    "date": "2025-02-04",
+    "surveys": [
+     {
+      "survey": "417",
+      "khata": "370"
+     }
+    ]
+   },
+   {
+    "entryNo": 5108,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-02-04",
+    "surveys": [
+     {
+      "survey": "492/1",
+      "khata": "680"
+     }
+    ]
+   },
+   {
+    "entryNo": 5107,
+    "typeGu": "હક કમી",
+    "date": "2025-02-04",
+    "surveys": [
+     {
+      "survey": "1003/p47",
+      "khata": "1319"
+     }
+    ]
+   },
+   {
+    "entryNo": 5106,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-02-04",
+    "surveys": [
+     {
+      "survey": "959",
+      "khata": "75"
+     }
+    ]
+   },
+   {
+    "entryNo": 5105,
+    "typeGu": "વેચાણ",
+    "date": "2025-02-03",
+    "surveys": [
+     {
+      "survey": "219",
+      "khata": "1388"
+     }
+    ]
+   },
+   {
+    "entryNo": 5104,
+    "typeGu": "હુકમથી",
+    "date": "2025-01-31",
+    "surveys": [
+     {
+      "survey": "139",
+      "khata": "636"
+     }
+    ]
+   },
+   {
+    "entryNo": 5103,
+    "typeGu": "વેચાણ",
+    "date": "2025-01-31",
+    "surveys": [
+     {
+      "survey": "953",
+      "khata": "1360"
+     }
+    ]
+   },
+   {
+    "entryNo": 5102,
+    "typeGu": "હુકમથી",
+    "date": "2025-01-31",
+    "surveys": [
+     {
+      "survey": "64",
+      "khata": "514"
+     }
+    ]
+   },
+   {
+    "entryNo": 5101,
+    "typeGu": "વેચાણ",
+    "date": "2025-01-29",
+    "surveys": [
+     {
+      "survey": "615/p2",
+      "khata": "1347"
+     }
+    ]
+   },
+   {
+    "entryNo": 5100,
+    "typeGu": "વારસાઇ",
+    "date": "2025-01-27",
+    "surveys": [
+     {
+      "survey": "497",
+      "khata": "910"
+     }
+    ]
+   },
+   {
+    "entryNo": 5099,
+    "typeGu": "વેચાણ",
+    "date": "2025-01-24",
+    "surveys": [
+     {
+      "survey": "1003/pપ2",
+      "khata": "719"
+     }
+    ]
+   },
+   {
+    "entryNo": 5098,
+    "typeGu": "વેચાણ",
+    "date": "2025-01-24",
+    "surveys": [
+     {
+      "survey": "1003/pપ1",
+      "khata": "719"
+     }
+    ]
+   },
+   {
+    "entryNo": 5097,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-01-23",
+    "surveys": [
+     {
+      "survey": "653",
+      "khata": "1269"
+     }
+    ]
+   },
+   {
+    "entryNo": 5096,
+    "typeGu": "હુકમથી",
+    "date": "2025-01-23",
+    "surveys": [
+     {
+      "survey": "54",
+      "khata": "420"
+     }
+    ]
+   },
+   {
+    "entryNo": 5095,
+    "typeGu": "હુકમથી",
+    "date": "2025-01-23",
+    "surveys": [
+     {
+      "survey": "55",
+      "khata": "1076"
+     }
+    ]
+   },
+   {
+    "entryNo": 5094,
+    "typeGu": "બોજો દાખલ",
+    "date": "2025-01-19",
+    "surveys": [
+     {
+      "survey": "108/1",
+      "khata": "1277"
+     },
+     {
+      "survey": "279/p2",
+      "khata": "1277"
+     }
+    ]
+   },
+   {
+    "entryNo": 5093,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2025-01-16",
+    "surveys": [
+     {
+      "survey": "758",
+      "khata": "1068"
+     }
+    ]
+   },
+   {
+    "entryNo": 5092,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2025-01-15",
+    "surveys": [
+     {
+      "survey": "38",
+      "khata": "515"
+     },
+     {
+      "survey": "60/p2",
+      "khata": "515"
+     },
+     {
+      "survey": "549/p2",
+      "khata": "515"
+     },
+     {
+      "survey": "864/p1",
+      "khata": "515"
+     },
+     {
+      "survey": "974/p1",
+      "khata": "515"
+     }
+    ]
+   },
+   {
+    "entryNo": 5091,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2025-01-08",
+    "surveys": [
+     {
+      "survey": "967",
+      "khata": "1401"
+     }
+    ]
+   },
+   {
+    "entryNo": 5090,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2025-01-03",
+    "surveys": [
+     {
+      "survey": "31/2/p2",
+      "khata": "560"
+     },
+     {
+      "survey": "82/p2",
+      "khata": "560"
+     },
+     {
+      "survey": "731",
+      "khata": "560"
+     },
+     {
+      "survey": "789/p2",
+      "khata": "560"
+     }
+    ]
+   },
+   {
+    "entryNo": 5089,
+    "typeGu": "વારસાઇ",
+    "date": "2025-01-02",
+    "surveys": [
+     {
+      "survey": "348/1",
+      "khata": "360"
+     },
+     {
+      "survey": "940/2",
+      "khata": "360"
+     },
+     {
+      "survey": "950",
+      "khata": "360"
+     }
+    ]
+   },
+   {
+    "entryNo": 5088,
+    "typeGu": "વારસાઇ",
+    "date": "2025-01-02",
+    "surveys": [
+     {
+      "survey": "551/10",
+      "khata": "211"
+     }
+    ]
+   },
+   {
+    "entryNo": 5087,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-12-31",
+    "surveys": [
+     {
+      "survey": "758",
+      "khata": "1068"
+     }
+    ]
+   },
+   {
+    "entryNo": 5086,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-12-26",
+    "surveys": [
+     {
+      "survey": "404/p1",
+      "khata": "1267"
+     },
+     {
+      "survey": "631/1",
+      "khata": "1434"
+     }
+    ]
+   },
+   {
+    "entryNo": 5085,
+    "typeGu": "વેચાણ",
+    "date": "2024-12-26",
+    "surveys": [
+     {
+      "survey": "198",
+      "khata": "951"
+     }
+    ]
+   },
+   {
+    "entryNo": 5084,
+    "typeGu": "વારસાઇ",
+    "date": "2024-12-23",
+    "surveys": [
+     {
+      "survey": "575",
+      "khata": "1105"
+     }
+    ]
+   },
+   {
+    "entryNo": 5083,
+    "typeGu": "હુકમથી",
+    "date": "2024-12-21",
+    "surveys": [
+     {
+      "survey": "1003/p100",
+      "khata": "1039"
+     },
+     {
+      "survey": "1003/p100/p1",
+      "khata": "1429"
+     }
+    ]
+   },
+   {
+    "entryNo": 5082,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-12-13",
+    "surveys": [
+     {
+      "survey": "798/1",
+      "khata": "886"
+     }
+    ]
+   },
+   {
+    "entryNo": 5081,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-12-11",
+    "surveys": [
+     {
+      "survey": "404",
+      "khata": "1269"
+     },
+     {
+      "survey": "653",
+      "khata": "1269"
+     }
+    ]
+   },
+   {
+    "entryNo": 5080,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-12-11",
+    "surveys": [
+     {
+      "survey": "404",
+      "khata": "1269"
+     }
+    ]
+   },
+   {
+    "entryNo": 5079,
+    "typeGu": "હક કમી",
+    "date": "2024-12-06",
+    "surveys": [
+     {
+      "survey": "636/3",
+      "khata": "235"
+     }
+    ]
+   },
+   {
+    "entryNo": 5078,
+    "typeGu": "હક કમી",
+    "date": "2024-12-06",
+    "surveys": [
+     {
+      "survey": "613/1",
+      "khata": "1412"
+     }
+    ]
+   },
+   {
+    "entryNo": 5077,
+    "typeGu": "વેચાણ",
+    "date": "2024-12-06",
+    "surveys": [
+     {
+      "survey": "132/p1",
+      "khata": "1020"
+     }
+    ]
+   },
+   {
+    "entryNo": 5076,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-11-30",
+    "surveys": [
+     {
+      "survey": "728/1",
+      "khata": "113"
+     },
+     {
+      "survey": "729/2",
+      "khata": "113"
+     }
+    ]
+   },
+   {
+    "entryNo": 5075,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-11-27",
+    "surveys": [
+     {
+      "survey": "624/p1",
+      "khata": "1029"
+     }
+    ]
+   },
+   {
+    "entryNo": 5074,
+    "typeGu": "વેચાણ",
+    "date": "2024-11-26",
+    "surveys": [
+     {
+      "survey": "1003/pપ",
+      "khata": "1251"
+     }
+    ]
+   },
+   {
+    "entryNo": 5073,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-11-25",
+    "surveys": [
+     {
+      "survey": "421/1",
+      "khata": "1173"
+     }
+    ]
+   },
+   {
+    "entryNo": 5072,
+    "typeGu": "હુકમથી",
+    "date": "2024-11-22",
+    "surveys": [
+     {
+      "survey": "1003/p46",
+      "khata": "276"
+     }
+    ]
+   },
+   {
+    "entryNo": 5071,
+    "typeGu": "વારસાઇ",
+    "date": "2024-11-11",
+    "surveys": [
+     {
+      "survey": "635",
+      "khata": "339"
+     }
+    ]
+   },
+   {
+    "entryNo": 5070,
+    "typeGu": "હુકમથી",
+    "date": "2024-11-07",
+    "surveys": [
+     {
+      "survey": "1007/8",
+      "khata": "1123"
+     }
+    ]
+   },
+   {
+    "entryNo": 5069,
+    "typeGu": "વારસાઇ",
+    "date": "2024-11-06",
+    "surveys": [
+     {
+      "survey": "886/1",
+      "khata": "1201"
+     }
+    ]
+   },
+   {
+    "entryNo": 5068,
+    "typeGu": "ગીરો મુક્તિ",
+    "date": "2024-11-05",
+    "surveys": [
+     {
+      "survey": "219",
+      "khata": "1388"
+     }
+    ]
+   },
+   {
+    "entryNo": 5067,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-10-26",
+    "surveys": [
+     {
+      "survey": "367",
+      "khata": "519"
+     },
+     {
+      "survey": "442/p1",
+      "khata": "519"
+     },
+     {
+      "survey": "919",
+      "khata": "519"
+     }
+    ]
+   },
+   {
+    "entryNo": 5066,
+    "typeGu": "વેચાણ",
+    "date": "2024-10-25",
+    "surveys": [
+     {
+      "survey": "581",
+      "khata": "142"
+     }
+    ]
+   },
+   {
+    "entryNo": 5065,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-10-22",
+    "surveys": [
+     {
+      "survey": "354/p1",
+      "khata": "517"
+     },
+     {
+      "survey": "431",
+      "khata": "517"
+     },
+     {
+      "survey": "876/2",
+      "khata": "517"
+     },
+     {
+      "survey": "978",
+      "khata": "517"
+     }
+    ]
+   },
+   {
+    "entryNo": 5064,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-10-21",
+    "surveys": [
+     {
+      "survey": "566",
+      "khata": "142"
+     },
+     {
+      "survey": "581",
+      "khata": "142"
+     },
+     {
+      "survey": "584",
+      "khata": "142"
+     },
+     {
+      "survey": "716/1",
+      "khata": "142"
+     },
+     {
+      "survey": "1056/p1",
+      "khata": "142"
+     }
+    ]
+   },
+   {
+    "entryNo": 5063,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-10-17",
+    "surveys": [
+     {
+      "survey": "524",
+      "khata": "414"
+     }
+    ]
+   },
+   {
+    "entryNo": 5062,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-10-15",
+    "surveys": [
+     {
+      "survey": "593",
+      "khata": "132"
+     }
+    ]
+   },
+   {
+    "entryNo": 5061,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-10-10",
+    "surveys": [
+     {
+      "survey": "749/p1",
+      "khata": "1348"
+     }
+    ]
+   },
+   {
+    "entryNo": 5060,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-10-10",
+    "surveys": [
+     {
+      "survey": "749",
+      "khata": "1349"
+     }
+    ]
+   },
+   {
+    "entryNo": 5059,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-10-10",
+    "surveys": [
+     {
+      "survey": "303",
+      "khata": "496"
+     }
+    ]
+   },
+   {
+    "entryNo": 5058,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-10-05",
+    "surveys": [
+     {
+      "survey": "619/p1",
+      "khata": "918"
+     }
+    ]
+   },
+   {
+    "entryNo": 5057,
+    "typeGu": "વારસાઇ",
+    "date": "2024-10-04",
+    "surveys": [
+     {
+      "survey": "62",
+      "khata": "249"
+     },
+     {
+      "survey": "334/1",
+      "khata": "249"
+     },
+     {
+      "survey": "334/2",
+      "khata": "249"
+     },
+     {
+      "survey": "904",
+      "khata": "249"
+     }
+    ]
+   },
+   {
+    "entryNo": 5056,
+    "typeGu": "વારસાઇ",
+    "date": "2024-10-04",
+    "surveys": [
+     {
+      "survey": "73",
+      "khata": "138"
+     },
+     {
+      "survey": "75/1",
+      "khata": "138"
+     },
+     {
+      "survey": "701",
+      "khata": "138"
+     },
+     {
+      "survey": "783/2",
+      "khata": "138"
+     },
+     {
+      "survey": "924/2",
+      "khata": "138"
+     }
+    ]
+   },
+   {
+    "entryNo": 5055,
+    "typeGu": "હુકમથી",
+    "date": "2024-10-03",
+    "surveys": [
+     {
+      "survey": "324/p3",
+      "khata": "511"
+     },
+     {
+      "survey": "462/2/p4",
+      "khata": "511"
+     }
+    ]
+   },
+   {
+    "entryNo": 5054,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-10-03",
+    "surveys": [
+     {
+      "survey": "877/2",
+      "khata": "591"
+     }
+    ]
+   },
+   {
+    "entryNo": 5053,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-10-03",
+    "surveys": [
+     {
+      "survey": "631/1",
+      "khata": "1267"
+     }
+    ]
+   },
+   {
+    "entryNo": 5052,
+    "typeGu": "વારસાઇ",
+    "date": "2024-10-02",
+    "surveys": [
+     {
+      "survey": "282",
+      "khata": "824"
+     },
+     {
+      "survey": "283",
+      "khata": "824"
+     },
+     {
+      "survey": "285",
+      "khata": "824"
+     },
+     {
+      "survey": "287/2",
+      "khata": "824"
+     },
+     {
+      "survey": "305",
+      "khata": "824"
+     }
+    ]
+   },
+   {
+    "entryNo": 5051,
+    "typeGu": "હક કમી",
+    "date": "2024-10-01",
+    "surveys": [
+     {
+      "survey": "646/2",
+      "khata": "273"
+     },
+     {
+      "survey": "759/2",
+      "khata": "273"
+     }
+    ]
+   },
+   {
+    "entryNo": 5050,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-10-01",
+    "surveys": [
+     {
+      "survey": "708",
+      "khata": "1414"
+     }
+    ]
+   },
+   {
+    "entryNo": 5049,
+    "typeGu": "વારસાઇ",
+    "date": "2024-09-22",
+    "surveys": [
+     {
+      "survey": "508/p2",
+      "khata": "278"
+     }
+    ]
+   },
+   {
+    "entryNo": 5048,
+    "typeGu": "વારસાઇ",
+    "date": "2024-09-20",
+    "surveys": [
+     {
+      "survey": "188",
+      "khata": "1252"
+     },
+     {
+      "survey": "762",
+      "khata": "1252"
+     }
+    ]
+   },
+   {
+    "entryNo": 5047,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-09-13",
+    "surveys": [
+     {
+      "survey": "409/2",
+      "khata": "135"
+     }
+    ]
+   },
+   {
+    "entryNo": 5046,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-09-12",
+    "surveys": [
+     {
+      "survey": "1003/p23",
+      "khata": "578"
+     }
+    ]
+   },
+   {
+    "entryNo": 5045,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-09-12",
+    "surveys": [
+     {
+      "survey": "1003/p26",
+      "khata": "577"
+     }
+    ]
+   },
+   {
+    "entryNo": 5044,
+    "typeGu": "હુકમથી",
+    "date": "2024-09-07",
+    "surveys": [
+     {
+      "survey": "982/2",
+      "khata": "1406"
+     }
+    ]
+   },
+   {
+    "entryNo": 5043,
+    "typeGu": "બીન ખેતી",
+    "date": "2024-09-07",
+    "surveys": [
+     {
+      "survey": "982/2",
+      "khata": "1406"
+     }
+    ]
+   },
+   {
+    "entryNo": 5042,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-09-06",
+    "surveys": [
+     {
+      "survey": "281",
+      "khata": "1353"
+     }
+    ]
+   },
+   {
+    "entryNo": 5041,
+    "typeGu": "વેચાણ",
+    "date": "2024-09-06",
+    "surveys": [
+     {
+      "survey": "876/3(1169)877/1",
+      "khata": "1169"
+     }
+    ]
+   },
+   {
+    "entryNo": 5040,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-09-04",
+    "surveys": [
+     {
+      "survey": "876/3",
+      "khata": "1169"
+     },
+     {
+      "survey": "877/1",
+      "khata": "1169"
+     },
+     {
+      "survey": "998/1",
+      "khata": "1169"
+     }
+    ]
+   },
+   {
+    "entryNo": 5039,
+    "typeGu": "વેચાણ",
+    "date": "2024-09-03",
+    "surveys": [
+     {
+      "survey": "211",
+      "khata": "915"
+     }
+    ]
+   },
+   {
+    "entryNo": 5038,
+    "typeGu": "વારસાઇ",
+    "date": "2024-08-23",
+    "surveys": [
+     {
+      "survey": "229/3",
+      "khata": "6"
+     },
+     {
+      "survey": "274",
+      "khata": "6"
+     },
+     {
+      "survey": "786/2",
+      "khata": "6"
+     }
+    ]
+   },
+   {
+    "entryNo": 5037,
+    "typeGu": "વેચાણ",
+    "date": "2024-08-23",
+    "surveys": [
+     {
+      "survey": "440",
+      "khata": "113"
+     }
+    ]
+   },
+   {
+    "entryNo": 5036,
+    "typeGu": "વેચાણ",
+    "date": "2024-08-23",
+    "surveys": [
+     {
+      "survey": "729/2",
+      "khata": "127"
+     }
+    ]
+   },
+   {
+    "entryNo": 5035,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-08-23",
+    "surveys": [
+     {
+      "survey": "662/p3/p1",
+      "khata": "1410"
+     }
+    ]
+   },
+   {
+    "entryNo": 5034,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-08-22",
+    "surveys": [
+     {
+      "survey": "647",
+      "khata": "748"
+     }
+    ]
+   },
+   {
+    "entryNo": 5033,
+    "typeGu": "KJP દુરસ્તી",
+    "date": "2024-08-22",
+    "surveys": [
+     {
+      "survey": "779",
+      "khata": "1313"
+     }
+    ]
+   },
+   {
+    "entryNo": 5032,
+    "typeGu": "વેચાણ",
+    "date": "2024-08-21",
+    "surveys": [
+     {
+      "survey": "458/p2",
+      "khata": "1215"
+     }
+    ]
+   },
+   {
+    "entryNo": 5031,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-08-21",
+    "surveys": [
+     {
+      "survey": "43/2",
+      "khata": "583"
+     },
+     {
+      "survey": "46",
+      "khata": "583"
+     },
+     {
+      "survey": "984/p1",
+      "khata": "584"
+     },
+     {
+      "survey": "992",
+      "khata": "584"
+     }
+    ]
+   },
+   {
+    "entryNo": 5030,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-08-17",
+    "surveys": [
+     {
+      "survey": "43/2",
+      "khata": "583"
+     },
+     {
+      "survey": "46",
+      "khata": "583"
+     }
+    ]
+   },
+   {
+    "entryNo": 5029,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-08-17",
+    "surveys": [
+     {
+      "survey": "984/p1",
+      "khata": "584"
+     },
+     {
+      "survey": "992",
+      "khata": "584"
+     }
+    ]
+   },
+   {
+    "entryNo": 5028,
+    "typeGu": "હુકમથી",
+    "date": "2024-08-16",
+    "surveys": [
+     {
+      "survey": "501",
+      "khata": "1338"
+     }
+    ]
+   },
+   {
+    "entryNo": 5027,
+    "typeGu": "બીન ખેતી",
+    "date": "2024-08-16",
+    "surveys": [
+     {
+      "survey": "501",
+      "khata": "1338"
+     }
+    ]
+   },
+   {
+    "entryNo": 5026,
+    "typeGu": "હુકમથી",
+    "date": "2024-08-14",
+    "surveys": [
+     {
+      "survey": "492/2",
+      "khata": "566"
+     }
+    ]
+   },
+   {
+    "entryNo": 5025,
+    "typeGu": "બીન ખેતી",
+    "date": "2024-08-14",
+    "surveys": [
+     {
+      "survey": "492/2",
+      "khata": "566"
+     }
+    ]
+   },
+   {
+    "entryNo": 5024,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-08-13",
+    "surveys": [
+     {
+      "survey": "1003/p2પ",
+      "khata": "1304"
+     }
+    ]
+   },
+   {
+    "entryNo": 5023,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-08-13",
+    "surveys": [
+     {
+      "survey": "23/2",
+      "khata": "590"
+     }
+    ]
+   },
+   {
+    "entryNo": 5022,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-08-13",
+    "surveys": [
+     {
+      "survey": "108/2",
+      "khata": "1343"
+     },
+     {
+      "survey": "664/1/p1",
+      "khata": "1343"
+     }
+    ]
+   },
+   {
+    "entryNo": 5021,
+    "typeGu": "વેચાણ",
+    "date": "2024-08-13",
+    "surveys": [
+     {
+      "survey": "1003/p100",
+      "khata": "1039"
+     }
+    ]
+   },
+   {
+    "entryNo": 5020,
+    "typeGu": "વારસાઇ",
+    "date": "2024-08-08",
+    "surveys": [
+     {
+      "survey": "551/1/p1",
+      "khata": "757"
+     }
+    ]
+   },
+   {
+    "entryNo": 5019,
+    "typeGu": "વારસાઇ",
+    "date": "2024-08-08",
+    "surveys": [
+     {
+      "survey": "564/2",
+      "khata": "1307"
+     }
+    ]
+   },
+   {
+    "entryNo": 5018,
+    "typeGu": "વારસાઇ",
+    "date": "2024-08-08",
+    "surveys": [
+     {
+      "survey": "582",
+      "khata": "203"
+     }
+    ]
+   },
+   {
+    "entryNo": 5017,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-08-07",
+    "surveys": [
+     {
+      "survey": "440",
+      "khata": "113"
+     },
+     {
+      "survey": "728/1",
+      "khata": "113"
+     }
+    ]
+   },
+   {
+    "entryNo": 5016,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-08-06",
+    "surveys": [
+     {
+      "survey": "237/1",
+      "khata": "127"
+     },
+     {
+      "survey": "729/2",
+      "khata": "127"
+     },
+     {
+      "survey": "860/2",
+      "khata": "127"
+     }
+    ]
+   },
+   {
+    "entryNo": 5015,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-08-05",
+    "surveys": [
+     {
+      "survey": "929/3/p2",
+      "khata": "1346"
+     }
+    ]
+   },
+   {
+    "entryNo": 5014,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-08-02",
+    "surveys": [
+     {
+      "survey": "614/2",
+      "khata": "253"
+     },
+     {
+      "survey": "863/2",
+      "khata": "253"
+     }
+    ]
+   },
+   {
+    "entryNo": 5013,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-08-02",
+    "surveys": [
+     {
+      "survey": "358/2",
+      "khata": "32"
+     }
+    ]
+   },
+   {
+    "entryNo": 5012,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-08-02",
+    "surveys": [
+     {
+      "survey": "321",
+      "khata": "88"
+     },
+     {
+      "survey": "600",
+      "khata": "88"
+     },
+     {
+      "survey": "823",
+      "khata": "88"
+     }
+    ]
+   },
+   {
+    "entryNo": 5011,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-08-02",
+    "surveys": [
+     {
+      "survey": "929/3/p1",
+      "khata": "1345"
+     }
+    ]
+   },
+   {
+    "entryNo": 5010,
+    "typeGu": "વેચાણ",
+    "date": "2024-08-01",
+    "surveys": [
+     {
+      "survey": "126/p2",
+      "khata": "1323"
+     }
+    ]
+   },
+   {
+    "entryNo": 5009,
+    "typeGu": "હુકમથી",
+    "date": "2024-07-31",
+    "surveys": [
+     {
+      "survey": "558",
+      "khata": "266"
+     }
+    ]
+   },
+   {
+    "entryNo": 5008,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-07-31",
+    "surveys": [
+     {
+      "survey": "323/p1",
+      "khata": "1332"
+     }
+    ]
+   },
+   {
+    "entryNo": 5007,
+    "typeGu": "વેચાણ",
+    "date": "2024-07-31",
+    "surveys": [
+     {
+      "survey": "1003/p47",
+      "khata": "1319"
+     }
+    ]
+   },
+   {
+    "entryNo": 5006,
+    "typeGu": "KJP દુરસ્તી",
+    "date": "2024-07-30",
+    "surveys": [
+     {
+      "survey": "1003/p98",
+      "khata": "1123"
+     }
+    ]
+   },
+   {
+    "entryNo": 5005,
+    "typeGu": "KJP દુરસ્તી",
+    "date": "2024-07-30",
+    "surveys": [
+     {
+      "survey": "1003/p1",
+      "khata": "897"
+     }
+    ]
+   },
+   {
+    "entryNo": 5004,
+    "typeGu": "KJP દુરસ્તી",
+    "date": "2024-07-30",
+    "surveys": [
+     {
+      "survey": "1003/p33",
+      "khata": "1123"
+     }
+    ]
+   },
+   {
+    "entryNo": 5003,
+    "typeGu": "હુકમથી",
+    "date": "2024-07-30",
+    "surveys": [
+     {
+      "survey": "256",
+      "khata": "1263"
+     }
+    ]
+   },
+   {
+    "entryNo": 5002,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-07-29",
+    "surveys": [
+     {
+      "survey": "907",
+      "khata": "172"
+     },
+     {
+      "survey": "913/1",
+      "khata": "172"
+     }
+    ]
+   },
+   {
+    "entryNo": 5001,
+    "typeGu": "ભેંટ",
+    "date": "2024-07-29",
+    "surveys": [
+     {
+      "survey": "204",
+      "khata": "482"
+     }
+    ]
+   },
+   {
+    "entryNo": 5000,
+    "typeGu": "ભેંટ",
+    "date": "2024-07-29",
+    "surveys": [
+     {
+      "survey": "204",
+      "khata": "482"
+     }
+    ]
+   },
+   {
+    "entryNo": 4999,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-07-29",
+    "surveys": [
+     {
+      "survey": "74",
+      "khata": "938"
+     }
+    ]
+   },
+   {
+    "entryNo": 4998,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-07-29",
+    "surveys": [
+     {
+      "survey": "104/2",
+      "khata": "733"
+     }
+    ]
+   },
+   {
+    "entryNo": 4997,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-07-29",
+    "surveys": [
+     {
+      "survey": "917/2",
+      "khata": "935"
+     }
+    ]
+   },
+   {
+    "entryNo": 4996,
+    "typeGu": "વારસાઇ",
+    "date": "2024-07-29",
+    "surveys": [
+     {
+      "survey": "430/p4",
+      "khata": "404"
+     }
+    ]
+   },
+   {
+    "entryNo": 4995,
+    "typeGu": "વારસાઇ",
+    "date": "2024-07-27",
+    "surveys": [
+     {
+      "survey": "552",
+      "khata": "23"
+     }
+    ]
+   },
+   {
+    "entryNo": 4994,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-07-27",
+    "surveys": [
+     {
+      "survey": "983",
+      "khata": "430"
+     }
+    ]
+   },
+   {
+    "entryNo": 4993,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-07-26",
+    "surveys": [
+     {
+      "survey": "526/p2",
+      "khata": "264"
+     },
+     {
+      "survey": "858",
+      "khata": "264"
+     }
+    ]
+   },
+   {
+    "entryNo": 4992,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-07-26",
+    "surveys": [
+     {
+      "survey": "308",
+      "khata": "170"
+     },
+     {
+      "survey": "335",
+      "khata": "170"
+     },
+     {
+      "survey": "641",
+      "khata": "170"
+     },
+     {
+      "survey": "657",
+      "khata": "170"
+     },
+     {
+      "survey": "837",
+      "khata": "170"
+     }
+    ]
+   },
+   {
+    "entryNo": 4991,
+    "typeGu": "બીજા હક્ક દાખલ",
+    "date": "2024-07-24",
+    "surveys": [
+     {
+      "survey": "933/p1/p1",
+      "khata": "1387"
+     }
+    ]
+   },
+   {
+    "entryNo": 4990,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-07-20",
+    "surveys": [
+     {
+      "survey": "941",
+      "khata": "1328"
+     }
+    ]
+   },
+   {
+    "entryNo": 4989,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-07-18",
+    "surveys": [
+     {
+      "survey": "243",
+      "khata": "22"
+     },
+     {
+      "survey": "244",
+      "khata": "22"
+     },
+     {
+      "survey": "803",
+      "khata": "22"
+     }
+    ]
+   },
+   {
+    "entryNo": 4988,
+    "typeGu": "હુકમથી",
+    "date": "2024-07-16",
+    "surveys": [
+     {
+      "survey": "126/p2",
+      "khata": "1323"
+     }
+    ]
+   },
+   {
+    "entryNo": 4987,
+    "typeGu": "વેચાણ",
+    "date": "2024-07-10",
+    "surveys": [
+     {
+      "survey": "318/1",
+      "khata": "1012"
+     }
+    ]
+   },
+   {
+    "entryNo": 4986,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-07-07",
+    "surveys": [
+     {
+      "survey": "749/p1",
+      "khata": "1348"
+     }
+    ]
+   },
+   {
+    "entryNo": 4985,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-07-07",
+    "surveys": [
+     {
+      "survey": "749",
+      "khata": "1349"
+     }
+    ]
+   },
+   {
+    "entryNo": 4984,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-07-03",
+    "surveys": [
+     {
+      "survey": "22",
+      "khata": "468"
+     },
+     {
+      "survey": "27/1",
+      "khata": "468"
+     },
+     {
+      "survey": "874/2",
+      "khata": "468"
+     }
+    ]
+   },
+   {
+    "entryNo": 4983,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "281/p1",
+      "khata": "1351"
+     },
+     {
+      "survey": "748",
+      "khata": "1351"
+     }
+    ]
+   },
+   {
+    "entryNo": 4982,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "802/2",
+      "khata": "1336"
+     }
+    ]
+   },
+   {
+    "entryNo": 4981,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "760",
+      "khata": "820"
+     }
+    ]
+   },
+   {
+    "entryNo": 4980,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "771",
+      "khata": "1124"
+     }
+    ]
+   },
+   {
+    "entryNo": 4979,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "234/1",
+      "khata": "491"
+     }
+    ]
+   },
+   {
+    "entryNo": 4978,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "1003/p7/p1",
+      "khata": "988"
+     }
+    ]
+   },
+   {
+    "entryNo": 4977,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "956",
+      "khata": "1203"
+     }
+    ]
+   },
+   {
+    "entryNo": 4976,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "937/1",
+      "khata": "384"
+     },
+     {
+      "survey": "937/2/p1",
+      "khata": "384"
+     }
+    ]
+   },
+   {
+    "entryNo": 4975,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "303/p1",
+      "khata": "1350"
+     },
+     {
+      "survey": "748/p1",
+      "khata": "1350"
+     }
+    ]
+   },
+   {
+    "entryNo": 4974,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "1003/p7/p2",
+      "khata": "989"
+     }
+    ]
+   },
+   {
+    "entryNo": 4973,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "970/p1",
+      "khata": "433"
+     }
+    ]
+   },
+   {
+    "entryNo": 4972,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "531/2",
+      "khata": "1362"
+     }
+    ]
+   },
+   {
+    "entryNo": 4971,
+    "typeGu": "વારસાઇ",
+    "date": "2024-06-29",
+    "surveys": [
+     {
+      "survey": "646/2",
+      "khata": "273"
+     },
+     {
+      "survey": "759/2",
+      "khata": "273"
+     }
+    ]
+   },
+   {
+    "entryNo": 4970,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-06-27",
+    "surveys": [
+     {
+      "survey": "105",
+      "khata": "247"
+     }
+    ]
+   },
+   {
+    "entryNo": 4969,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-06-27",
+    "surveys": [
+     {
+      "survey": "907",
+      "khata": "172"
+     },
+     {
+      "survey": "913/1",
+      "khata": "172"
+     }
+    ]
+   },
+   {
+    "entryNo": 4968,
+    "typeGu": "વારસાઇ",
+    "date": "2024-06-25",
+    "surveys": [
+     {
+      "survey": "34",
+      "khata": "1102"
+     },
+     {
+      "survey": "939",
+      "khata": "1102"
+     }
+    ]
+   },
+   {
+    "entryNo": 4967,
+    "typeGu": "વારસાઇ",
+    "date": "2024-06-21",
+    "surveys": [
+     {
+      "survey": "430/p3",
+      "khata": "597"
+     }
+    ]
+   },
+   {
+    "entryNo": 4966,
+    "typeGu": "વારસાઇ",
+    "date": "2024-06-21",
+    "surveys": [
+     {
+      "survey": "411/3",
+      "khata": "246"
+     },
+     {
+      "survey": "514/1",
+      "khata": "246"
+     },
+     {
+      "survey": "515",
+      "khata": "246"
+     }
+    ]
+   },
+   {
+    "entryNo": 4965,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-06-21",
+    "surveys": [
+     {
+      "survey": "736",
+      "khata": "668"
+     }
+    ]
+   },
+   {
+    "entryNo": 4964,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-15",
+    "surveys": [
+     {
+      "survey": "404",
+      "khata": "1269"
+     },
+     {
+      "survey": "653",
+      "khata": "1269"
+     }
+    ]
+   },
+   {
+    "entryNo": 4963,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-06-14",
+    "surveys": [
+     {
+      "survey": "462/2/p2",
+      "khata": "984"
+     }
+    ]
+   },
+   {
+    "entryNo": 4962,
+    "typeGu": "વેચાણ",
+    "date": "2024-06-07",
+    "surveys": [
+     {
+      "survey": "360",
+      "khata": "423"
+     }
+    ]
+   },
+   {
+    "entryNo": 4961,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-06-05",
+    "surveys": [
+     {
+      "survey": "694/1",
+      "khata": "231"
+     },
+     {
+      "survey": "708",
+      "khata": "231"
+     }
+    ]
+   },
+   {
+    "entryNo": 4960,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-05-29",
+    "surveys": [
+     {
+      "survey": "38",
+      "khata": "515"
+     },
+     {
+      "survey": "60/p2",
+      "khata": "515"
+     },
+     {
+      "survey": "549/p2",
+      "khata": "515"
+     },
+     {
+      "survey": "864/p1",
+      "khata": "515"
+     },
+     {
+      "survey": "974/p1",
+      "khata": "515"
+     }
+    ]
+   },
+   {
+    "entryNo": 4959,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-05-29",
+    "surveys": [
+     {
+      "survey": "211",
+      "khata": "915"
+     },
+     {
+      "survey": "890/1",
+      "khata": "663"
+     }
+    ]
+   },
+   {
+    "entryNo": 4958,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-05-28",
+    "surveys": [
+     {
+      "survey": "878/1",
+      "khata": "1391"
+     }
+    ]
+   },
+   {
+    "entryNo": 4957,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-05-28",
+    "surveys": [
+     {
+      "survey": "611",
+      "khata": "609"
+     },
+     {
+      "survey": "613/1",
+      "khata": "609"
+     }
+    ]
+   },
+   {
+    "entryNo": 4956,
+    "typeGu": "હક કમી",
+    "date": "2024-05-28",
+    "surveys": [
+     {
+      "survey": "636/3",
+      "khata": "235"
+     }
+    ]
+   },
+   {
+    "entryNo": 4955,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-05-27",
+    "surveys": [
+     {
+      "survey": "970/p2",
+      "khata": "435"
+     },
+     {
+      "survey": "998/2/p1",
+      "khata": "435"
+     }
+    ]
+   },
+   {
+    "entryNo": 4954,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-05-27",
+    "surveys": [
+     {
+      "survey": "696/p2",
+      "khata": "1361"
+     }
+    ]
+   },
+   {
+    "entryNo": 4953,
+    "typeGu": "વેચાણ",
+    "date": "2024-05-23",
+    "surveys": [
+     {
+      "survey": "662/p3",
+      "khata": "610"
+     }
+    ]
+   },
+   {
+    "entryNo": 4952,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-05-21",
+    "surveys": [
+     {
+      "survey": "912/1/p2",
+      "khata": "592"
+     }
+    ]
+   },
+   {
+    "entryNo": 4951,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-05-21",
+    "surveys": [
+     {
+      "survey": "836/p1",
+      "khata": "1176"
+     }
+    ]
+   },
+   {
+    "entryNo": 4950,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-05-21",
+    "surveys": [
+     {
+      "survey": "1003/p49",
+      "khata": "967"
+     }
+    ]
+   },
+   {
+    "entryNo": 4949,
+    "typeGu": "વેચાણ",
+    "date": "2024-05-15",
+    "surveys": [
+     {
+      "survey": "412/2",
+      "khata": "1061"
+     }
+    ]
+   },
+   {
+    "entryNo": 4948,
+    "typeGu": "વેચાણ",
+    "date": "2024-05-15",
+    "surveys": [
+     {
+      "survey": "409/1",
+      "khata": "932"
+     }
+    ]
+   },
+   {
+    "entryNo": 4947,
+    "typeGu": "વેચાણ",
+    "date": "2024-05-15",
+    "surveys": [
+     {
+      "survey": "643/2",
+      "khata": "475"
+     }
+    ]
+   },
+   {
+    "entryNo": 4946,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-05-10",
+    "surveys": [
+     {
+      "survey": "318/1",
+      "khata": "1012"
+     }
+    ]
+   },
+   {
+    "entryNo": 4945,
+    "typeGu": "હુકમથી",
+    "date": "2024-05-03",
+    "surveys": [
+     {
+      "survey": "421/1/p1",
+      "khata": "1268"
+     }
+    ]
+   },
+   {
+    "entryNo": 4944,
+    "typeGu": "હુકમથી",
+    "date": "2024-05-03",
+    "surveys": [
+     {
+      "survey": "335",
+      "khata": "1270"
+     },
+     {
+      "survey": "641",
+      "khata": "1366"
+     },
+     {
+      "survey": "657",
+      "khata": "1366"
+     }
+    ]
+   },
+   {
+    "entryNo": 4943,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-05-01",
+    "surveys": [
+     {
+      "survey": "662/p3",
+      "khata": "610"
+     }
+    ]
+   },
+   {
+    "entryNo": 4942,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-05-01",
+    "surveys": [
+     {
+      "survey": "204",
+      "khata": "482"
+     }
+    ]
+   },
+   {
+    "entryNo": 4941,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-05-01",
+    "surveys": [
+     {
+      "survey": "22",
+      "khata": "468"
+     },
+     {
+      "survey": "27/1",
+      "khata": "468"
+     },
+     {
+      "survey": "874/2",
+      "khata": "468"
+     },
+     {
+      "survey": "944/1",
+      "khata": "468"
+     }
+    ]
+   },
+   {
+    "entryNo": 4940,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-04-23",
+    "surveys": [
+     {
+      "survey": "66",
+      "khata": "123"
+     }
+    ]
+   },
+   {
+    "entryNo": 4939,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-04-15",
+    "surveys": [
+     {
+      "survey": "316/1",
+      "khata": "1197"
+     },
+     {
+      "survey": "629",
+      "khata": "1197"
+     }
+    ]
+   },
+   {
+    "entryNo": 4938,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-04-12",
+    "surveys": [
+     {
+      "survey": "226",
+      "khata": "272"
+     },
+     {
+      "survey": "371",
+      "khata": "272"
+     },
+     {
+      "survey": "605",
+      "khata": "272"
+     },
+     {
+      "survey": "809/1",
+      "khata": "272"
+     },
+     {
+      "survey": "888",
+      "khata": "272"
+     }
+    ]
+   },
+   {
+    "entryNo": 4937,
+    "typeGu": "હુકમથી",
+    "date": "2024-04-06",
+    "surveys": [
+     {
+      "survey": "404",
+      "khata": "1269"
+     },
+     {
+      "survey": "653",
+      "khata": "1367"
+     }
+    ]
+   },
+   {
+    "entryNo": 4936,
+    "typeGu": "વારસાઇ",
+    "date": "2024-04-05",
+    "surveys": [
+     {
+      "survey": "294/p1",
+      "khata": "77"
+     },
+     {
+      "survey": "996/2",
+      "khata": "77"
+     }
+    ]
+   },
+   {
+    "entryNo": 4935,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-04-04",
+    "surveys": [
+     {
+      "survey": "779",
+      "khata": "1313"
+     }
+    ]
+   },
+   {
+    "entryNo": 4934,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-03-28",
+    "surveys": [
+     {
+      "survey": "492/1",
+      "khata": "680"
+     }
+    ]
+   },
+   {
+    "entryNo": 4933,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-03-21",
+    "surveys": [
+     {
+      "survey": "593",
+      "khata": "132"
+     }
+    ]
+   },
+   {
+    "entryNo": 4932,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-03-21",
+    "surveys": [
+     {
+      "survey": "524",
+      "khata": "414"
+     }
+    ]
+   },
+   {
+    "entryNo": 4931,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-03-21",
+    "surveys": [
+     {
+      "survey": "838/1",
+      "khata": "538"
+     }
+    ]
+   },
+   {
+    "entryNo": 4930,
+    "typeGu": "હક કમી",
+    "date": "2024-03-21",
+    "surveys": [
+     {
+      "survey": "247",
+      "khata": "894"
+     }
+    ]
+   },
+   {
+    "entryNo": 4929,
+    "typeGu": "વેચાણ",
+    "date": "2024-03-12",
+    "surveys": [
+     {
+      "survey": "535/1/p1(1061)535/1/p2",
+      "khata": "1061"
+     }
+    ]
+   },
+   {
+    "entryNo": 4928,
+    "typeGu": "વેચાણ",
+    "date": "2024-03-12",
+    "surveys": [
+     {
+      "survey": "982/2",
+      "khata": "1229"
+     }
+    ]
+   },
+   {
+    "entryNo": 4927,
+    "typeGu": "વેચાણ",
+    "date": "2024-03-07",
+    "surveys": [
+     {
+      "survey": "199",
+      "khata": "16"
+     }
+    ]
+   },
+   {
+    "entryNo": 4926,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-02-29",
+    "surveys": [
+     {
+      "survey": "360",
+      "khata": "423"
+     },
+     {
+      "survey": "513/p1",
+      "khata": "423"
+     },
+     {
+      "survey": "656",
+      "khata": "423"
+     }
+    ]
+   },
+   {
+    "entryNo": 4925,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-02-29",
+    "surveys": [
+     {
+      "survey": "646/2",
+      "khata": "273"
+     },
+     {
+      "survey": "759/2",
+      "khata": "273"
+     }
+    ]
+   },
+   {
+    "entryNo": 4924,
+    "typeGu": "વેચાણ",
+    "date": "2024-02-23",
+    "surveys": [
+     {
+      "survey": "989",
+      "khata": "575"
+     }
+    ]
+   },
+   {
+    "entryNo": 4923,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-02-21",
+    "surveys": [
+     {
+      "survey": "720",
+      "khata": "192"
+     }
+    ]
+   },
+   {
+    "entryNo": 4922,
+    "typeGu": "વેચાણ",
+    "date": "2024-02-19",
+    "surveys": [
+     {
+      "survey": "494",
+      "khata": "611"
+     }
+    ]
+   },
+   {
+    "entryNo": 4921,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-02-13",
+    "surveys": [
+     {
+      "survey": "203",
+      "khata": "1369"
+     },
+     {
+      "survey": "500/2",
+      "khata": "1369"
+     },
+     {
+      "survey": "503/2",
+      "khata": "1369"
+     },
+     {
+      "survey": "776/1",
+      "khata": "1369"
+     },
+     {
+      "survey": "935",
+      "khata": "1369"
+     }
+    ]
+   },
+   {
+    "entryNo": 4920,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-02-13",
+    "surveys": [
+     {
+      "survey": "36",
+      "khata": "150"
+     },
+     {
+      "survey": "963",
+      "khata": "150"
+     },
+     {
+      "survey": "964",
+      "khata": "150"
+     },
+     {
+      "survey": "967",
+      "khata": "150"
+     }
+    ]
+   },
+   {
+    "entryNo": 4919,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-02-03",
+    "surveys": [
+     {
+      "survey": "747",
+      "khata": "1354"
+     }
+    ]
+   },
+   {
+    "entryNo": 4918,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-02-03",
+    "surveys": [
+     {
+      "survey": "494",
+      "khata": "611"
+     }
+    ]
+   },
+   {
+    "entryNo": 4917,
+    "typeGu": "વારસાઇ",
+    "date": "2024-02-03",
+    "surveys": [
+     {
+      "survey": "663",
+      "khata": "466"
+     },
+     {
+      "survey": "812",
+      "khata": "465"
+     },
+     {
+      "survey": "822",
+      "khata": "464"
+     }
+    ]
+   },
+   {
+    "entryNo": 4916,
+    "typeGu": "હયાતીમા હક દાખલ",
+    "date": "2024-01-31",
+    "surveys": [
+     {
+      "survey": "247",
+      "khata": "894"
+     }
+    ]
+   },
+   {
+    "entryNo": 4915,
+    "typeGu": "હક કમી",
+    "date": "2024-01-31",
+    "surveys": [
+     {
+      "survey": "239/p1",
+      "khata": "445"
+     }
+    ]
+   },
+   {
+    "entryNo": 4914,
+    "typeGu": "વેચાણ",
+    "date": "2024-01-30",
+    "surveys": [
+     {
+      "survey": "878/1",
+      "khata": "1201"
+     }
+    ]
+   },
+   {
+    "entryNo": 4913,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-01-19",
+    "surveys": [
+     {
+      "survey": "768",
+      "khata": "880"
+     }
+    ]
+   },
+   {
+    "entryNo": 4912,
+    "typeGu": "હુકમથી",
+    "date": "2024-01-19",
+    "surveys": [
+     {
+      "survey": "365/1",
+      "khata": "1164"
+     }
+    ]
+   },
+   {
+    "entryNo": 4911,
+    "typeGu": "બીન ખેતી",
+    "date": "2024-01-19",
+    "surveys": [
+     {
+      "survey": "365/1",
+      "khata": "1164"
+     }
+    ]
+   },
+   {
+    "entryNo": 4910,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-01-18",
+    "surveys": [
+     {
+      "survey": "619/p2",
+      "khata": "945"
+     }
+    ]
+   },
+   {
+    "entryNo": 4909,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-01-18",
+    "surveys": [
+     {
+      "survey": "619/p3",
+      "khata": "946"
+     }
+    ]
+   },
+   {
+    "entryNo": 4908,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-01-18",
+    "surveys": [
+     {
+      "survey": "368",
+      "khata": "405"
+     },
+     {
+      "survey": "398",
+      "khata": "405"
+     },
+     {
+      "survey": "503/1/p1",
+      "khata": "405"
+     },
+     {
+      "survey": "711/2",
+      "khata": "405"
+     }
+    ]
+   },
+   {
+    "entryNo": 4907,
+    "typeGu": "વેચાણ",
+    "date": "2024-01-17",
+    "surveys": [
+     {
+      "survey": "251/p2",
+      "khata": "1233"
+     }
+    ]
+   },
+   {
+    "entryNo": 4906,
+    "typeGu": "બોજો દાખલ",
+    "date": "2024-01-16",
+    "surveys": [
+     {
+      "survey": "19",
+      "khata": "1365"
+     },
+     {
+      "survey": "1003/p118",
+      "khata": "1129"
+     }
+    ]
+   },
+   {
+    "entryNo": 4905,
+    "typeGu": "હયાતીમા વહેંચણી",
+    "date": "2024-01-11",
+    "surveys": [
+     {
+      "survey": "914/1",
+      "khata": "111"
+     },
+     {
+      "survey": "915",
+      "khata": "111"
+     },
+     {
+      "survey": "918/2/p2",
+      "khata": "111"
+     },
+     {
+      "survey": "994",
+      "khata": "111"
+     }
+    ]
+   },
+   {
+    "entryNo": 4904,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-01-09",
+    "surveys": [
+     {
+      "survey": "1003/p118",
+      "khata": "1129"
+     }
+    ]
+   },
+   {
+    "entryNo": 4903,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-01-08",
+    "surveys": [
+     {
+      "survey": "240/p2",
+      "khata": "390"
+     },
+     {
+      "survey": "240/p4",
+      "khata": "390"
+     }
+    ]
+   },
+   {
+    "entryNo": 4902,
+    "typeGu": "હુકમથી",
+    "date": "2024-01-03",
+    "surveys": [
+     {
+      "survey": "256",
+      "khata": "1263"
+     }
+    ]
+   },
+   {
+    "entryNo": 4901,
+    "typeGu": "બોજા મુક્તિ",
+    "date": "2024-01-03",
+    "surveys": [
+     {
+      "survey": "550",
+      "khata": "600"
      }
     ]
    }
