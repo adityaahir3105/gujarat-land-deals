@@ -26,8 +26,8 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · Recharts · L
   1. `pip install playwright && python -m playwright install chromium` (once)
   2. `python scripts/collect_echavdi.py` opens a browser. Choose e-CHAVDI, the village and a month,
      solve the CAPTCHA, and the script saves each result page. Repeat for each month.
-  3. `npm run data:build` parses the pages with the app's own parser (`src/lib/land.ts`, run through
-     Node's type stripping; Node 22.18+) and writes the JSON.
+  3. `npm run data:build` parses the pages with the app's own parser (`src/lib/land.ts`) and writes
+     the JSON. Needs `npm install` first (it uses the project's TypeScript compiler); any Node 18+.
 - Or drop saved pages into "Add months" on the page. They stay in that browser; "Dataset JSON"
   downloads the merged data in the same shape as `echavdi.json`.
 - A month with no notices only counts as checked if its file name ends in `-YYYY-MM.html`.

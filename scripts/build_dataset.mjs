@@ -4,8 +4,9 @@
 //   node scripts/build_dataset.mjs            # reads scripts/raw/*.html
 //   node scripts/build_dataset.mjs dir/ a.html # or any files / folders you pass
 //
-// Uses the same parser as the dashboard's in-browser import (src/lib/land.ts), loaded through
-// Node's built-in TypeScript type stripping (Node 22.18+ / 23.6+).
+// Uses the same parser as the dashboard's in-browser import (src/lib/land.ts). The file is
+// compiled in memory with the project's own `typescript` package, so this works on any Node 18+
+// without a TS loader or flags.
 //
 // A page with no entries cannot tell which month it was for. Name such files
 // "...-YYYY-MM.html" and the month is taken from the file name, so the dashboard can show the
@@ -14,10 +15,20 @@
 import { readFileSync, readdirSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseChavdiPage, mergeDatasets, villageId } from '../src/lib/land.ts';
+import ts from 'typescript';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..');
+
+// src/lib/land.ts has no imports, so its compiled output can be loaded as a data: URL module.
+const landSrc = readFileSync(join(root, 'src/lib/land.ts'), 'utf8');
+const { outputText } = ts.transpileModule(landSrc, {
+  compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+  fileName: 'land.ts',
+});
+const { parseChavdiPage, mergeDatasets, villageId } = await import(
+  `data:text/javascript;base64,${Buffer.from(outputText).toString('base64')}`
+);
 const outFile = join(root, 'src/data/land/echavdi.json');
 
 const args = process.argv.slice(2);
