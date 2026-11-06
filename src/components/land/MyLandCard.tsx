@@ -10,6 +10,7 @@ import {
   RELATION_ORDER,
   Relation,
   RelationKind,
+  entryTypeGu,
   entryTypeInfo,
   normaliseSurvey,
   objectionWindow,
@@ -17,6 +18,7 @@ import {
 } from '@/lib/land';
 import type { NearbySettings } from '@/lib/land-storage';
 import { cn } from '@/lib/utils';
+import { Translate, useLang, useT } from '@/lib/i18n';
 import { isoToDmy } from './EntriesTable';
 
 interface MyLandCardProps {
@@ -39,16 +41,16 @@ export function formatKm(km: number) {
 }
 
 /** One line on how a notice relates to your land, e.g. "600 m from your 210/p1". */
-export function relationText(r: Relation): string {
+export function relationText(r: Relation, t: Translate): string {
   switch (r.kind) {
     case 'mine':
-      return `Your survey ${r.mySurvey}`;
+      return t(`Your survey ${r.mySurvey}`, `તમારો સર્વે ${r.mySurvey}`);
     case 'same-survey':
-      return `Same original survey as your ${r.mySurvey}`;
+      return t(`Same original survey as your ${r.mySurvey}`, `તમારા ${r.mySurvey}ના જ મૂળ સર્વેનો ભાગ`);
     case 'pinned-near':
-      return `${formatKm(r.distanceKm ?? 0)} from your ${r.mySurvey}`;
+      return t(`${formatKm(r.distanceKm ?? 0)} from your ${r.mySurvey}`, `તમારા ${r.mySurvey}થી ${formatKm(r.distanceKm ?? 0)}`);
     case 'number-near':
-      return `Survey no. ${r.numberGap} away from your ${r.mySurvey} (a guess)`;
+      return t(`Survey no. ${r.numberGap} away from your ${r.mySurvey} (a guess)`, `તમારા ${r.mySurvey}થી સર્વે નંબરમાં ${r.numberGap}નો ફરક (અંદાજ)`);
   }
 }
 const WINDOWS = [0, 5, 10, 25];
@@ -93,6 +95,8 @@ export function MyLandCard({
 }: MyLandCardProps) {
   const [editing, setEditing] = useState(myLand.length === 0);
   const [draft, setDraft] = useState(myLand.join(', '));
+  const t = useT();
+  const gu = useLang() === 'gu';
 
   const pinned = new Set(Object.keys(pins).map(normaliseSurvey));
   const related = entries
@@ -114,14 +118,14 @@ export function MyLandCard({
     <Card className="p-4 md:p-5">
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
-          <h3 className="text-lg font-semibold text-zinc-100">My land</h3>
+          <h3 className="text-lg font-semibold text-zinc-100">{t('My land', 'મારી જમીન')}</h3>
           <p className="flex items-center gap-1 text-xs text-zinc-500">
-            <Lock className="h-3 w-3" /> Saved only in this browser. It is not part of the public site.
+            <Lock className="h-3 w-3" /> {t('Saved only in this browser. It is not part of the public site.', 'ફક્ત આ બ્રાઉઝરમાં સાચવેલું. જાહેર સાઇટમાં નથી.')}
           </p>
         </div>
         {!editing && (
           <button onClick={() => setEditing(true)} className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 px-2.5 py-1.5 text-xs text-zinc-300 hover:border-zinc-500">
-            <Pencil className="h-3.5 w-3.5" /> Edit survey nos.
+            <Pencil className="h-3.5 w-3.5" /> {t('Edit survey nos.', 'સર્વે નં. બદલો')}
           </button>
         )}
       </div>
@@ -129,19 +133,19 @@ export function MyLandCard({
       {editing ? (
         <div className="mt-4 space-y-2">
           <label htmlFor="myland" className="text-sm text-zinc-300">
-            Your survey numbers, as AnyRoR writes them
+            {t('Your survey numbers, as AnyRoR writes them', 'તમારા સર્વે નંબર, AnyRoR માં લખ્યા હોય એ રીતે')}
           </label>
           <input
             id="myland"
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && save()}
-            placeholder="e.g. 58, 118/2, 260/1/p1"
+            placeholder={t('e.g. 58, 118/2, 260/1/p1', 'દા.ત. 58, 118/2, 260/1/પૈકી1')}
             className="w-full rounded-md border border-zinc-700 bg-zinc-950 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-zinc-500 focus:outline-none"
           />
           <div className="flex gap-2">
             <button onClick={save} className="rounded-md bg-accent px-3 py-1.5 text-xs font-medium text-zinc-950 hover:bg-accent/90">
-              Save
+              {t('Save', 'સાચવો')}
             </button>
             {myLand.length > 0 && (
               <button
@@ -151,21 +155,21 @@ export function MyLandCard({
                 }}
                 className="rounded-md px-3 py-1.5 text-xs text-zinc-400 hover:text-zinc-200"
               >
-                Cancel
+                {t('Cancel', 'રદ કરો')}
               </button>
             )}
           </div>
-          <p className="text-xs text-zinc-500">Separate with commas. Gujarati digits and પૈકી are understood.</p>
+          <p className="text-xs text-zinc-500">{t('Separate with commas. Gujarati digits and પૈકી are understood.', 'અલ્પવિરામથી અલગ કરો. ગુજરાતી અંક અને પૈકી ચાલે.')}</p>
         </div>
       ) : (
         <div className="mt-4 flex flex-wrap gap-1.5">
           {myLand.map((s) => (
             <span key={s} className="inline-flex items-center overflow-hidden rounded-md border border-accent/40 bg-accent/10 text-sm">
-              <button onClick={() => onSelect(s)} className="inline-flex items-center gap-1 px-2 py-1 tabular-nums text-zinc-100 hover:bg-accent/20" title="Show on map / pin it">
-                {pinned.has(s) && <MapPin className="h-3.5 w-3.5 text-accent" aria-label="pinned" />}
+              <button onClick={() => onSelect(s)} className="inline-flex items-center gap-1 px-2 py-1 tabular-nums text-zinc-100 hover:bg-accent/20" title={t('Show on map / pin it', 'નકશા પર બતાવો / પિન કરો')}>
+                {pinned.has(s) && <MapPin className="h-3.5 w-3.5 text-accent" aria-label={t('pinned', 'નકશા પર')} />}
                 {s}
               </button>
-              <button onClick={() => onChangeMyLand(myLand.filter((x) => x !== s))} className="px-1.5 py-1 text-zinc-500 hover:text-zinc-200" aria-label={`Remove ${s}`}>
+              <button onClick={() => onChangeMyLand(myLand.filter((x) => x !== s))} className="px-1.5 py-1 text-zinc-500 hover:text-zinc-200" aria-label={t(`Remove ${s}`, `${s} કાઢો`)}>
                 <X className="h-3 w-3" />
               </button>
             </span>
@@ -180,7 +184,10 @@ export function MyLandCard({
             {onMine.length === 0 ? (
               <p className="flex items-start gap-2 rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-3 text-sm text-zinc-300">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" />
-                No notice lists your survey numbers in the {monthsImported} imported month{monthsImported === 1 ? '' : 's'}.
+                {t(
+                  `No notice lists your survey numbers in the ${monthsImported} imported month${monthsImported === 1 ? '' : 's'}.`,
+                  `ઉમેરેલા ${monthsImported} મહિનાની કોઈ નોંધમાં તમારા સર્વે નંબર નથી.`
+                )}
               </p>
             ) : (
               <div className="space-y-2">
@@ -195,12 +202,17 @@ export function MyLandCard({
                       <AlertTriangle className={cn('mt-0.5 h-4 w-4 shrink-0', open ? 'text-amber-400' : 'text-zinc-500')} />
                       <div>
                         <p className="text-zinc-100">
-                          Entry {e.entryNo}: {entryTypeInfo(e.typeGu).en} ({e.typeGu}) on survey {r.survey}, {isoToDmy(e.date)}
+                          {gu
+                            ? `નોંધ ${e.entryNo}: સર્વે ${r.survey} પર ${entryTypeGu(e.typeGu)}, ${isoToDmy(e.date)}`
+                            : `Entry ${e.entryNo}: ${entryTypeInfo(e.typeGu).en} (${e.typeGu}) on survey ${r.survey}, ${isoToDmy(e.date)}`}
                         </p>
                         <p className="mt-0.5 text-xs text-zinc-400">
                           {open
-                            ? `Objection window ≈ ${w.daysLeft} days left (estimated from the entry date). If you did not expect this, check the entry on AnyRoR (VF-6) and the Mamlatdar office before it closes.`
-                            : `Objection window closed ≈ ${isoToDmy(w.closes)}.`}
+                            ? t(
+                                `Objection window ≈ ${w.daysLeft} days left (estimated from the entry date). If you did not expect this, check the entry on AnyRoR (VF-6) and the Mamlatdar office before it closes.`,
+                                `વાંધા અરજીની મુદત ≈ ${w.daysLeft} દિવસ બાકી (નોંધની તારીખ પરથી અંદાજ). આ નોંધ અપેક્ષિત ન હોય તો મુદત પૂરી થાય એ પહેલાં AnyRoR (ગામ નમૂનો 6) પર નોંધ અને મામલતદાર કચેરીમાં તપાસ કરો.`
+                              )
+                            : t(`Objection window closed ≈ ${isoToDmy(w.closes)}.`, `વાંધા અરજીની મુદત પૂરી ≈ ${isoToDmy(w.closes)}.`)}
                         </p>
                       </div>
                     </div>
@@ -213,17 +225,31 @@ export function MyLandCard({
           {/* Nearby */}
           <div className="mt-5">
             <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-2">
-              <h4 className="text-sm font-medium text-zinc-200">Deals near my land</h4>
-              <Choice label="On the map within" options={RADII} value={nearby.radiusKm} onChange={(radiusKm) => onChangeNearby({ ...nearby, radiusKm })} format={(v) => (v ? `${v} km` : 'off')} />
-              <Choice label="Survey no. within" options={WINDOWS} value={nearby.numberWindow} onChange={(numberWindow) => onChangeNearby({ ...nearby, numberWindow })} format={(v) => (v ? `±${v}` : 'off')} />
+              <h4 className="text-sm font-medium text-zinc-200">{t('Deals near my land', 'મારી જમીન નજીકના સોદા')}</h4>
+              <Choice
+                label={t('On the map within', 'નકશા પર અંતર')}
+                options={RADII}
+                value={nearby.radiusKm}
+                onChange={(radiusKm) => onChangeNearby({ ...nearby, radiusKm })}
+                format={(v) => (v ? `${v} km` : t('off', 'બંધ'))}
+              />
+              <Choice
+                label={t('Survey no. within', 'સર્વે નંબરમાં ફરક')}
+                options={WINDOWS}
+                value={nearby.numberWindow}
+                onChange={(numberWindow) => onChangeNearby({ ...nearby, numberWindow })}
+                format={(v) => (v ? `±${v}` : t('off', 'બંધ'))}
+              />
             </div>
             <p className="mb-3 text-xs text-zinc-500">
-              {counts.map(([k, n]) => `${RELATION_META[k as RelationKind].label}: ${n}`).join(' · ')}.{' '}
-              {myLand.filter((s) => pinned.has(s)).length} of {myLand.length} of your survey numbers are pinned; distance only works for pinned
-              survey numbers on both sides. Close survey numbers are a hint, not a distance.
+              {counts.map(([k, n]) => `${t(RELATION_META[k as RelationKind].label, RELATION_META[k as RelationKind].labelGu)}: ${n}`).join(' · ')}.{' '}
+              {t(
+                `${myLand.filter((s) => pinned.has(s)).length} of ${myLand.length} of your survey numbers are pinned; distance only works for pinned survey numbers on both sides. Close survey numbers are a hint, not a distance.`,
+                `તમારા ${myLand.length}માંથી ${myLand.filter((s) => pinned.has(s)).length} સર્વે નંબર નકશા પર છે; અંતર ત્યારે જ ગણાય જ્યારે બંને સર્વે નંબર નકશા પર હોય. નજીકના નંબર માત્ર સંકેત છે, અંતર નહીં.`
+              )}
             </p>
             {nearbyList.length === 0 ? (
-              <p className="text-sm text-zinc-500">Nothing nearby with these settings.</p>
+              <p className="text-sm text-zinc-500">{t('Nothing nearby with these settings.', 'આ સેટિંગમાં નજીક કંઈ નથી.')}</p>
             ) : (
               <ul className="divide-y divide-zinc-800/70 rounded-lg border border-zinc-800">
                 {nearbyList.slice(0, 30).map(({ e, r }) => {
@@ -231,18 +257,25 @@ export function MyLandCard({
                   return (
                     <li key={e.entryNo} className="flex flex-wrap items-center gap-x-3 gap-y-1 px-3 py-2 text-sm">
                       <span className="tabular-nums text-zinc-400">{isoToDmy(e.date)}</span>
-                      <span className="text-zinc-200">{info.en}</span>
+                      <span className="text-zinc-200">{gu ? entryTypeGu(e.typeGu) : info.en}</span>
                       <button onClick={() => onSelect(r.survey)} className="rounded border border-zinc-700 px-1.5 py-0.5 text-xs tabular-nums text-zinc-300 hover:border-zinc-500">
                         {r.survey}
                       </button>
-                      <span className="text-xs text-zinc-500">{relationText(r)}</span>
-                      <span className="ml-auto text-xs text-zinc-500">Entry {e.entryNo}</span>
+                      <span className="text-xs text-zinc-500">{relationText(r, t)}</span>
+                      <span className="ml-auto text-xs text-zinc-500">{t('Entry', 'નોંધ')} {e.entryNo}</span>
                     </li>
                   );
                 })}
               </ul>
             )}
-            {nearbyList.length > 30 && <p className="mt-2 text-xs text-zinc-500">Showing the latest 30 of {nearbyList.length}. The notices table can filter all of them.</p>}
+            {nearbyList.length > 30 && (
+              <p className="mt-2 text-xs text-zinc-500">
+                {t(
+                  `Showing the latest 30 of ${nearbyList.length}. The notices table can filter all of them.`,
+                  `${nearbyList.length}માંથી છેલ્લી 30 બતાવી છે. નીચેના નોંધ કોષ્ટકમાં બધી જોઈ શકાય.`
+                )}
+              </p>
+            )}
           </div>
         </>
       )}

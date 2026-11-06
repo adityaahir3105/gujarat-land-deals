@@ -8,6 +8,7 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind 4. Charts: Recharts. 
 - `src/lib/land.ts` – e-Chavdi parser, entry-type dictionary, analysis, pin export. No imports: `scripts/build_dataset.mjs` compiles it alone with `typescript` and loads it
 - `src/lib/land-storage.ts` – localStorage for imported pages, pins, village centre, my land, nearby settings, seen notices; backup/restore
 - `src/lib/overlay.ts` – village map scans: 3-point affine alignment and IndexedDB storage (private, never committed)
+- `src/lib/i18n.ts` – English / Gujarati: `useT()` gives `t('English', 'ગુજરાતી')`; `T` in `components/LangToggle.tsx` for server pages. Choice in localStorage; pages prerender in English
 - `src/lib/geo.ts` – village outline types, KML/KMZ import (shapes and survey pins; private, localStorage)
 - `src/data/land/` – `villages.ts` (config), `echavdi.json` and `boundaries.json` (generated; DataMeet, ODbL) and `watch.json` (area watch feed, typed and validated in `src/lib/watch.ts`)
 - `scripts/` – `collect_echavdi.py` (saves pages while a person browses), `build_dataset.mjs`, `raw/` pages
@@ -26,4 +27,5 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind 4. Charts: Recharts. 
 - "My land" is private: keep it in localStorage only. Never commit a user's survey numbers or put them in the build. Village map scans and imported KML/KMZ shapes likewise stay in the browser unless the owner asks to publish them. Only public village-level outlines (`boundaries.json`) are committed.
 - Every figure carries its source. Edit `echavdi.json` only by re-running the builder.
 - Area watch (`watch.json`): area-level public developments only, each with at least one https source. Survey numbers only when a public notice prints them. Never add an owner's own land, prices, offers or other private details; matching against "my land" happens in the browser. Updated weekly by a scheduled task through a PR.
+- Every visible string comes in both languages: `t('…', '…')` next to the code, Gujarati in plain everyday words with AnyRoR's own terms (નોંધ, સર્વે નં., ખાતા, બોજો, વારસાઈ, હક્ક કમી). Show e-Chavdi entry types as e-Chavdi writes them. Watch items carry `titleGu` / `summaryGu`.
 - Lint forbids calling setState directly inside effects.

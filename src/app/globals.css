@@ -4,7 +4,7 @@
   --color-accent: #FFD700;
   --color-background: #09090b;
   --color-foreground: #fafafa;
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-geist-sans), var(--font-gujarati);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -17,7 +17,8 @@ body {
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  /* Variables from next/font in layout.tsx: Latin from Geist, Gujarati from Noto Sans Gujarati. */
+  font-family: var(--font-geist-sans), var(--font-gujarati), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
