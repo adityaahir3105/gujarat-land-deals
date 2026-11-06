@@ -12,7 +12,8 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind 4. Charts: Recharts. 
 
 ## Commands (CI runs lint and typecheck)
 - `npm run lint`, `npm run typecheck`, `npm run build`
-- `npm run data:build` – regenerate `src/data/land/echavdi.json` from `scripts/raw/`
+- `npm run data:build` – regenerate `src/data/land/echavdi.json` from `scripts/raw/` (saved `.html` pages and "Dataset JSON" exports from the app)
+- `npm run deploy` – build and deploy to Firebase Hosting (project in `.firebaserc`)
 
 ## Conventions
 - Never automate the AnyRoR CAPTCHA. Collection stays human-in-the-loop.
