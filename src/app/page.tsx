@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { MapPinned } from 'lucide-react';
-import echavdi from '@/data/land/echavdi.json';
-import { VILLAGES } from '@/data/land/villages';
-import { LandDataset, villageId } from '@/lib/land';
+import { defaultVillage } from '@/data/land';
 import { LandLoader } from '@/components/land/LandLoader';
 
 export const metadata: Metadata = {
@@ -10,18 +8,8 @@ export const metadata: Metadata = {
   description: 'Mutation notices from AnyRoR e-Chavdi for a Gujarat village: sales, loan charges and family transfers, with survey numbers you can pin on a map.',
 };
 
-const datasets = echavdi as LandDataset[];
-
 export default function Home() {
-  // One village for now; the config and data are keyed so more can be added.
-  const village = VILLAGES[0];
-  const seed = datasets.find((d) => villageId(d) === villageId(village)) ?? {
-    district: village.district,
-    taluka: village.taluka,
-    village: village.village,
-    months: [],
-    entries: [],
-  };
+  const { village, seed } = defaultVillage();
 
   return (
     <div className="w-full max-w-7xl px-4 py-10 sm:px-6 lg:px-8">

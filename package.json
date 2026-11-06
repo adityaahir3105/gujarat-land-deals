@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "npx serve@14 out",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "data:build": "node scripts/build_dataset.mjs"
+    "data:build": "node scripts/build_dataset.mjs",
+    "deploy": "npm run build && npx firebase-tools@15 deploy --only hosting"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

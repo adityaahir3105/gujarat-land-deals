@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { MapPinned } from 'lucide-react';
 import './globals.css';
+import { NavLinks } from '@/components/NavLinks';
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
@@ -23,8 +24,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               </div>
               <div>
                 <h1 className="text-base font-semibold text-zinc-100">Gujarat Land Deals</h1>
-                <p className="text-xs text-zinc-500">e-Chavdi notices, read together</p>
+                <p className="hidden text-xs text-zinc-500 sm:block">e-Chavdi notices, read together</p>
               </div>
+              <NavLinks />
             </div>
           </header>
           <main className="flex w-full flex-1 justify-center">{children}</main>

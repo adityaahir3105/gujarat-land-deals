@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { MapPin } from 'lucide-react';
-import { CATEGORY_META, CATEGORY_ORDER, ChavdiEntry, EntryCategory, PinMap, entryTypeInfo, objectionWindow } from '@/lib/land';
+import { CATEGORY_META, CATEGORY_ORDER, ChavdiEntry, EntryCategory, PinMap, RELATION_META, Relation, entryTypeInfo, objectionWindow } from '@/lib/land';
 import { cn } from '@/lib/utils';
 
 export const isoToDmy = (iso: string) => iso.split('-').reverse().join('/');
@@ -13,12 +13,17 @@ interface EntriesTableProps {
   today: string;
   selected: string | null;
   onSelect: (survey: string) => void;
+  /** How each notice relates to your land, by entry number. */
+  relations?: Map<number, Relation>;
+  /** Entry numbers that are new since your last visit. */
+  fresh?: Set<number>;
 }
 
 const PAGE = 40;
 
-export function EntriesTable({ entries, pins, today, selected, onSelect }: EntriesTableProps) {
+export function EntriesTable({ entries, pins, today, selected, onSelect, relations, fresh }: EntriesTableProps) {
   const [filter, setFilter] = useState<EntryCategory | 'all'>('all');
+  const [only, setOnly] = useState<'all' | 'mine' | 'new'>('all');
   const [query, setQuery] = useState('');
   const [limit, setLimit] = useState(PAGE);
 
@@ -26,10 +31,12 @@ export function EntriesTable({ entries, pins, today, selected, onSelect }: Entri
     const q = query.trim().toLowerCase();
     return entries.filter((e) => {
       if (filter !== 'all' && entryTypeInfo(e.typeGu).category !== filter) return false;
+      if (only === 'mine' && !relations?.has(e.entryNo)) return false;
+      if (only === 'new' && !fresh?.has(e.entryNo)) return false;
       if (!q) return true;
       return String(e.entryNo).includes(q) || e.surveys.some((s) => s.survey.toLowerCase().startsWith(q) || s.khata === q);
     });
-  }, [entries, filter, query]);
+  }, [entries, filter, query, only, relations, fresh]);
 
   return (
     <div>
@@ -52,6 +59,23 @@ export function EntriesTable({ entries, pins, today, selected, onSelect }: Entri
             </button>
           ))}
         </div>
+        {(relations?.size || fresh?.size) ? (
+          <div className="flex rounded-lg border border-zinc-800 bg-zinc-900/60 p-1" role="group" aria-label="Show">
+            {([['all', 'All notices'], ['mine', `Mine & nearby (${relations?.size ?? 0})`], ['new', `New (${fresh?.size ?? 0})`]] as const).map(([v, label]) => (
+              <button
+                key={v}
+                onClick={() => {
+                  setOnly(v);
+                  setLimit(PAGE);
+                }}
+                aria-pressed={only === v}
+                className={cn('whitespace-nowrap rounded-md px-2 py-1 text-xs', only === v ? 'bg-zinc-800 text-zinc-100' : 'text-zinc-400 hover:text-zinc-200')}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        ) : null}
         <input
           value={query}
           onChange={(e) => {
@@ -82,9 +106,13 @@ export function EntriesTable({ entries, pins, today, selected, onSelect }: Entri
             {shown.slice(0, limit).map((e) => {
               const info = entryTypeInfo(e.typeGu);
               const w = objectionWindow(e, today);
+              const rel = relations?.get(e.entryNo);
               return (
-                <tr key={e.entryNo} className="align-top hover:bg-zinc-900/40">
-                  <td className="px-3 py-2 tabular-nums text-zinc-200">{e.entryNo}</td>
+                <tr key={e.entryNo} className={cn('align-top hover:bg-zinc-900/40', rel?.kind === 'mine' && 'bg-amber-500/5')}>
+                  <td className="px-3 py-2 tabular-nums text-zinc-200">
+                    {e.entryNo}
+                    {fresh?.has(e.entryNo) && <span className="ml-1.5 rounded bg-sky-500/15 px-1 py-0.5 text-[10px] font-medium text-sky-300">NEW</span>}
+                  </td>
                   <td className="whitespace-nowrap px-3 py-2 tabular-nums text-zinc-300">{isoToDmy(e.date)}</td>
                   <td className="px-3 py-2">
                     <span className="flex items-center gap-1.5 text-zinc-200">
@@ -92,6 +120,17 @@ export function EntriesTable({ entries, pins, today, selected, onSelect }: Entri
                       {info.en}
                     </span>
                     <span className="text-xs text-zinc-500">{e.typeGu}</span>
+                    {rel && (
+                      <span
+                        className={cn(
+                          'mt-1 block w-fit rounded px-1.5 py-0.5 text-[11px]',
+                          rel.kind === 'mine' ? 'bg-amber-500/15 text-amber-300' : 'bg-accent/10 text-accent'
+                        )}
+                        title={RELATION_META[rel.kind].label}
+                      >
+                        {RELATION_META[rel.kind].short} · {rel.mySurvey}
+                      </span>
+                    )}
                   </td>
                   <td className="px-3 py-2">
                     <div className="flex flex-wrap gap-1">
