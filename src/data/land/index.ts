@@ -1,8 +1,10 @@
+import boundariesJson from './boundaries.json';
 import echavdi from './echavdi.json';
 import watchJson from './watch.json';
 import { VILLAGES, VillageConfig } from './villages';
 import { LandDataset, villageId } from '@/lib/land';
 import type { WatchFeed } from '@/lib/watch';
+import type { BoundaryCollection, BoundaryFile } from '@/lib/geo';
 
 const datasets = echavdi as LandDataset[];
 
@@ -21,3 +23,10 @@ export function defaultVillage(): { village: VillageConfig; seed: LandDataset } 
 
 /** Public area-watch feed (src/data/land/watch.json). */
 export const watchFeed = watchJson as WatchFeed;
+
+/** Public village outlines (src/data/land/boundaries.json, from `npm run boundaries:build`). */
+export const boundaries = boundariesJson as BoundaryFile;
+
+export function boundaryFor(village: VillageConfig): BoundaryCollection | undefined {
+  return boundaries.villages[villageId(village)];
+}

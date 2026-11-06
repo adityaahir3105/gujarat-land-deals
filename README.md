@@ -38,7 +38,15 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · Recharts · L
   triangle). The sheet is drawn under the pins with adjustable opacity, white paper see-through, so
   survey numbers can be pinned where they really are. Old hand-drawn sheets are not perfectly to
   scale; expect some local error. Use a full-resolution scan so the numbers are readable.
-- **Backup / restore**: moves your land, pins and imported months to another device as one file.
+- **Village boundary**: the map opens on the village outline (gold) with the neighbouring villages
+  dashed and labelled. Public data from DataMeet, see "Map" below.
+- **Import from Google Earth** (private to your browser): "Import KML / pins" takes a `.kml` or
+  `.kmz`. Outlines, lines and points are drawn on the map; a placemark named like "Survey No. 58",
+  "S.No 118/2" or "સર્વે નં. ૫૮" becomes the pin for that survey number (a point if there is one,
+  otherwise the centre of its outline). Existing pins are kept. Village outlines already on the map
+  and picture overlays are skipped; add scans under "Village map sheets" instead.
+- **Backup / restore**: moves your land, pins, imported shapes and months to another device as one
+  file.
 
 ## Data
 
@@ -61,14 +69,20 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · Recharts · L
 e-Chavdi has survey numbers but no coordinates, and there is no parcel layer here. Pin each
 survey number once, after checking it on the official village map (AnyRoR / taluka survey
 office), or with "Pin at my location" while standing on the plot. Pins stay in the browser and
-export to KML (Google Earth) or GeoJSON, and load back from GeoJSON.
+export to KML (Google Earth) or GeoJSON, and load back from GeoJSON or KML/KMZ.
 
-The village centre is approximate (GeoNames, see `src/data/land/villages.ts`); another gazetteer
-puts it about 13 km away. Use "Set village centre" to correct it.
+Village outlines come from [DataMeet's Indian Village Boundaries](https://github.com/datameet/indian_village_boundaries)
+(Gujarat layer, digitised from Census 2001 village maps, © DataMeet contributors, ODbL 1.0).
+`npm run boundaries:build` downloads it (~29 MB) and writes `src/data/land/boundaries.json` with
+each configured village (matched on `census2001` in `villages.ts`) and the villages within 2.5 km.
+`boundaries.json` is a derived database and stays under the ODbL. These are village-level lines
+for orientation, not survey or legal boundaries, and can be tens of metres off.
+
+The village centre point (GeoNames, see `src/data/land/villages.ts`) lies inside the outline.
 
 ## Privacy
 
-"My land", pins, nearby settings and imported months are stored in the browser's localStorage and
+"My land", pins, nearby settings, imported shapes and imported months are stored in the browser's localStorage and
 never written to the repository or the built site. The public site only contains the committed
 e-Chavdi notices, which are public records without owner names. Keep backup files private: they
 list your survey numbers.
@@ -143,8 +157,9 @@ and stay private.
 
 ## Adding a village
 
-Add it to `src/data/land/villages.ts` with names exactly as AnyRoR prints them, collect its pages,
-and run `npm run data:build`. The page currently shows the first village in the list.
+Add it to `src/data/land/villages.ts` with names exactly as AnyRoR prints them and its Census 2001
+code (DataMeet's `CENSUS_CODE_2001`), collect its pages, and run `npm run data:build` and
+`npm run boundaries:build`. The page currently shows the first village in the list.
 
 ## Development
 

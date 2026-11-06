@@ -12,6 +12,11 @@ export interface VillageConfig {
   en: { district: string; taluka: string; village: string };
   /** AnyRoR village code shown in the village drop-down, e.g. "047". */
   anyrorCode: string;
+  /**
+   * Census 2001 village code (16 digits), as used by DataMeet's village boundaries. Lets
+   * `npm run boundaries:build` find the village outline. Census 2011 code in the comment.
+   */
+  census2001?: string;
   /** Rough village location for the map's starting view. Not a parcel location. */
   approxCenter: { lat: number; lng: number; source: string; sourceUrl: string; caveat: string };
 }
@@ -23,13 +28,14 @@ export const VILLAGES: VillageConfig[] = [
     village: 'ચીરઈ મોટી',
     en: { district: 'Kachchh', taluka: 'Bhachau', village: 'Chirai Moti' },
     anyrorCode: '047',
+    census2001: '2401000300024900', // Census 2011: 506673
     approxCenter: {
       lat: 23.218,
       lng: 70.257,
       source: 'GeoNames 1274108 ("Chirai Mota"), via Who\'s On First',
       sourceUrl: 'https://spelunker.whosonfirst.org/id/1225928019/',
       caveat:
-        'Point for the settlement, about 12 km from Bhachau town. Another gazetteer gives 23.298, 70.343 for "Chirai". Neither is checked against the official village map; move it with "Set village centre" if it is off.',
+        'Point for the settlement. It lies inside the village outline from DataMeet (2001 census maps); another gazetteer\'s 23.298, 70.343 falls in Bhachau town instead. Move it with "Set village centre" if it is off.',
     },
   },
 ];
