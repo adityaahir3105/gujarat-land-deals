@@ -33,12 +33,17 @@ import { MyLandCard } from './MyLandCard';
 import { WatchCard } from './WatchCard';
 import { AlignState, ViewSheet, VillageMapSheets } from './VillageMapSheets';
 import type { WatchFeed } from '@/lib/watch';
+import { BoundaryCollection, ShapeLayer, planKmlImport, readKmlFile } from '@/lib/geo';
+import { ImportedShapes } from './ImportedShapes';
 import { SurveyPanel } from './SurveyPanel';
 
 interface LandDashboardProps {
   village: VillageConfig;
   seed: LandDataset;
   watch: WatchFeed;
+  /** Public outline of the village and its neighbours, when the boundary data has it. */
+  boundary?: BoundaryCollection;
+  boundaryAttribution?: string;
 }
 
 function localToday() {
@@ -59,7 +64,7 @@ function Stat({ label, value, sub }: { label: string; value: number | string; su
 const smallBtn =
   'inline-flex items-center gap-1.5 rounded-md border border-zinc-700 px-2.5 py-1.5 text-xs text-zinc-300 transition-colors hover:border-zinc-500 hover:text-zinc-100';
 
-export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
+export function LandDashboard({ village, seed, watch, boundary, boundaryAttribution = '' }: LandDashboardProps) {
   // This component only renders in the browser (see LandLoader), so storage is safe to read here.
   const [imports, setImports] = useState<LandDataset | null>(() => landStorage.loadImports(seed));
   const [pins, setPins] = useState<PinMap>(() => landStorage.loadPins(seed));
@@ -78,6 +83,7 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
   // Notices present at the end of the previous visit; null on a first visit.
   const [seenBefore] = useState(() => landStorage.loadSeen(seed));
   const [backupNotice, setBackupNotice] = useState<string | null>(null);
+  const [shapeLayers, setShapeLayers] = useState<ShapeLayer[]>(() => landStorage.loadShapes(seed));
 
   const data = useMemo(() => (imports ? mergeDatasets(seed, imports) : seed), [seed, imports]);
 
@@ -133,6 +139,11 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
     [histories, mySet]
   );
   const mapPins = useMemo(() => pinMapToList(pins, describe), [pins, describe]);
+  const mapShapes = useMemo(
+    () => shapeLayers.filter((l) => l.visible).flatMap((l) => l.shapes.map((s) => ({ ...s, mine: !!s.survey && mySet.has(s.survey) }))),
+    [shapeLayers, mySet]
+  );
+  const mapBoundary = useMemo(() => (boundary ? { data: boundary, attribution: boundaryAttribution } : undefined), [boundary, boundaryAttribution]);
   const unpinned = useMemo(() => [...histories.keys()].filter((s) => !pins[s]).length, [histories, pins]);
 
   function updateMyLand(next: string[]) {
@@ -322,9 +333,38 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
     return `${added} new notices added.${saved ? '' : ' This browser blocked storage, so they will be gone after a reload; download the dataset to keep them.'}`;
   }
 
+  function updateShapes(next: ShapeLayer[]) {
+    setShapeLayers(next);
+    return landStorage.saveShapes(seed, next);
+  }
+
+  async function importKml(f: File) {
+    try {
+      const r = planKmlImport(await readKmlFile(f), f.name, { boundary, pins });
+      const pinned = Object.keys(r.newPins);
+      if (pinned.length) updatePins({ ...pins, ...r.newPins });
+      const saved = r.layer.shapes.length ? updateShapes([...shapeLayers, r.layer]) : true;
+      const parts = [
+        `${f.name}: ${r.layer.shapes.length} shape${r.layer.shapes.length === 1 ? '' : 's'} added`,
+        pinned.length ? `pinned survey ${pinned.join(', ')}` : 'no new survey pins',
+      ];
+      if (r.kept.length) parts.push(`kept your existing pin for ${r.kept.join(', ')} (remove it first to use the file's position)`);
+      if (r.skippedKnown) parts.push(`${r.skippedKnown} village outline${r.skippedKnown === 1 ? '' : 's'} or label${r.skippedKnown === 1 ? '' : 's'} skipped, already on the map`);
+      if (r.imageOverlays) parts.push(`${r.imageOverlays} picture overlay${r.imageOverlays === 1 ? '' : 's'} skipped (Google Earth keeps the picture online; add the scan under Village map sheets)`);
+      if (r.outside.length) parts.push(`check ${r.outside.join(', ')}: outside the village outline`);
+      setMapNotice(parts.join('; ') + '.' + (saved ? '' : ' This browser blocked storage, so the shapes will be gone after a reload.'));
+    } catch (e) {
+      setMapNotice(`${f.name}: ${(e as Error).message}`);
+    }
+  }
+
   function importPins(files: FileList | null) {
     const f = files?.[0];
     if (!f) return;
+    if (/\.km[lz]$/i.test(f.name)) {
+      void importKml(f);
+      return;
+    }
     f.text()
       .then((t) => {
         const loaded = pinsFromGeoJson(t);
@@ -388,8 +428,16 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
                 <Download className="h-3.5 w-3.5" /> GeoJSON
               </button>
               <label className={cn(smallBtn, 'cursor-pointer')}>
-                <Upload className="h-3.5 w-3.5" /> Load pins
-                <input type="file" accept=".geojson,.json,application/geo+json" className="sr-only" onChange={(e) => importPins(e.target.files)} />
+                <Upload className="h-3.5 w-3.5" /> Import KML / pins
+                <input
+                  type="file"
+                  accept=".kml,.kmz,.geojson,.json,application/vnd.google-earth.kml+xml,application/vnd.google-earth.kmz,application/geo+json"
+                  className="sr-only"
+                  onChange={(e) => {
+                    importPins(e.target.files);
+                    e.target.value = '';
+                  }}
+                />
               </label>
             </div>
           </div>
@@ -406,6 +454,16 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
               .filter((s) => s.visible && s.points.length === 3 && s.id !== align?.id)
               .map((s) => ({ id: s.id, url: s.url, points: s.points, opacity: s.opacity }))}
             alignPoints={align?.geo}
+            boundary={mapBoundary}
+            shapes={mapShapes}
+          />
+          <ImportedShapes
+            layers={shapeLayers}
+            onToggle={(id) => updateShapes(shapeLayers.map((l) => (l.id === id ? { ...l, visible: !l.visible } : l)))}
+            onRemove={(id) => {
+              const l = shapeLayers.find((x) => x.id === id);
+              if (l && window.confirm(`Remove the shapes from ${l.name}? Pins made from it stay.`)) updateShapes(shapeLayers.filter((x) => x.id !== id));
+            }}
           />
           <VillageMapSheets
             sheets={sheets}
@@ -440,8 +498,10 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
           <p className="mt-2 text-xs text-zinc-500">
             e-Chavdi lists survey numbers, not coordinates, and plot boundaries need the official village map. Pick a survey number from the
             notices, check where it lies on the AnyRoR / survey office village map, then pin it here once. Pins stay in this browser; export
-            KML to open them in Google Earth. The dashed ring marks the approximate village location only.
-            {!centerOverride && ` ${village.approxCenter.caveat}`}
+            KML to open them in Google Earth.
+            {boundary
+              ? ' The gold line is the village boundary and the dashed lines its neighbours, from DataMeet (Census 2001 maps): good for orientation, not a legal boundary, and off by tens of metres in places. Import a KML or KMZ from Google Earth to add your own outlines; placemarks named like "Survey No. 58" become pins.'
+              : ` The dashed ring marks the approximate village location only.${centerOverride ? '' : ` ${village.approxCenter.caveat}`}`}
           </p>
         </Card>
 
@@ -545,7 +605,7 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
       <Card className="p-4 md:p-5">
         <h3 className="text-lg font-semibold text-zinc-100">Move to another device</h3>
         <p className="mt-1 text-sm text-zinc-400">
-          Your land, pins, map centre, nearby settings, village map sheets and imported months live only in this browser. Download a backup and restore it on your
+          Your land, pins, map centre, nearby settings, imported shapes, village map sheets and imported months live only in this browser. Download a backup and restore it on your
           phone or another computer. Keep the file private: it lists your survey numbers.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">

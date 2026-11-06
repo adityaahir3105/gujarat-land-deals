@@ -1,7 +1,9 @@
 // Browser-only persistence for the land dashboard: imported e-Chavdi pages, survey pins, a
-// corrected village centre, the land you watch and what you have already seen. Lives in this
+// corrected village centre, the land you watch, shapes imported from Google Earth and what you
+// have already seen. Lives in this
 // browser's localStorage only, so "my land" never reaches the public site; back it up to move it.
 
+import type { ShapeLayer } from './geo';
 import { LandDataset, PinMap, VillageKey, villageId } from './land';
 
 export interface NearbySettings {
@@ -51,6 +53,9 @@ export const landStorage = {
   /** Area-watch item ids present at the end of the previous visit; null on a first visit. */
   loadSeenWatch: (v: VillageKey) => read<string[]>(k('seenwatch', v)),
   saveSeenWatch: (v: VillageKey, ids: string[]) => write(k('seenwatch', v), ids),
+  /** Shapes imported from KML/KMZ files (private, like "my land"). */
+  loadShapes: (v: VillageKey) => read<ShapeLayer[]>(k('shapes', v)) ?? [],
+  saveShapes: (v: VillageKey, layers: ShapeLayer[]) => write(k('shapes', v), layers),
 };
 
 /** Everything personal for one village, for moving between devices. */
@@ -65,6 +70,8 @@ export interface Backup {
   imports: LandDataset | null;
   /** Village map sheets with their alignment, images as data URLs (optional; added later). */
   overlays?: BackupOverlay[];
+  /** Shapes imported from KML/KMZ files (optional; added later). */
+  shapes?: ShapeLayer[];
 }
 
 export interface BackupOverlay {
@@ -89,6 +96,7 @@ export function makeBackup(v: VillageKey): Backup {
     center: landStorage.loadCenter(v),
     nearby: landStorage.loadNearby(v),
     imports: landStorage.loadImports(v),
+    shapes: landStorage.loadShapes(v),
   };
 }
 
@@ -107,6 +115,7 @@ export function restoreBackup(v: VillageKey, text: string): Backup {
   landStorage.saveCenter(v, b.center ?? null);
   landStorage.saveNearby(v, { ...DEFAULT_NEARBY, ...b.nearby });
   landStorage.saveImports(v, b.imports ?? null);
+  if (Array.isArray(b.shapes)) landStorage.saveShapes(v, b.shapes);
   return b;
 }
 

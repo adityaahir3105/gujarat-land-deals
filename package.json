@@ -9,6 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "data:build": "node scripts/build_dataset.mjs",
+    "boundaries:build": "node scripts/build_boundaries.mjs",
     "deploy": "npm run build && npx firebase-tools@15 deploy --only hosting",
     "watch:check": "node scripts/check_watch.mjs"
   },

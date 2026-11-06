@@ -3,8 +3,10 @@
 import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import type { FeatureCollection } from 'geojson';
 import { CATEGORY_META, EntryCategory, PinMap } from '@/lib/land';
 import { ControlPoint, XY, solveAffine } from '@/lib/overlay';
+import { BoundaryCollection, MapShape, outerRings, ringCentroid } from '@/lib/geo';
 
 export interface MapPin {
   survey: string;
@@ -39,17 +41,45 @@ interface LandMapProps {
   overlays?: MapOverlay[];
   /** Satellite points picked so far while aligning a scan, drawn as numbered markers. */
   alignPoints?: { lat: number; lng: number }[];
+  /** Public outlines of the village and its neighbours; the map starts zoomed to the village. */
+  boundary?: { data: BoundaryCollection; attribution: string };
+  /** Shapes imported from KML/KMZ; `mine` marks outlines of your own survey numbers. */
+  shapes?: (MapShape & { mine?: boolean })[];
 }
 
 const ESRI_ATTR = 'Imagery &copy; Esri, Maxar, Earthstar Geographics, and the GIS User Community';
 
-export function LandMap({ center, centerLabel, pins, selected, myRadiusKm = 0, placing, onPlace, onSelect, overlays = [], alignPoints = [] }: LandMapProps) {
+const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+
+function label(text: string, strong: boolean) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="transform:translate(-50%,-50%);white-space:nowrap;font:${strong ? 600 : 500} ${strong ? 13 : 11}px system-ui;color:${strong ? '#FFD700' : '#e4e4e7'};text-shadow:0 0 3px #000,0 0 2px #000">${esc(text)}</div>`,
+    iconSize: [0, 0],
+  });
+}
+
+export function LandMap({
+  center,
+  centerLabel,
+  pins,
+  selected,
+  myRadiusKm = 0,
+  placing,
+  onPlace,
+  onSelect,
+  overlays = [],
+  alignPoints = [],
+  boundary,
+  shapes = [],
+}: LandMapProps) {
   const el = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const pinLayer = useRef<L.LayerGroup | null>(null);
   const centerLayer = useRef<L.LayerGroup | null>(null);
   const handlers = useRef({ onPlace, onSelect, placing });
   const alignLayer = useRef<L.LayerGroup | null>(null);
+  const shapeLayer = useRef<L.LayerGroup | null>(null);
   // Scan <img> elements by overlay id, and a function that re-places them for the current zoom.
   const scanEls = useRef(new Map<string, { img: HTMLImageElement; points: ControlPoint[] }>());
   const placeScans = useRef<() => void>(() => {});
@@ -62,6 +92,7 @@ export function LandMap({ center, centerLabel, pins, selected, myRadiusKm = 0, p
   useEffect(() => {
     if (!el.current) return;
     const m = L.map(el.current, { zoomControl: true, attributionControl: true }).setView([center.lat, center.lng], 14);
+    const own = boundary?.data.features.find((f) => f.properties.role === 'village');
     const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 19,
       attribution: ESRI_ATTR,
@@ -76,7 +107,38 @@ export function LandMap({ center, centerLabel, pins, selected, myRadiusKm = 0, p
     });
     satellite.addTo(m);
     labels.addTo(m);
-    L.control.layers({ Satellite: satellite, Streets: streets }, { 'Place labels': labels }, { position: 'topright' }).addTo(m);
+    const extra: Record<string, L.Layer> = { 'Place labels': labels };
+
+    // Village outlines: gold for this village, thin dashed for the ones around it.
+    if (boundary) {
+      const outlines = L.layerGroup();
+      // Neighbours first, so the village's own line is drawn on top where borders are shared.
+      const ordered = [...boundary.data.features].sort((x, y) => Number(x.properties.role === 'village') - Number(y.properties.role === 'village'));
+      L.geoJSON({ type: 'FeatureCollection', features: ordered } as unknown as FeatureCollection, {
+        interactive: false,
+        attribution: boundary.attribution,
+        style: (f) =>
+          f?.properties?.role === 'village'
+            ? { color: '#FFD700', weight: 2.5, opacity: 0.95, fill: false }
+            : { color: '#e4e4e7', weight: 1.2, opacity: 0.7, dashArray: '5 5', fill: false },
+      }).addTo(outlines);
+      for (const f of boundary.data.features) {
+        const ring = outerRings(f).sort((a, b) => b.length - a.length)[0];
+        const c = ringCentroid(ring);
+        const name = f.properties.kind === 'Town' ? `${f.properties.name} (town)` : f.properties.name;
+        L.marker([c.lat, c.lng], { interactive: false, keyboard: false, icon: label(name, f.properties.role === 'village') }).addTo(outlines);
+      }
+      outlines.addTo(m);
+      extra['Village boundaries'] = outlines;
+    }
+    shapeLayer.current = L.layerGroup().addTo(m);
+    extra['Imported shapes'] = shapeLayer.current;
+
+    L.control.layers({ Satellite: satellite, Streets: streets }, extra, { position: 'topright' }).addTo(m);
+    if (own) {
+      const b = L.latLngBounds(outerRings(own).flat().map(([lng, lat]) => [lat, lng] as [number, number]));
+      m.fitBounds(b, { padding: [12, 12] });
+    }
     L.control.scale({ metric: true, imperial: false }).addTo(m);
 
     // Scans sit above the imagery and below pins; they never take clicks.
@@ -121,18 +183,39 @@ export function LandMap({ center, centerLabel, pins, selected, myRadiusKm = 0, p
     const layer = centerLayer.current;
     if (!layer) return;
     layer.clearLayers();
-    L.circle([center.lat, center.lng], {
-      radius: 1500,
-      color: '#a1a1aa',
-      weight: 1,
-      dashArray: '4 4',
-      fill: false,
-      interactive: false,
-    }).addTo(layer);
+    // Without an outline, a dashed ring stands in for "somewhere around here".
+    if (!boundary) {
+      L.circle([center.lat, center.lng], {
+        radius: 1500,
+        color: '#a1a1aa',
+        weight: 1,
+        dashArray: '4 4',
+        fill: false,
+        interactive: false,
+      }).addTo(layer);
+    }
     L.circleMarker([center.lat, center.lng], { radius: 4, color: '#fafafa', weight: 1, fillColor: '#a1a1aa', fillOpacity: 1 })
       .bindTooltip(centerLabel)
       .addTo(layer);
-  }, [center.lat, center.lng, centerLabel]);
+  }, [center.lat, center.lng, centerLabel, boundary]);
+
+  // Shapes imported from Google Earth.
+  useEffect(() => {
+    const layer = shapeLayer.current;
+    if (!layer) return;
+    layer.clearLayers();
+    for (const s of shapes) {
+      const color = s.mine ? '#FFD700' : '#38bdf8';
+      const tip = `<b>${esc(s.name)}</b>${s.survey ? `<br/>Survey ${esc(s.survey)}${s.mine ? ' (your land)' : ''}` : ''}<br/><span style="opacity:.7">Imported shape</span>`;
+      const layerFor =
+        s.type === 'polygon'
+          ? L.polygon(s.coords, { color, weight: 2, fillColor: color, fillOpacity: 0.08 })
+          : s.type === 'line'
+            ? L.polyline(s.coords, { color, weight: 2 })
+            : L.circleMarker(s.coords[0], { radius: 5, color: '#09090b', weight: 1.5, fillColor: color, fillOpacity: 1 });
+      layerFor.bindTooltip(tip, { sticky: s.type !== 'point' }).addTo(layer);
+    }
+  }, [shapes]);
 
   // Survey pins.
   useEffect(() => {

@@ -472,6 +472,20 @@ export function baseSurvey(s: string): string {
   return normaliseSurvey(s).split('/')[0];
 }
 
+/**
+ * The survey number in a place name from Google Earth or another map, or null:
+ * "Survey No. 58", "S.No 118/2", "Sy. no. 210 p1", "સર્વે નં. ૫૮", "સ.નં. 260/1/પૈકી1", or a bare "118/2".
+ */
+export function surveyFromName(name: string): string | null {
+  const s = toAsciiDigits(name).trim();
+  const part = String.raw`\d+[a-z]?(?:\s*\/\s*(?:p|પૈકી)?\s*\d*[a-z]?)*(?:\s+(?:p|પૈકી)\s*\d+)?`;
+  const labelled = new RegExp(String.raw`(?<![a-z])(?:survey|sur\.?|s\.?\s*no|sy|r\.?\s*s|block|સર્વે|સ\.\s*નં|બ્લોક)\.?\s*(?:no\.?|nos?\.?|number|નં\.?|નંબર)?\s*[:#.\-]?\s*(${part})`, 'i');
+  const m = s.match(labelled) ?? s.match(new RegExp(String.raw`^(${part})$`, 'i'));
+  if (!m) return null;
+  const out = normaliseSurvey(m[1]).replace(/\/+$/, '').replace(/^(\d+[a-z]?(?:\/[a-z0-9]+)*)p(\d+)$/, '$1/p$2');
+  return /^\d/.test(out) ? out : null;
+}
+
 /** "58, 118/2  260" -> ["58", "118/2", "260"]. Commas, semicolons, spaces or new lines separate. */
 export function parseSurveyInput(text: string): string[] {
   return [...new Set(text.split(/[,;\s]+/).map(normaliseSurvey).filter(Boolean))];

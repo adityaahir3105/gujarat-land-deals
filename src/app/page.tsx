@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { MapPinned } from 'lucide-react';
-import { defaultVillage, watchFeed } from '@/data/land';
+import { boundaries, boundaryFor, defaultVillage, watchFeed } from '@/data/land';
 import { LandLoader } from '@/components/land/LandLoader';
 
 export const metadata: Metadata = {
@@ -30,7 +30,13 @@ export default function Home() {
         </p>
       </section>
 
-      <LandLoader village={village} seed={seed} watch={watchFeed} />
+      <LandLoader
+        village={village}
+        seed={seed}
+        watch={watchFeed}
+        boundary={boundaryFor(village)}
+        boundaryAttribution={boundaries.attribution}
+      />
 
       <div className="mt-12 space-y-1 text-center text-xs text-zinc-600">
         <p>
@@ -45,7 +51,11 @@ export default function Home() {
           <a href={village.approxCenter.sourceUrl} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400">
             {village.approxCenter.source}
           </a>
-          . Imagery: Esri World Imagery. Streets: OpenStreetMap contributors.
+          . Village outlines:{' '}
+          <a href={boundaries.sourceUrl} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-400">
+            DataMeet Indian Village Boundaries
+          </a>{' '}
+          (Census 2001 maps, ODbL). Imagery: Esri World Imagery. Streets: OpenStreetMap contributors.
         </p>
         <p>Nothing here is legal advice, a valuation or a recommendation to buy or sell.</p>
       </div>
