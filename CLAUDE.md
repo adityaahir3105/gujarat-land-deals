@@ -4,7 +4,7 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind 4. Charts: Recharts. 
 
 ## Map
 - `src/app/page.tsx` – the dashboard page (server); `src/components/land/LandLoader.tsx` renders the rest client-only
-- `src/lib/land.ts` – e-Chavdi parser, entry-type dictionary, analysis, pin export. No imports, erasable TS only: `scripts/build_dataset.mjs` runs it with Node type stripping
+- `src/lib/land.ts` – e-Chavdi parser, entry-type dictionary, analysis, pin export. No imports: `scripts/build_dataset.mjs` compiles it alone with `typescript` and loads it
 - `src/lib/land-storage.ts` – localStorage for imported pages, pins, village centre
 - `src/data/land/` – `villages.ts` (config) and `echavdi.json` (generated)
 - `scripts/` – `collect_echavdi.py` (saves pages while a person browses), `build_dataset.mjs`, `raw/` pages

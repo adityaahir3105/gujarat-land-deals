@@ -1,7 +1,7 @@
 // Land deals: parse AnyRoR e-Chavdi result pages and derive patterns from them.
 //
-// This file has no imports and uses only erasable TypeScript, so Node can run it directly
-// (scripts/build_dataset.mjs imports it with Node's built-in type stripping).
+// This file must stay free of imports: scripts/build_dataset.mjs compiles it on its own and
+// loads the result as a single module.
 
 // ---------------------------------------------------------------------------
 // Types
