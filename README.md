@@ -81,13 +81,30 @@ billing (for example one already running Cloud Run apps) puts it on the pay-as-y
    npm run deploy -- --project YOUR_PROJECT_ID
    ```
    The site is then at `https://YOUR_PROJECT_ID.web.app`.
-3. Optional, deploy on every push to `main` (`.github/workflows/deploy.yml`):
-   - In Google Cloud console for that project: IAM & Admin → Service accounts → create one with
-     the roles Firebase Authentication Admin, Firebase Hosting Admin, Cloud Run Viewer and API Keys
-     Viewer (the roles the deploy action documents), then create a JSON key for it.
-   - In GitHub: Settings → Secrets and variables → Actions: add the secret
-     `FIREBASE_SERVICE_ACCOUNT` (the whole JSON) and the variable `FIREBASE_PROJECT_ID`.
-   Until both exist, the workflow builds and skips the deploy.
+3. Optional: deploy on every push to `main`. See "Auto-deploy from GitHub" below.
+
+## Auto-deploy from GitHub
+
+`.github/workflows/deploy.yml` builds on every push to `main` and deploys once a Firebase service
+account secret exists. Until then it builds and prints a notice. Set it up once:
+
+1. In the project folder, signed in to the Firebase CLI with the account that owns the project:
+   ```bash
+   npx firebase-tools@15 init hosting:github
+   ```
+   - Repository: `adityaahir3105/gujarat-land-deals`
+   - Build script before every deploy: **No** (the repo's workflow already builds)
+   - Automatic deployment when a PR is merged: **No** (the repo's workflow already does this)
+
+   It creates a deploy-only service account, stores its key as a GitHub secret
+   (`FIREBASE_SERVICE_ACCOUNT_GUJARAT_LAND_DEALS_AHIR`), and may write
+   `.github/workflows/firebase-hosting-*.yml`. Delete those generated files instead of
+   committing them, or every push would deploy twice. Keep `firebase.json` as it is.
+2. GitHub → Actions → "Deploy to Firebase Hosting" → **Run workflow**. The Deploy step should run.
+
+Manual alternative: create a service account with the roles Firebase Authentication Admin,
+Firebase Hosting Admin, Cloud Run Viewer and API Keys Viewer, create a JSON key, and save it as the
+repository secret `FIREBASE_SERVICE_ACCOUNT`. Delete the key file afterwards.
 
 ## Publishing new months to the live site
 
