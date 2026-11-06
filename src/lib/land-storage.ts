@@ -63,6 +63,20 @@ export interface Backup {
   center: { lat: number; lng: number } | null;
   nearby: NearbySettings;
   imports: LandDataset | null;
+  /** Village map sheets with their alignment, images as data URLs (optional; added later). */
+  overlays?: BackupOverlay[];
+}
+
+export interface BackupOverlay {
+  id: string;
+  name: string;
+  dataUrl: string;
+  width: number;
+  height: number;
+  points: { img: { x: number; y: number }; geo: { lat: number; lng: number } }[];
+  opacity: number;
+  visible: boolean;
+  added: string;
 }
 
 export function makeBackup(v: VillageKey): Backup {
