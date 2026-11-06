@@ -32,6 +32,12 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · Recharts · L
   publishes them. Items that name your survey numbers (or other parts of the same survey) are
   flagged only in your browser. The card also reminds you when e-Chavdi is a month behind, since
   that has to be collected by hand (CAPTCHA).
+- **Village map sheets** (private to your browser): upload a scan of the village map (gam nakasho),
+  then line it up with the satellite view by clicking three matching places on the scan and on the
+  map (highway or railway crossings, road junctions, sharp boundary corners, spread like a big
+  triangle). The sheet is drawn under the pins with adjustable opacity, white paper see-through, so
+  survey numbers can be pinned where they really are. Old hand-drawn sheets are not perfectly to
+  scale; expect some local error. Use a full-resolution scan so the numbers are readable.
 - **Backup / restore**: moves your land, pins and imported months to another device as one file.
 
 ## Data

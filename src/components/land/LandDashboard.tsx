@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Download, Eraser, Layers, Sparkles, Upload } from 'lucide-react';
 import { Card } from '@/components/ui/Card';
 import {
@@ -20,7 +20,9 @@ import {
   relateAll,
   surveyHistories,
 } from '@/lib/land';
-import { NearbySettings, downloadText, landStorage, makeBackup, restoreBackup } from '@/lib/land-storage';
+import { Backup, NearbySettings, downloadText, landStorage, makeBackup, restoreBackup } from '@/lib/land-storage';
+import { OverlaySheet, XY, blobToDataUrl, dataUrlToBlob, imageSize, minAngleDeg, overlayStore, solveAffine } from '@/lib/overlay';
+import { villageId } from '@/lib/land';
 import type { VillageConfig } from '@/data/land/villages';
 import { cn } from '@/lib/utils';
 import { ActivityChart, monthName } from './ActivityChart';
@@ -29,6 +31,7 @@ import { ImportPanel } from './ImportPanel';
 import { LandMap, pinMapToList } from './LandMap';
 import { MyLandCard } from './MyLandCard';
 import { WatchCard } from './WatchCard';
+import { AlignState, ViewSheet, VillageMapSheets } from './VillageMapSheets';
 import type { WatchFeed } from '@/lib/watch';
 import { SurveyPanel } from './SurveyPanel';
 
@@ -62,7 +65,11 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
   const [pins, setPins] = useState<PinMap>(() => landStorage.loadPins(seed));
   const [centerOverride, setCenterOverride] = useState(() => landStorage.loadCenter(seed));
   const [selected, setSelected] = useState<string | null>(null);
-  const [placing, setPlacing] = useState<null | 'pin' | 'center'>(null);
+  const [placing, setPlacing] = useState<null | 'pin' | 'center' | 'align'>(null);
+  const [sheets, setSheets] = useState<ViewSheet[]>([]);
+  const [align, setAlign] = useState<AlignState | null>(null);
+  const [sheetNotice, setSheetNotice] = useState<string | null>(null);
+  const opacityTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [gpsError, setGpsError] = useState<string | null>(null);
   const [mapNotice, setMapNotice] = useState<string | null>(null);
   const [today] = useState(localToday);
@@ -142,11 +149,114 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
     const f = files?.[0];
     if (!f) return;
     f.text()
-      .then((t) => {
-        restoreBackup(seed, t);
+      .then(async (t) => {
+        const b = restoreBackup(seed, t);
+        for (const o of b.overlays ?? []) {
+          await overlayStore.put({
+            id: o.id,
+            village: villageId(seed),
+            name: o.name,
+            image: await dataUrlToBlob(o.dataUrl),
+            width: o.width,
+            height: o.height,
+            points: o.points,
+            opacity: o.opacity,
+            visible: o.visible,
+            added: o.added,
+          });
+        }
         window.location.reload();
       })
       .catch((e: Error) => setBackupNotice(e.message || `${f.name} could not be read.`));
+  }
+
+  // Village map sheets live in IndexedDB; load them once and give each an object URL.
+  useEffect(() => {
+    let alive = true;
+    let made: ViewSheet[] = [];
+    overlayStore
+      .list(seed)
+      .then((list) => {
+        if (!alive) return;
+        made = list.map((o) => ({ ...o, url: URL.createObjectURL(o.image) }));
+        setSheets(made);
+      })
+      .catch(() => setSheetNotice('This browser could not open its storage for map sheets.'));
+    return () => {
+      alive = false;
+      made.forEach((s) => URL.revokeObjectURL(s.url));
+    };
+  }, [seed]);
+
+  function saveSheet(next: ViewSheet) {
+    setSheets((all) => all.map((s) => (s.id === next.id ? next : s)));
+    const { url: _url, ...stored } = next;
+    void _url;
+    return overlayStore.put(stored).catch(() => setSheetNotice('Could not save the sheet in this browser.'));
+  }
+
+  async function uploadSheets(files: FileList) {
+    setSheetNotice(null);
+    for (const f of Array.from(files)) {
+      try {
+        const { width, height } = await imageSize(f);
+        const sheet: OverlaySheet = {
+          id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+          village: villageId(seed),
+          name: f.name,
+          image: f,
+          width,
+          height,
+          points: [],
+          opacity: 0.7,
+          visible: true,
+          added: new Date().toISOString(),
+        };
+        await overlayStore.put(sheet);
+        setSheets((all) => [...all, { ...sheet, url: URL.createObjectURL(f) }]);
+        if (width < 2500) {
+          setSheetNotice(`${f.name} is ${width}×${height} pixels; survey numbers may be too small to read. A full-resolution scan works better.`);
+        }
+      } catch (e) {
+        setSheetNotice((e as Error).message);
+      }
+    }
+  }
+
+  function startAlign(id: string) {
+    setAlign({ id, img: [], geo: [] });
+    setPlacing(null);
+    setSheetNotice(null);
+  }
+
+  function cancelAlign() {
+    setAlign(null);
+    if (placing === 'align') setPlacing(null);
+  }
+
+  function pickImagePoint(p: XY) {
+    if (!align || align.img.length !== align.geo.length || align.img.length >= 3) return;
+    setAlign({ ...align, img: [...align.img, p] });
+    setPlacing('align');
+  }
+
+  function finishAlign(a: AlignState) {
+    const sheet = sheets.find((s) => s.id === a.id);
+    setAlign(null);
+    if (!sheet) return;
+    const img = a.img as [XY, XY, XY];
+    const geo = a.geo.map((g) => ({ x: g.lng, y: -g.lat })) as [XY, XY, XY];
+    if (!solveAffine(img, geo) || !solveAffine(geo, img)) {
+      setSheetNotice('Those three points lie almost on a line, so the sheet cannot be placed. Align again with points spread out like a triangle.');
+      return;
+    }
+    const thin = Math.min(minAngleDeg(img), minAngleDeg(geo)) < 15;
+    void saveSheet({ ...sheet, points: img.map((p, i) => ({ img: p, geo: a.geo[i] })), visible: true });
+    setSheetNotice(
+      thin
+        ? 'Aligned, but the three points form a thin triangle, so the far corners may be off. Re-align with points spread wider if it looks wrong.'
+        : 'Aligned. Check a few roads and boundaries against the satellite view; old sheets can be off by some metres locally.'
+    );
   }
 
   function updatePins(next: PinMap) {
@@ -156,6 +266,13 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
 
   const onPlace = useCallback(
     (ll: { lat: number; lng: number }) => {
+      if (placing === 'align' && align) {
+        const next = { ...align, geo: [...align.geo, ll] };
+        setPlacing(null);
+        if (next.geo.length === 3) finishAlign(next);
+        else setAlign(next);
+        return;
+      }
       if (placing === 'center') {
         setCenterOverride(ll);
         landStorage.saveCenter(seed, ll);
@@ -166,7 +283,9 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
       }
       setPlacing(null);
     },
-    [placing, selected, pins, seed]
+    // finishAlign reads the latest sheets through this closure.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [placing, selected, pins, seed, align, sheets]
   );
 
   function select(survey: string) {
@@ -283,6 +402,39 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
             placing={placing !== null}
             onPlace={onPlace}
             onSelect={select}
+            overlays={sheets
+              .filter((s) => s.visible && s.points.length === 3 && s.id !== align?.id)
+              .map((s) => ({ id: s.id, url: s.url, points: s.points, opacity: s.opacity }))}
+            alignPoints={align?.geo}
+          />
+          <VillageMapSheets
+            sheets={sheets}
+            align={align}
+            notice={sheetNotice}
+            onUpload={uploadSheets}
+            onToggle={(id) => {
+              const s = sheets.find((x) => x.id === id);
+              if (s) void saveSheet({ ...s, visible: !s.visible });
+            }}
+            onOpacity={(id, opacity) => {
+              setSheets((all) => all.map((s) => (s.id === id ? { ...s, opacity } : s)));
+              if (opacityTimer.current) clearTimeout(opacityTimer.current);
+              opacityTimer.current = setTimeout(() => {
+                const s = sheets.find((x) => x.id === id);
+                if (s) void saveSheet({ ...s, opacity });
+              }, 400);
+            }}
+            onRemove={(id) => {
+              const s = sheets.find((x) => x.id === id);
+              if (!s || !window.confirm(`Remove ${s.name} from this browser?`)) return;
+              URL.revokeObjectURL(s.url);
+              setSheets((all) => all.filter((x) => x.id !== id));
+              if (align?.id === id) cancelAlign();
+              void overlayStore.remove(id);
+            }}
+            onStartAlign={startAlign}
+            onCancelAlign={cancelAlign}
+            onPickImage={pickImagePoint}
           />
           {mapNotice && <p className="mt-2 text-xs text-zinc-300">{mapNotice}</p>}
           <p className="mt-2 text-xs text-zinc-500">
@@ -393,13 +545,31 @@ export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
       <Card className="p-4 md:p-5">
         <h3 className="text-lg font-semibold text-zinc-100">Move to another device</h3>
         <p className="mt-1 text-sm text-zinc-400">
-          Your land, pins, map centre, nearby settings and imported months live only in this browser. Download a backup and restore it on your
+          Your land, pins, map centre, nearby settings, village map sheets and imported months live only in this browser. Download a backup and restore it on your
           phone or another computer. Keep the file private: it lists your survey numbers.
         </p>
         <div className="mt-3 flex flex-wrap gap-2">
           <button
             className={smallBtn}
-            onClick={() => downloadText(`${fileBase}-backup.json`, JSON.stringify(makeBackup(seed), null, 1) + '\n', 'application/json')}
+            onClick={async () => {
+              const backup: Backup = {
+                ...makeBackup(seed),
+                overlays: await Promise.all(
+                  sheets.map(async (s) => ({
+                    id: s.id,
+                    name: s.name,
+                    dataUrl: await blobToDataUrl(s.image),
+                    width: s.width,
+                    height: s.height,
+                    points: s.points,
+                    opacity: s.opacity,
+                    visible: s.visible,
+                    added: s.added,
+                  }))
+                ),
+              };
+              downloadText(`${fileBase}-backup.json`, JSON.stringify(backup) + '\n', 'application/json');
+            }}
           >
             <Download className="h-3.5 w-3.5" /> Download backup
           </button>
