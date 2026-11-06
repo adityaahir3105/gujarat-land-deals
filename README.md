@@ -89,8 +89,28 @@ billing (for example one already running Cloud Run apps) puts it on the pay-as-y
      `FIREBASE_SERVICE_ACCOUNT` (the whole JSON) and the variable `FIREBASE_PROJECT_ID`.
    Until both exist, the workflow builds and skips the deploy.
 
-To publish new months: save the pages to `scripts/raw/`, run `npm run data:build`, commit and push
-(or run `npm run deploy` again).
+## Publishing new months to the live site
+
+The live site only contains what is committed in `src/data/land/echavdi.json`. Months you import
+in your own browser stay on that device until you publish them:
+
+1. In the app's "Add months" panel, import the pages, then press **Dataset JSON**. (Or skip this
+   and save the result pages to `scripts/raw/` directly.)
+2. Move the downloaded `*-echavdi.json` into `scripts/raw/`.
+3. Rebuild and check the counts it prints:
+   ```bash
+   npm run data:build
+   ```
+4. Commit `scripts/raw/` and `src/data/land/echavdi.json`, then deploy. `.firebaserc` sets the
+   project, so no flag is needed:
+   ```bash
+   npm run deploy
+   ```
+   If the CLI is signed in to several Google accounts, add `-- --account you@gmail.com`.
+
+Dataset exports contain only public notice data (entry numbers, types, dates, survey and khata
+numbers), not your land, pins or settings, so they are safe to commit. Backup files are different
+and stay private.
 
 ## Adding a village
 

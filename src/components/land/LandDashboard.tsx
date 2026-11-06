@@ -357,7 +357,10 @@ export function LandDashboard({ village, seed }: LandDashboardProps) {
         <div className="mb-4 flex flex-wrap items-start justify-between gap-2">
           <div>
             <h3 className="text-lg font-semibold text-zinc-100">Add months</h3>
-            <p className="text-xs text-zinc-500">Imported pages are kept in this browser and merged with the built-in data.</p>
+            <p className="text-xs text-zinc-500">
+              Imported pages are kept in this browser and merged with the built-in data. To show them on the live site for everyone, download
+              the dataset JSON and publish it (see the README).
+            </p>
           </div>
           <div className="flex flex-wrap gap-2">
             <button
