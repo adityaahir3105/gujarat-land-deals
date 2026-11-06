@@ -50,3 +50,6 @@ __pycache__/
 # firebase
 .firebase/
 firebase-debug.log
+
+# private AnyRoR copies (7/12 with owner names, your survey numbers)
+scripts/private/
