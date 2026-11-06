@@ -7,12 +7,14 @@ import { ChavdiEntry, LandDataset, coverage, entryTypeInfo, mergeDatasets, month
 import { landStorage } from '@/lib/land-storage';
 import type { VillageConfig } from '@/data/land/villages';
 import { cn } from '@/lib/utils';
+import { WATCH_SCOPE_LABEL, WatchFeed, sortWatchItems } from '@/lib/watch';
 import { monthName } from './ActivityChart';
 import { isoToDmy } from './EntriesTable';
 
 interface SummaryViewProps {
   village: VillageConfig;
   seed: LandDataset;
+  watch: WatchFeed;
 }
 
 const isSale = (e: ChavdiEntry) => entryTypeInfo(e.typeGu).en === 'Sale';
@@ -33,7 +35,7 @@ function BigNumber({ value, en, gu, sub }: { value: number; en: string; gu: stri
   );
 }
 
-export function SummaryView({ village, seed }: SummaryViewProps) {
+export function SummaryView({ village, seed, watch }: SummaryViewProps) {
   // Client-only (see SummaryLoader): reads this browser's imports and private "my land".
   const [imports] = useState(() => landStorage.loadImports(seed));
   const [myLand] = useState(() => landStorage.loadMyLand(seed));
@@ -169,6 +171,29 @@ export function SummaryView({ village, seed }: SummaryViewProps) {
           </ul>
         )}
       </Card>
+
+      {watch.items.length > 0 && (
+        <Card className="p-4 md:p-5">
+          <h3 className="mb-3 text-lg font-semibold text-zinc-100">
+            Area developments <span className="text-zinc-400">· આસપાસના વિકાસ</span>
+          </h3>
+          <ul className="divide-y divide-zinc-800/70">
+            {sortWatchItems(watch.items)
+              .slice(0, 4)
+              .map((it) => (
+                <li key={it.id} className="py-2 text-sm">
+                  <p className="text-zinc-200">{it.title}</p>
+                  <p className="mt-0.5 text-xs text-zinc-500">
+                    {isoToDmy(it.date)} · {WATCH_SCOPE_LABEL[it.scope]} ·{' '}
+                    <a href={it.sources[0].url} target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-300">
+                      {it.sources[0].label}
+                    </a>
+                  </p>
+                </li>
+              ))}
+          </ul>
+        </Card>
+      )}
 
       <p className="text-center text-xs text-zinc-600">
         {village.en.village}, {village.en.taluka}, {village.en.district}. Source: AnyRoR e-Chavdi, Revenue Department, Government of Gujarat.

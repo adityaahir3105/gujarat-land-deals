@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { MapPinned } from 'lucide-react';
-import { defaultVillage } from '@/data/land';
+import { defaultVillage, watchFeed } from '@/data/land';
 import { LandLoader } from '@/components/land/LandLoader';
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function Home() {
         </p>
       </section>
 
-      <LandLoader village={village} seed={seed} />
+      <LandLoader village={village} seed={seed} watch={watchFeed} />
 
       <div className="mt-12 space-y-1 text-center text-xs text-zinc-600">
         <p>

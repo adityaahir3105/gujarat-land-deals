@@ -28,11 +28,14 @@ import { EntriesTable } from './EntriesTable';
 import { ImportPanel } from './ImportPanel';
 import { LandMap, pinMapToList } from './LandMap';
 import { MyLandCard } from './MyLandCard';
+import { WatchCard } from './WatchCard';
+import type { WatchFeed } from '@/lib/watch';
 import { SurveyPanel } from './SurveyPanel';
 
 interface LandDashboardProps {
   village: VillageConfig;
   seed: LandDataset;
+  watch: WatchFeed;
 }
 
 function localToday() {
@@ -53,7 +56,7 @@ function Stat({ label, value, sub }: { label: string; value: number | string; su
 const smallBtn =
   'inline-flex items-center gap-1.5 rounded-md border border-zinc-700 px-2.5 py-1.5 text-xs text-zinc-300 transition-colors hover:border-zinc-500 hover:text-zinc-100';
 
-export function LandDashboard({ village, seed }: LandDashboardProps) {
+export function LandDashboard({ village, seed, watch }: LandDashboardProps) {
   // This component only renders in the browser (see LandLoader), so storage is safe to read here.
   const [imports, setImports] = useState<LandDataset | null>(() => landStorage.loadImports(seed));
   const [pins, setPins] = useState<PinMap>(() => landStorage.loadPins(seed));
@@ -243,6 +246,8 @@ export function LandDashboard({ village, seed }: LandDashboardProps) {
         monthsImported={data.months.length}
         onSelect={select}
       />
+
+      <WatchCard feed={watch} village={seed} myLand={myLand} lastNoticeMonth={data.months[data.months.length - 1]} today={today} />
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
         <Card className="p-4 md:p-5">

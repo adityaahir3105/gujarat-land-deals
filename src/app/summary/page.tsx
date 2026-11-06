@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { defaultVillage } from '@/data/land';
+import { defaultVillage, watchFeed } from '@/data/land';
 import { SummaryLoader } from '@/components/land/SummaryLoader';
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function SummaryPage() {
           Land deals in {village.en.taluka} taluka, {village.en.district} · જમીનના સોદા
         </p>
       </section>
-      <SummaryLoader village={village} seed={seed} />
+      <SummaryLoader village={village} seed={seed} watch={watchFeed} />
     </div>
   );
 }
