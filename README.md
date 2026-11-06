@@ -55,6 +55,24 @@ English or ગુજરાતી: switch with **EN / ગુજ** in the header. 
 - Source: e-Chavdi on [AnyRoR](https://anyror.gujarat.gov.in/LandRecordRural.aspx), Revenue
   Department, Government of Gujarat. Online records are for information only, not certified copies.
 - The AnyRoR form has a CAPTCHA. Nothing here solves or bypasses it; a person fetches each month.
+- **Monthly update, one command** (on your own computer, after the setup in step 1 below):
+
+  ```bash
+  python scripts/anyror_update.py
+  ```
+
+  It opens a browser, fills the AnyRoR form for every missing e-Chavdi month and for the current
+  month, and you only type each CAPTCHA. Then it opens the 7/12 (VF-7) of each of your survey
+  numbers the same way, saves it to `scripts/private/712/` (git-ignored: it has owner names) and
+  prints what changed since the previous copy. Finally it rebuilds `echavdi.json` and, if you say
+  yes, commits and pushes it from `main` so the site redeploys. Options: `--chavdi`, `--712`,
+  `--months 2026-09,2026-10`, `--manual` (fill forms yourself), `--no-push`. Your survey numbers
+  are asked once and kept in `scripts/private/my-land.txt`.
+
+  The CAPTCHA is never read or bypassed: AnyRoR uses it to keep automated tools out. A reminder is
+  sent to your phone on the 2nd of each month. For changes to your own land, also make sure your
+  mobile number is linked to each 7/12 (Talati / e-Dhara Kendra): since 2025 every account holder
+  gets an SMS when a change is started.
 - `src/data/land/echavdi.json` is built from saved result pages in `scripts/raw/`:
   1. `pip install playwright && python -m playwright install chromium` (once)
   2. `python scripts/collect_echavdi.py` opens a browser. Choose e-CHAVDI, the village and a month,

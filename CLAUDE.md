@@ -11,7 +11,7 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind 4. Charts: Recharts. 
 - `src/lib/i18n.ts` – English / Gujarati: `useT()` gives `t('English', 'ગુજરાતી')`; `T` in `components/LangToggle.tsx` for server pages. Choice in localStorage; pages prerender in English
 - `src/lib/geo.ts` – village outline types, KML/KMZ import (shapes and survey pins; private, localStorage)
 - `src/data/land/` – `villages.ts` (config), `echavdi.json` and `boundaries.json` (generated; DataMeet, ODbL) and `watch.json` (area watch feed, typed and validated in `src/lib/watch.ts`)
-- `scripts/` – `collect_echavdi.py` (saves pages while a person browses), `build_dataset.mjs`, `raw/` pages
+- `scripts/` – `anyror_update.py` (monthly one-command update: fills AnyRoR forms by visible option text, the person types each CAPTCHA; e-Chavdi to `raw/`, 7/12 to git-ignored `private/712/` with change diff; rebuild + optional push from main), `collect_echavdi.py` (save pages while a person browses; helpers reused), `build_dataset.mjs`, `raw/` pages
 
 ## Commands (CI runs lint and typecheck)
 - `npm run lint`, `npm run typecheck`, `npm run build`
@@ -21,7 +21,8 @@ Next.js 16 (App Router) + React 19 + TypeScript + Tailwind 4. Charts: Recharts. 
 - `npm run boundaries:build` – regenerate `src/data/land/boundaries.json` from DataMeet's Gujarat village boundaries
 
 ## Conventions
-- Never automate the AnyRoR CAPTCHA. Collection stays human-in-the-loop.
+- Never automate the AnyRoR CAPTCHA (no OCR, no solving services, no session tricks to skip it). Scripts may fill the rest of the form; a person types every CAPTCHA.
+- 7/12 pages and the owner's survey list live in `scripts/private/` (git-ignored). Never commit them or put them in the build.
 - Copy is calm and descriptive: no buy/sell advice, valuations or claims about why an entry happened.
 - Do not store owner names from notice details.
 - "My land" is private: keep it in localStorage only. Never commit a user's survey numbers or put them in the build. Village map scans and imported KML/KMZ shapes likewise stay in the browser unless the owner asks to publish them. Only public village-level outlines (`boundaries.json`) are committed.
