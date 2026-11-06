@@ -26,6 +26,12 @@ Next.js 16 (App Router) · React 19 · TypeScript · Tailwind 4 · Recharts · L
 - **Summary** (`/summary`): a phone-friendly page for relatives with sales and record changes over
   12 or 24 months, labelled in English and Gujarati, always stating how many months the data covers.
   Your own land appears there only in your browser.
+- **Area watch**: public developments around Chirai Moti, Bhachau and the NH-41 corridor (roads,
+  pipelines and right-of-use notices, acquisition, GIDC/SEZ, environmental clearances, industry),
+  each with its source. A weekly scheduled task researches new items and opens a PR; merging it
+  publishes them. Items that name your survey numbers (or other parts of the same survey) are
+  flagged only in your browser. The card also reminds you when e-Chavdi is a month behind, since
+  that has to be collected by hand (CAPTCHA).
 - **Backup / restore**: moves your land, pins and imported months to another device as one file.
 
 ## Data

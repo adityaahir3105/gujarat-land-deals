@@ -1,6 +1,8 @@
 import echavdi from './echavdi.json';
+import watchJson from './watch.json';
 import { VILLAGES, VillageConfig } from './villages';
 import { LandDataset, villageId } from '@/lib/land';
+import type { WatchFeed } from '@/lib/watch';
 
 const datasets = echavdi as LandDataset[];
 
@@ -16,3 +18,6 @@ export function defaultVillage(): { village: VillageConfig; seed: LandDataset } 
   };
   return { village, seed };
 }
+
+/** Public area-watch feed (src/data/land/watch.json). */
+export const watchFeed = watchJson as WatchFeed;

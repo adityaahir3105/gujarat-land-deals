@@ -48,6 +48,9 @@ export const landStorage = {
   /** Entry numbers present at the end of the previous visit; null on a first visit. */
   loadSeen: (v: VillageKey) => read<number[]>(k('seen', v)),
   saveSeen: (v: VillageKey, entryNos: number[]) => write(k('seen', v), entryNos),
+  /** Area-watch item ids present at the end of the previous visit; null on a first visit. */
+  loadSeenWatch: (v: VillageKey) => read<string[]>(k('seenwatch', v)),
+  saveSeenWatch: (v: VillageKey, ids: string[]) => write(k('seenwatch', v), ids),
 };
 
 /** Everything personal for one village, for moving between devices. */
