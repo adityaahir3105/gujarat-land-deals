@@ -9,13 +9,18 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: firebase-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      # Set up once: see README "Hosting". Until both exist, this job builds and skips the deploy.
-      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-      FIREBASE_PROJECT_ID: ${{ vars.FIREBASE_PROJECT_ID }}
+      # Set up once (README "Auto-deploy from GitHub"). Accepts the secret name that
+      # `firebase init hosting:github` creates, or a manually added FIREBASE_SERVICE_ACCOUNT.
+      # Until one exists, this job builds and skips the deploy.
+      SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_GUJARAT_LAND_DEALS_AHIR || secrets.FIREBASE_SERVICE_ACCOUNT }}
 
     steps:
       - name: Checkout Repository
@@ -33,15 +38,15 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      # The project comes from .firebaserc (gujarat-land-deals-ahir).
       - name: Deploy
-        if: ${{ env.FIREBASE_SERVICE_ACCOUNT != '' && env.FIREBASE_PROJECT_ID != '' }}
+        if: ${{ env.SERVICE_ACCOUNT != '' }}
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          projectId: ${{ vars.FIREBASE_PROJECT_ID }}
+          firebaseServiceAccount: ${{ env.SERVICE_ACCOUNT }}
           channelId: live
 
       - name: Deploy skipped
-        if: ${{ env.FIREBASE_SERVICE_ACCOUNT == '' || env.FIREBASE_PROJECT_ID == '' }}
-        run: echo "::notice::Firebase is not configured yet (secret FIREBASE_SERVICE_ACCOUNT and variable FIREBASE_PROJECT_ID). Built but not deployed."
+        if: ${{ env.SERVICE_ACCOUNT == '' }}
+        run: echo "::notice::No Firebase service account secret yet, so the site was built but not deployed. See README 'Auto-deploy from GitHub'."
